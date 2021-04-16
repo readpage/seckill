@@ -19,7 +19,7 @@
         <mybatis.spring.boot.version>2.1.4</mybatis.spring.boot.version>
         <swagger.version>3.0.0</swagger.version>
     </properties>
-    <!-- 子模板继承之后，提供作用: 锁定版本+子module不用写groupId和version -->
+    <!-- 子模板继承之后，提供作用: 锁定版本+子module不用写version -->
     <dependencyManagement>
         <dependencies>
             <dependency>
