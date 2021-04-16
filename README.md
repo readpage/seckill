@@ -1,25 +1,36 @@
-# seckill
+# seckill:laughing:
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+#### 项目介绍
+此项目源码采用前后端分离方式，spring boot开发后端，使用spring security进行权限控制，vue3、
+
+element plus、axios为前端，基于json进行，接口完全采用Restful的风格，实现权限控制，可以作为开发项目的脚手架，做为基础项目。
 
 #### 软件架构
-软件架构说明
+
+#### 环境要求
+
+1. jdk8、mysql、maven
 
 
 #### 安装教程
+暂无
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+#### 初始化工作
+
+1. 运行数据库脚本，在sql文件下
+2. 配置信息在application.yml里，数据库的用户名、密码、ip、端口等，根据情况修改一下
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  API文档使用
+    
+    -- Swagger3的访问路径http://localhost/swagger-ui/
+    
+    ![img](https://img2020.cnblogs.com/blog/1816004/202007/1816004-20200718110209765-32911596.jpg)
+    
+    --[ 集成Swagger3自动生成API文档使用方法](https://www.cnblogs.com/ruiyeclub/p/13334826.html)
+    
+    
 
 #### 参与贡献
 

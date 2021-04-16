@@ -30,4 +30,9 @@ mybatis会通过该绑定自动帮你找到对应要执行的SQL语句-->
             WHERE u.id=ur.uid AND r.id=ur.rid
             AND u.username=#{username}
     </select>
+    <select id="selectAll" resultMap="userMap">
+        SELECT u.*, r.name
+            FROM user u, user_role ur, role r
+            WHERE u.id=ur.uid AND r.id=ur.rid
+    </select>
 </mapper>

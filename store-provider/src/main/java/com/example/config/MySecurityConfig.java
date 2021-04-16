@@ -27,30 +27,19 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    /**
-     * 密码加密处理类
-     */
+    //密码加密处理类
     @Autowired
     private PasswordEncoder passwordEncoder;
-    /**
-     * 登录成功处理器
-     */
+    //登录成功处理器
     @Autowired
     private MyAuthenticationSuccessHandler myAuthenticationSuccessHandler;
-    /**
-     * 登录失败处理器
-     */
+    //登录失败处理器
     @Autowired
     private MyAuthenticationFailureHandler myAuthenticationFailureHandler;
-    /**
-     * 自定义用户登录接口
-     */
+    //自定义用户登录接口
     @Autowired
     private UserDetailsServiceImpl userDetailsServiceImpl;
-
-    /**
-     * 权限不足处理方案
-     */
+    //权限不足处理方案
     @Autowired
     private MyAccessDeniedHandler myAccessDeniedHandler;
 
@@ -64,8 +53,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         dap.setHideUserNotFoundExceptions(false);
         return dap;
     }
-
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider);
@@ -108,6 +95,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/images/**", "/login.html");
+        web.ignoring().antMatchers("/images/**", "/login.html", "/**");
     }
 }
