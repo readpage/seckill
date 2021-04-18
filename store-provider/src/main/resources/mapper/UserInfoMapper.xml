@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserInfoMapper">
+    <resultMap id="userInfoMap" type="UserInfo">
+        <id property="id" column="id"/>
+        <result property="avatar" column="avatar"/>
+        <result property="register_date" column="register_date"/>
+        <result property="login_count" column="login_count"/>
+        <collection property="user" ofType="User">
+            <result property="username" column="username"/>
+        </collection>
+    </resultMap>
+    <select id="selectAll" resultType="UserInfo">
+        SELECT ui.*, u.username
+            FROM user_info ui, user u
+            WHERE ui.uid=u.id
+    </select>
+    <select id="findById" parameterType="Integer" resultType="UserInfo">
+        SELECT ui.*, u.username
+            FROM user_info ui, user u
+            WHERE ui.uid=u.id
+            AND ui.id=#{id}
+    </select>
+    <insert id="add" parameterType="UserInfo">
+        INSERT INTO user_info(avatar, register_date, login_count)
+            VALUES(#{avatar}, #{register_date}, #{login_count})
+    </insert>
+    <delete id="deleteById" parameterType="Integer">
+        DELETE FROM user_info WHERE id=#{id}
+    </delete>
+    <update id="updateById" parameterType="UserInfo">
+        UPDATE user_info SET avatar=#{avatar},
+            register_date=#{register_date}, login_count=#{login_count}
+            WHERE id=#{id}
+    </update>
+</mapper>

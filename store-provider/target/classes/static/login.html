@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/element-plus@1.0.2-beta.33/lib/theme-chalk/index.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/vue@3.0.7"></script>
+        <script src="https://cdn.jsdelivr.net/npm/element-plus@1.0.2-beta.33/lib/index.full.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios"></script>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            body {
+                background: no-repeat center/cover fixed url("images/xinkong.png");
+            }
+            #app {
+                display: flex;
+                justify-content: center;
+                margin-top: 15vh;
+            }
+            .header {
+                text-align: center;
+                color: #888888;
+            }
+            .line {
+                border-top: 1px solid #cccccc;
+                width: 100px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <el-card>
+                <template #header>
+                    <div class="header">
+                        <span class="line"></span>
+                        <span>登录</span>
+                        <span class="line"></span>
+                    </div>
+                </template>
+                <el-space>
+                    <el-form :model="user" label-width="80px" ref="userRef">
+                        <el-form-item label="用户名:" prop="username">
+                            <el-input
+                                    size="small"
+                                    v-model="user.username"
+                                    prefix-icon="el-icon-user-solid"
+                                    placeholder="请输入用户名"
+                            ></el-input>
+                        </el-form-item>
+                        <el-form-item label="密码:" prop="password" placeholder="请输入密码">
+                            <el-input
+                                    show-password
+                                    v-model="user.password"
+                                    size="small"
+                                    prefix-icon="el-icon-lock"
+                            ></el-input>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-space :size="20">
+                                <el-button size="mini" type="primary" @click="login"
+                                >登录</el-button
+                                >
+                                <el-button size="mini" @click="reset">重置</el-button>
+                            </el-space>
+                        </el-form-item>
+                    </el-form>
+                    <el-image src="images/办公.png"></el-image>
+                </el-space>
+            </el-card>
+        </div>
+        <script>
+            const App = {
+                data() {
+                    return {
+                        user: {
+                            username: "",
+                            password: "",
+                        }
+                    };
+                },
+                methods: {
+                    reset() {
+                        this.$refs.userRef.resetFields();
+                    },
+                    login() {
+                        t=this;
+                        const param=new FormData();
+                        param.append("username", this.user.username);
+                        param.append("password", this.user.password)
+                        axios.post("/login", param)
+                            .then((result) => {
+                                if (result.data.code==200) {
+                                    console.log(result.data);
+                                    window.location.href="/main.html";
+                                } else {
+                                    this.$message.error(result.data.message)
+                                }
+                            }).catch((err) => {
+                            this.$message.error("请求失败!")
+                        });
+                    }
+                },
+            };
+            Vue.createApp(App).use(ElementPlus).mount("#app");
+        </script>
+    </body>
+</html>
