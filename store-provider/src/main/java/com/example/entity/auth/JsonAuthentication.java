@@ -1,4 +1,4 @@
-package com.example.auth;
+package com.example.entity.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

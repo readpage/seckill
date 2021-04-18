@@ -1,9 +1,9 @@
 package com.example.config;
 
-import com.example.auth.MyAccessDeniedHandler;
-import com.example.auth.MyAuthenticationFailureHandler;
-import com.example.auth.MyAuthenticationSuccessHandler;
-import com.example.service.UserDetailsServiceImpl;
+import com.example.entity.auth.MyAccessDeniedHandler;
+import com.example.entity.auth.MyAuthenticationFailureHandler;
+import com.example.entity.auth.MyAuthenticationSuccessHandler;
+import com.example.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
