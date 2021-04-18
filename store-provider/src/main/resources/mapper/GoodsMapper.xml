@@ -16,8 +16,8 @@
     </select>
 
     <insert id="add" parameterType="Goods">
-        INSERT INTO goods(name, img, detail, price, stock) VALUES(
-        #{name}, #{img}, #{detail}, #{price}, #{stock}
+        INSERT INTO goods(name, img, price, stock) VALUES(
+        #{name}, #{img}, #{price}, #{stock}
         )
     </insert>
 
