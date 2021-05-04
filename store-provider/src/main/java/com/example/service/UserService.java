@@ -1,22 +1,30 @@
 package com.example.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.User;
 import com.example.response.Result;
-import com.github.pagehelper.PageInfo;
 
-public interface UserService {
+import java.util.List;
+import java.util.Map;
 
-    PageInfo<User> selectAll(int pageNum, int pageSize);
+/**
+ * <p>
+ *  服务类
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
+public interface UserService extends IService<User> {
+    Map<String, Object> myPage(Integer pageNum, Integer pageSize);
 
-    PageInfo<User> findByUsernameLike(String username, Integer pageSize, Integer pageNum);
+    Result mySave(User user);
 
-    User findById(Integer id);
+    Result myUpdateById(User user);
 
-    User findByUsername(String username);
+    Result myDeleteById(Integer id);
 
-    Result add(User user);
+    List<User> like(String username);
 
-    Result delete(Integer id);
-
-    Result updateById(User user);
+    Result myDeleteBatchId(List<Integer> lists);
 }

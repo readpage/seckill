@@ -19,20 +19,34 @@ public class SwaggerConfig {
 
     @Bean  //配置了Swagger的Docket的bean实例
     public Docket docket() {
-        return new Docket(DocumentationType.SWAGGER_2).groupName("seckill")
+        return new Docket(DocumentationType.SWAGGER_2).groupName("A")
                 .apiInfo(apiInfo())
                 .enable(swaggerShow)
                 .select()
+                //RequestHandlerSelectors ,配置要扫描接口的方式
+                //basePackage指定要扫描的包
+                //apy():扫描全部
+                //none():都不扫描
+                //withClassAnnotation: 扫描类上的注解
+                //withMethodAnnotation: 扫描方法上的注解
+                //withClassAnnotation: 扫描方法上的注解
                 .apis(RequestHandlerSelectors.basePackage("com.example.controller"))
-                .build();
+                //paths()过滤扫描路径
+//                .paths(PathSelectors.ant("/test/**"))
+                .build()
+                ;
     }
-    //配置Swagger信息 apiInfo
+    @Bean
+    public Docket Docket2() {
+        return new Docket(DocumentationType.SWAGGER_2).groupName("B").enable(swaggerShow);
+    }
+    //配置Swagger信息=apiInfo
     private ApiInfo apiInfo() {
         //作者信息
         return new ApiInfoBuilder()
-                .title("seckill接口文档")
-                .description("即使再小的帆也能远航")
-                .contact(new Contact("f1dao", "http://gitee.com/f1dao", "final1dao@qq.com"))
+                .title("Swagger3接口文档")
+                .description("即使再小的帆也能远航😂")
+                .contact(new Contact("f1dao😥", "http://gitee.com/f1dao", "final1dao@qq.com"))
                 .version("1.0")
                 .build();
     }

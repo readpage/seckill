@@ -1,23 +1,16 @@
 package com.example.mapper;
 
 import com.example.entity.Goods;
-import org.springframework.stereotype.Repository;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
+public interface GoodsMapper extends BaseMapper<Goods> {
 
-@Repository
-public interface GoodsMapper {
-    List<Goods> selectAll();
-
-    List<Goods> findByNameLike(String name);
-
-    Goods findByName(String name);
-
-    Goods findById(Integer id);
-
-    Integer add(Goods goods);
-
-    Integer deleteById(Integer id);
-
-    Integer updateById(Goods goods);
 }

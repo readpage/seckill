@@ -1,13 +1,55 @@
 package com.example.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-public class GoodsSeckill {
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
+@ApiModel(value="GoodsSeckill对象", description="")
+public class GoodsSeckill implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "秒杀商品id")
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    private double seckill_price;
-    private int stock_count;
-    private Date start_date;
-    private Date end_date;
+
+    @ApiModelProperty(value = "秒杀价")
+    private Double seckillPrice;
+
+    @ApiModelProperty(value = "库存数量")
+    private Integer stockCount;
+
+    @ApiModelProperty(value = "秒杀开始时间")
+    private Date startDate;
+
+    @ApiModelProperty(value = "秒杀结束时间")
+    private Date endDate;
+
+    @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+
+    @ApiModelProperty(value = "更新时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
+
+    @ApiModelProperty(value = "乐观锁")
+    @Version
+    private Integer version;
 
 
     public Long getId() {
@@ -18,46 +60,73 @@ public class GoodsSeckill {
         this.id = id;
     }
 
-    public double getSeckill_price() {
-        return seckill_price;
+    public Double getSeckillPrice() {
+        return seckillPrice;
     }
 
-    public void setSeckill_price(double seckill_price) {
-        this.seckill_price = seckill_price;
+    public void setSeckillPrice(Double seckillPrice) {
+        this.seckillPrice = seckillPrice;
     }
 
-    public int getStock_count() {
-        return stock_count;
+    public Integer getStockCount() {
+        return stockCount;
     }
 
-    public void setStock_count(int stock_count) {
-        this.stock_count = stock_count;
+    public void setStockCount(Integer stockCount) {
+        this.stockCount = stockCount;
     }
 
-    public Date getStart_date() {
-        return start_date;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public Date getEnd_date() {
-        return end_date;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setEnd_date(Date end_date) {
-        this.end_date = end_date;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     @Override
     public String toString() {
         return "GoodsSeckill{" +
-                "id=" + id +
-                ", seckill_price=" + seckill_price +
-                ", stock_count=" + stock_count +
-                ", start_date=" + start_date +
-                ", end_date=" + end_date +
-                '}';
+        "id=" + id +
+        ", seckillPrice=" + seckillPrice +
+        ", stockCount=" + stockCount +
+        ", startDate=" + startDate +
+        ", endDate=" + endDate +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        ", version=" + version +
+        "}";
     }
 }

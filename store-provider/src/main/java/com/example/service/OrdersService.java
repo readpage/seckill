@@ -1,19 +1,16 @@
 package com.example.service;
 
 import com.example.entity.Orders;
-import com.example.response.Result;
-import com.github.pagehelper.PageInfo;
+import com.baomidou.mybatisplus.extension.service.IService;
 
-public interface OrdersService {
-
-    PageInfo<Orders> selectAll(Integer pageSize, Integer pageNum);
-
-    Orders findById(Integer id);
-
-    Result add(Orders orders);
-
-    Result deleteById(Integer id);
-
-    Result updateById(Orders orders);
+/**
+ * <p>
+ *  服务类
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
+public interface OrdersService extends IService<Orders> {
 
 }

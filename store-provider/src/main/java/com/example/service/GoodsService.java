@@ -1,22 +1,30 @@
 package com.example.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.Goods;
 import com.example.response.Result;
-import com.github.pagehelper.PageInfo;
 
-public interface GoodsService {
+import java.util.List;
+import java.util.Map;
 
-    PageInfo<Goods> selectAll(int pageSize, int pageNum);
+/**
+ * <p>
+ *  服务类
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
+public interface GoodsService extends IService<Goods> {
+    Map<String, Object> myPage(Integer pageNum, Integer pageSize);
 
-    PageInfo<Goods> findByGoodsnameLike(String name, Integer pageSize, Integer pageNum);
+    Result mySave(Goods goods);
 
-    Goods findByUsername(String name);
+    Result myUpdateById(Goods goods);
 
-    Goods findById(Integer id);
+    Result myDeleteById(Integer id);
 
-    Result add(Goods goods);
+    List<Goods> like(String name);
 
-    Result deleteById(Integer id);
-
-    Result updateById(Goods goods);
+    Result myDeleteBatchId(List<Integer> lists);
 }

@@ -1,61 +1,66 @@
 package com.example.controller;
 
+
 import com.example.entity.User;
 import com.example.response.Result;
-import com.example.service.impl.UserServiceImpl;
-import com.github.pagehelper.PageInfo;
+import com.example.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Api(tags = "用户信息管理")
-@RestController
-@RequestMapping("/user")
-public class UserController {
+import java.util.List;
+import java.util.Map;
 
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
+@RestController
+@RequestMapping("/user/")
+@Api(tags = "用户信息管理")
+public class UserController {
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @ApiOperation("分页查询数据")
-    @GetMapping("/pageHelper/{pageSize}/{pageNum}")
-    public PageInfo<User> selectAll(@PathVariable("pageNum") int pageNum, @PathVariable("pageSize") int pageSize) {
-        return userService.selectAll(pageNum, pageSize);
+    @GetMapping("/page/{pageNum}/{pageSize}")
+    public Map<String, Object> page(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
+        return userService.myPage(pageNum, pageSize);
     }
 
-    @ApiOperation("模糊查询用户")
-    @GetMapping("/like/{username}/{pageSize}/{pageNum}")
-    public PageInfo<User> findByUsernameLike(@PathVariable String username, @PathVariable Integer pageSize, @PathVariable Integer pageNum) {
-        return userService.findByUsernameLike(username, pageSize, pageNum);
+    @ApiOperation(value = "添加用户", notes = "参数只需添加<em>username,password</em>")
+    @PostMapping("/save")
+    public Result save(@RequestBody User user) {
+        return userService.mySave(user);
     }
 
-    @ApiOperation("通过id查询用户")
-    @GetMapping("/findById/{id}")
-    public User findById(@PathVariable Integer id) {
-        return userService.findById(id);
-    }
-
-    @ApiOperation("通过username查询用户")
-    @GetMapping("/findByUsername/{username}")
-    public User findByUsername(@PathVariable String username) {
-        return userService.findByUsername(username);
-    }
-
-    @ApiOperation("添加用户")
-    @PostMapping("/add")
-    public Result add(@RequestBody User user) {
-        return add(user);
+    @ApiOperation(value = "修改用户", notes = "参数只需添加<em>id,username,password</em>")
+    @PutMapping("/update")
+    public Result updateById(@RequestBody User user) {
+        return userService.myUpdateById(user);
     }
 
     @ApiOperation("删除用户")
-    @PostMapping("/delete/{id}")
-    public Result delete(@PathVariable Integer id) {
-        return userService.delete(id);
+    @DeleteMapping("/delete/{id}")
+    public Result DeleteById(@PathVariable Integer id) {
+        return userService.myDeleteById(id);
     }
 
-    @ApiOperation("修改用户")
-    @PutMapping("/updateById")
-    public Result updateById(@RequestBody User user) {
-        return userService.updateById(user);
+    @ApiOperation("模糊查询用户名")
+    @GetMapping("/like/{username}")
+    public List<User> like(@PathVariable String username) {
+        return userService.like(username);
+    }
+
+    @ApiOperation("批量删除")
+    @DeleteMapping("/deleteBatchId/{list}")
+    public Result DeleteBatchId(@PathVariable List<Integer> list) {
+        return userService.myDeleteBatchId(list);
     }
 }
+

@@ -1,71 +1,84 @@
 package com.example.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.Goods;
 import com.example.mapper.GoodsMapper;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
 import com.example.service.GoodsService;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
 @Service
-public class GoodsServiceImpl implements GoodsService {
-
-    @Autowired
+public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements GoodsService {
+    @Resource
     private GoodsMapper goodsMapper;
 
     @Override
-    public PageInfo<Goods> selectAll(int pageSize, int pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
-        List<Goods> goods = goodsMapper.selectAll();
-        PageInfo<Goods> pageInfo = new PageInfo<>(goods);
-        return pageInfo;
+    public Map<String, Object> myPage(Integer pageNum, Integer pageSize) {
+        Page<Goods> page = new Page<>(pageNum, pageSize);
+        goodsMapper.selectPage(page, null);
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("list", page.getRecords());
+        resultMap.put("total", page.getTotal());
+        return resultMap;
     }
 
     @Override
-    public PageInfo<Goods> findByGoodsnameLike(String name, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
-        return new PageInfo<>(goodsMapper.findByNameLike(name));
-    }
-
-    @Override
-    public Goods findByUsername(String name) {
-        return goodsMapper.findByName(name);
-    }
-
-    @Override
-    public Goods findById(Integer id) {
-        return goodsMapper.findById(id);
-    }
-
-    @Override
-    public Result add(Goods goods) {
-        Integer n=goodsMapper.add(goods);
+    public Result mySave(Goods goods) {
+        int n = goodsMapper.insert(goods);
         if (n==1) {
-            return ResultUtils.ok().message("添加成功!");
+            return ResultUtils.ok().message("添加成功😀!");
         }
-        return ResultUtils.error().message("添加失败!");
+        return ResultUtils.error().message("添加失败!😭");
     }
 
     @Override
-    public Result deleteById(Integer id) {
-        Integer n=goodsMapper.deleteById(id);
+    public Result myUpdateById(Goods goods) {
+        goodsMapper.selectById(goods.getId());
+        int n = goodsMapper.updateById(goods);
         if (n==1) {
-            return ResultUtils.ok().message("删除成功!");
+            return ResultUtils.ok().message("修改成功😀!");
         }
-        return ResultUtils.error().message("删除失败!");
+        return ResultUtils.error().message("修改失败!😭");
     }
 
     @Override
-    public Result updateById(Goods goods) {
-        Integer n=goodsMapper.updateById(goods);
+    public Result myDeleteById(Integer id) {
+        int n = goodsMapper.deleteById(id);
         if (n==1) {
-            return ResultUtils.ok().message("修改成功!");
+            return ResultUtils.ok().message("删除成功😀!");
         }
-        return ResultUtils.error().message("修改失败!");
+        return ResultUtils.error().message("删除失败!😭");
+    }
+
+    @Override
+    public List<Goods> like(String name) {
+        QueryWrapper<Goods> wrapper = new QueryWrapper<>();
+        wrapper.like("name", name);
+        return goodsMapper.selectList(wrapper);
+    }
+
+    @Override
+    public Result myDeleteBatchId(List<Integer> lists) {
+        int n = goodsMapper.deleteBatchIds(lists);
+        if (n >= 1) {
+            return ResultUtils.ok().message("删除成功😀!");
+        }
+        return ResultUtils.error().message("删除失败!😭");
     }
 }

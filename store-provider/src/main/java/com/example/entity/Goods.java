@@ -1,14 +1,62 @@
 package com.example.entity;
 
-public class Goods {
+import com.baomidou.mybatisplus.annotation.*;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
+@ApiModel(value="Goods对象", description="")
+public class Goods implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "商品ID")
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
+
+    @ApiModelProperty(value = "商品名称")
     private String name;
+
+    @ApiModelProperty(value = "商品图片")
     private String img;
+
+    @ApiModelProperty(value = "商品价格")
     private Double price;
+
+    @ApiModelProperty(value = "商品库存")
     private Integer stock;
+
+    @ApiModelProperty(value = "商品店铺")
     private String store;
-    private String evaluate;
+
+    @ApiModelProperty(value = "商品评价")
+    private Integer evaluate;
+
+    @ApiModelProperty(value = "商品类型")
     private String type;
+
+    @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+
+    @ApiModelProperty(value = "更新时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
+
+    @ApiModelProperty(value = "乐观锁")
+    @Version
+    private Integer verison;
+
 
     public Integer getId() {
         return id;
@@ -58,11 +106,11 @@ public class Goods {
         this.store = store;
     }
 
-    public String getEvaluate() {
+    public Integer getEvaluate() {
         return evaluate;
     }
 
-    public void setEvaluate(String evaluate) {
+    public void setEvaluate(Integer evaluate) {
         this.evaluate = evaluate;
     }
 
@@ -74,17 +122,44 @@ public class Goods {
         this.type = type;
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Integer getVerison() {
+        return verison;
+    }
+
+    public void setVerison(Integer verison) {
+        this.verison = verison;
+    }
+
     @Override
     public String toString() {
         return "Goods{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", img='" + img + '\'' +
-                ", price=" + price +
-                ", stock=" + stock +
-                ", store='" + store + '\'' +
-                ", evaluate='" + evaluate + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+        "id=" + id +
+        ", name=" + name +
+        ", img=" + img +
+        ", price=" + price +
+        ", stock=" + stock +
+        ", store=" + store +
+        ", evaluate=" + evaluate +
+        ", type=" + type +
+        ", createTime=" + createTime +
+        ", updateTime=" + updateTime +
+        ", verison=" + verison +
+        "}";
     }
 }

@@ -1,25 +1,16 @@
 package com.example.mapper;
 
 import com.example.entity.User;
-import org.springframework.stereotype.Repository;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-import java.util.List;
-
-@Repository
-public interface UserMapper {
-
-    List<User> selectAll();
-
-    List<User> findByUsernameLike(String username);
-
-    User findByUsername(String username);
-
-    User findById(Integer id);
-
-    Integer add(User user);
-
-    Integer deleteById(Integer id);
-
-    Integer updateById(User user);
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
+public interface UserMapper extends BaseMapper<User> {
 
 }

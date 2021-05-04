@@ -1,53 +1,106 @@
 package com.example.entity;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import com.baomidou.mybatisplus.annotation.*;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-public class User implements UserDetails {
-    private Integer id;
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
+@ApiModel(value="User对象", description="")
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "用户ID")
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
+    @ApiModelProperty(value = "用户名")
     private String username;
-    private String password;
-    private List<Role> roles;
 
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities=new ArrayList<GrantedAuthority>();
-        for (Role role: roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return authorities;
+    @ApiModelProperty(value = "密码")
+    private String password;
+
+    @ApiModelProperty(value = "头像")
+    private String avatar;
+
+    @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+
+    @ApiModelProperty(value = "修改时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
+
+    @ApiModelProperty(value = "乐观锁")
+    @Version
+    private Integer version;
+
+
+    public Long getId() {
+        return id;
     }
 
-    public String getPassword() {
-        return password;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
         return username;
     }
 
-    //当前账户是否未过期,默认是false
-    public boolean isAccountNonExpired() {
-        return true;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    //当前账户是否未锁定
-    public boolean isAccountNonLocked() {
-        return true;
+    public String getPassword() {
+        return password;
     }
 
-    //当前账户密码是否未过期
-    public boolean isCredentialsNonExpired() {
-        return true;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    //当前账户是否可用
-    public boolean isEnabled() {
-        return true;
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     @Override
@@ -56,7 +109,10 @@ public class User implements UserDetails {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", roles=" + roles +
+                ", avatar='" + avatar + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", version=" + version +
                 '}';
     }
 }

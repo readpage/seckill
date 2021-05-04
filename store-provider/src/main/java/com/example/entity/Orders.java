@@ -1,53 +1,91 @@
 package com.example.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-public class Orders {
-    private Integer id;
-    private Orders Goods;
-    private User user;
-    private Date create_date;
-    private Date pay_date;
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author f1dao
+ * @since 2021-04-28
+ */
+@ApiModel(value="Orders对象", description="")
+public class Orders implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "订单ID")
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
+    @ApiModelProperty(value = "用户ID")
+    private Long uid;
+
+    @ApiModelProperty(value = "商品ID")
+    private Long gid;
+
+    @ApiModelProperty(value = "创建时间")
+    private Date createDate;
+
+    @ApiModelProperty(value = "支付时间")
+    private Date payDate;
+
+    @ApiModelProperty(value = "订单状态")
     private String status;
 
-    public Integer getId() {
+    @ApiModelProperty(value = "更新时间")
+    private Date updateDate;
+
+    @ApiModelProperty(value = "乐观锁")
+    @Version
+    private Integer version;
+
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Orders getGoods() {
-        return Goods;
+    public Long getUid() {
+        return uid;
     }
 
-    public void setGoods(Orders goods) {
-        Goods = goods;
+    public void setUid(Long uid) {
+        this.uid = uid;
     }
 
-    public User getUser() {
-        return user;
+    public Long getGid() {
+        return gid;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setGid(Long gid) {
+        this.gid = gid;
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public Date getPay_date() {
-        return pay_date;
+    public Date getPayDate() {
+        return payDate;
     }
 
-    public void setPay_date(Date pay_date) {
-        this.pay_date = pay_date;
+    public void setPayDate(Date payDate) {
+        this.payDate = payDate;
     }
 
     public String getStatus() {
@@ -56,5 +94,35 @@ public class Orders {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+        "id=" + id +
+        ", uid=" + uid +
+        ", gid=" + gid +
+        ", createDate=" + createDate +
+        ", payDate=" + payDate +
+        ", status=" + status +
+        ", updateDate=" + updateDate +
+        ", version=" + version +
+        "}";
     }
 }
