@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 28/04/2021 19:40:43
+ Date: 04/05/2021 16:59:47
 */
 
 SET NAMES utf8mb4;
@@ -34,7 +34,7 @@ CREATE TABLE `goods`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `verison` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 48 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods
@@ -93,14 +93,15 @@ CREATE TABLE `menu`  (
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `pattern`(`pattern`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES (1, '/dba/**', '2021-04-28 19:25:24', NULL, 1);
+INSERT INTO `menu` VALUES (1, '/**', '2021-04-28 19:25:24', NULL, 1);
 INSERT INTO `menu` VALUES (2, '/admin/**', '2021-04-28 19:25:24', NULL, 1);
 INSERT INTO `menu` VALUES (3, '/user/**', '2021-04-28 19:25:24', NULL, 1);
+INSERT INTO `menu` VALUES (4, '', '2021-04-29 18:56:06', NULL, 1);
 
 -- ----------------------------
 -- Table structure for menu_role
@@ -118,7 +119,7 @@ CREATE TABLE `menu_role`  (
   INDEX `rid`(`rid`) USING BTREE,
   CONSTRAINT `menu_role_ibfk_1` FOREIGN KEY (`mid`) REFERENCES `menu` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `menu_role_ibfk_2` FOREIGN KEY (`rid`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu_role
@@ -129,6 +130,9 @@ INSERT INTO `menu_role` VALUES (3, 3, 1, '2021-04-28 19:28:00', NULL, 1);
 INSERT INTO `menu_role` VALUES (4, 2, 2, '2021-04-28 19:28:00', NULL, 1);
 INSERT INTO `menu_role` VALUES (5, 3, 2, '2021-04-28 19:28:00', NULL, 1);
 INSERT INTO `menu_role` VALUES (6, 3, 3, '2021-04-28 19:28:00', NULL, 1);
+INSERT INTO `menu_role` VALUES (7, 4, 1, '2021-04-29 18:58:22', NULL, 1);
+INSERT INTO `menu_role` VALUES (11, 4, 2, '2021-04-29 18:58:37', NULL, 1);
+INSERT INTO `menu_role` VALUES (12, 4, 3, '2021-04-29 18:58:58', NULL, 1);
 
 -- ----------------------------
 -- Table structure for orders
@@ -144,7 +148,7 @@ CREATE TABLE `orders`  (
   `update_date` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders
@@ -164,7 +168,7 @@ CREATE TABLE `role`  (
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of role
@@ -172,6 +176,7 @@ CREATE TABLE `role`  (
 INSERT INTO `role` VALUES (1, 'dba', '2021-04-28 19:32:40', NULL, 1);
 INSERT INTO `role` VALUES (2, 'admin', '2021-04-28 19:32:40', NULL, 1);
 INSERT INTO `role` VALUES (3, 'user', '2021-04-28 19:32:40', NULL, 1);
+INSERT INTO `role` VALUES (4, ' tourist', '2021-04-29 18:54:53', NULL, 1);
 
 -- ----------------------------
 -- Table structure for user
@@ -181,20 +186,30 @@ CREATE TABLE `user`  (
   `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
   `username` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
+  `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '头像',
   `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '修改时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `username`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'root', '$2a$10$9dGTSRzO90qYpi2jmJSLMecFAYoMT4ijBGRZG2/pCZe.2AJLrUE.C', '2021-04-28 19:34:34', NULL, NULL);
-INSERT INTO `user` VALUES (2, 'admin', '$2a$10$xLbctedxEk/D3cv11LzFjOMRaBLk25SrWIidTETr1aa.Ho.0RZTba', '2021-04-28 19:34:34', NULL, NULL);
-INSERT INTO `user` VALUES (3, 'user', '$2a$10$gG2uw7LB0OTyyDNrg9fnquJCe9QYtuOZ/Yj973sr6dGusLMjfSKJe', '2021-04-28 19:34:34', NULL, NULL);
-INSERT INTO `user` VALUES (4, 'string', 'string', '2021-04-28 19:34:34', NULL, NULL);
+INSERT INTO `user` VALUES (1, 'root', '$2a$10$9dGTSRzO90qYpi2jmJSLMecFAYoMT4ijBGRZG2/pCZe.2AJLrUE.C', NULL, '2021-04-28 19:34:34', '2021-05-04 16:40:55', 2);
+INSERT INTO `user` VALUES (2, 'admin', '$2a$10$xLbctedxEk/D3cv11LzFjOMRaBLk25SrWIidTETr1aa.Ho.0RZTba', NULL, '2021-04-28 19:34:34', '2021-05-04 16:08:32', 2);
+INSERT INTO `user` VALUES (3, 'user', '$2a$10$gG2uw7LB0OTyyDNrg9fnquJCe9QYtuOZ/Yj973sr6dGusLMjfSKJe', NULL, '2021-04-28 19:34:34', '2021-05-04 16:40:52', 2);
+INSERT INTO `user` VALUES (4, 'string', 'string4', NULL, '2021-04-28 19:34:34', '2021-05-01 18:26:20', 1);
+INSERT INTO `user` VALUES (8, 'hello2', 'hello2', NULL, '2021-05-01 23:22:21', '2021-05-04 16:08:47', 12);
+INSERT INTO `user` VALUES (24, '游戏', 'adads', NULL, '2021-05-02 17:26:25', '2021-05-02 17:26:25', 1);
+INSERT INTO `user` VALUES (25, '山羊', 'daa', NULL, '2021-05-02 17:26:40', '2021-05-02 17:26:40', 1);
+INSERT INTO `user` VALUES (26, '不死鸟', 'd0d9ada', NULL, '2021-05-02 17:26:59', '2021-05-02 17:26:59', 1);
+INSERT INTO `user` VALUES (27, 'daewrq', 'das', NULL, '2021-05-02 17:27:04', '2021-05-02 17:27:04', 1);
+INSERT INTO `user` VALUES (28, 'dsafa', 'dasd1', NULL, '2021-05-02 17:31:46', '2021-05-02 21:26:02', 2);
+INSERT INTO `user` VALUES (29, 'mp', 'mp', NULL, '2021-05-02 19:00:16', '2021-05-02 19:00:16', 1);
+INSERT INTO `user` VALUES (30, '超人', 'chaoren', NULL, '2021-05-02 19:05:41', '2021-05-02 19:05:41', 1);
+INSERT INTO `user` VALUES (34, 'weaew', 'sa', NULL, '2021-05-02 19:05:54', '2021-05-02 19:05:54', 1);
 
 -- ----------------------------
 -- Table structure for user_role
@@ -209,8 +224,10 @@ CREATE TABLE `user_role`  (
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `rid`(`rid`) USING BTREE,
-  INDEX `uid`(`uid`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+  INDEX `uid`(`uid`) USING BTREE,
+  CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`rid`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_role
