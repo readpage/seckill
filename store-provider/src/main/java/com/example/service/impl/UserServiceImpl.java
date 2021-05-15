@@ -8,6 +8,9 @@ import com.example.mapper.UserMapper;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
 import com.example.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,6 +30,9 @@ import java.util.Map;
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Resource
     private UserMapper userMapper;
+    @Autowired
+    @Lazy
+    private PasswordEncoder pw;
 
     @Override
     public Map<String, Object> myPage(Integer pageNum, Integer pageSize) {
@@ -40,7 +46,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Result mySave(User user) {
-        int n = userMapper.insert(user);
+        user.setPassword(pw.encode(user.getPassword()));
+        userMapper.insert(user);
+        Map<String, Object> map = new HashMap<>();
+        map.put("uid", user.getId());
+        map.put("rid", 3);
+        int n = userMapper.saveUserRole(map);
         if (n==1) {
             return ResultUtils.ok().message("添加成功😀!");
         }
@@ -51,6 +62,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public Result myUpdateById(User user) {
         //乐观锁
         userMapper.selectById(user.getId());
+        user.setPassword(pw.encode(user.getPassword()));
         int n = userMapper.updateById(user);
         if (n==1) {
             return ResultUtils.ok().message("修改成功😀!");
@@ -60,6 +72,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Result myDeleteById(Integer id) {
+        userMapper.deleteUserRole(id);
         int n = userMapper.deleteById(id);
         if (n==1) {
             return ResultUtils.ok().message("删除成功😀!");
@@ -76,6 +89,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Result myDeleteBatchId(List<Integer> lists) {
+        userMapper.deleteBatchUserRole(lists);
         int n = userMapper.deleteBatchIds(lists);
         if (n >= 1) {
             return ResultUtils.ok().message("删除成功😀!");

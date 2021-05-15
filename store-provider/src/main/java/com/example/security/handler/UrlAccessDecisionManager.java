@@ -19,6 +19,7 @@ public class UrlAccessDecisionManager implements AccessDecisionManager {
     public void decide(Authentication authentication, Object o, Collection<ConfigAttribute> collection) throws AccessDeniedException, InsufficientAuthenticationException {
         // 如果是其他的 url 访问，判断有没有登录
         for (ConfigAttribute configAttribute: collection) {
+            System.out.println(configAttribute.getAttribute());
             if ("tourist".equals(configAttribute.getAttribute())) {
                 return;
             }

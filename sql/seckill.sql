@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 04/05/2021 16:59:47
+ Date: 15/05/2021 15:14:00
 */
 
 SET NAMES utf8mb4;
@@ -34,7 +34,7 @@ CREATE TABLE `goods`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `verison` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 56 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods
@@ -42,8 +42,8 @@ CREATE TABLE `goods`  (
 INSERT INTO `goods` VALUES (23, '分期免息/现货速发nubia/努比亚红魔6 Pro 5G电竞游戏手机官方旗舰店骁龙888透明s', '686947088.jpg', 4399.00, 1470, '\n壹品良机旗舰店\n', 46, '手机', '2021-04-28 19:16:57', NULL, 1);
 INSERT INTO `goods` VALUES (24, '【新品享12期免息】ZTE中兴Axon 30 Pro 5G旗舰手机6400万双主摄骁龙888轻薄7.86mm智能5G手机', '2765414748.jpg', 2998.00, 1276, '\nZTE中兴官方旗舰店\n', 0, '手机', '2021-04-28 19:16:57', NULL, 1);
 INSERT INTO `goods` VALUES (25, '【20日10点限时开售】MIX FOLD小米折叠屏手机5g骁龙888哈曼卡顿立体声四扬声器2K+折叠屏', '2616970884.jpg', 9999.00, 503, '\n苏宁易购官方旗舰店\n', 0, '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (26, '【限时直降1050 至高享1000元换新补贴】Samsung/三星GalaxyS20+ SM-G9860 国行骁龙官方旗舰5G手机', '2616970884.jpg', 6999.00, 1726, '\n苏宁易购官方旗舰店\n', 446, '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (27, '3期免息【送手环】HONOR/荣耀30青春版 5G手机柔滑全速屏超清智能游戏学生5g手机拍照自拍三际数码官方旗舰店', '268451883.jpg', 2399.00, 1999, '\n三际数码官方旗舰店\n', 700, '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (26, '【限时直降1050 至高享1000元换新补贴】Samsung/三星GalaxyS20+ SM-G9860 国行骁龙官方旗舰5G手机', '2616970884.jpg', 6999.00, 1726, '\n苏宁易购官方旗舰店\n', 446, '手机', '2021-04-28 19:16:57', '2021-05-09 13:07:04', 3);
+INSERT INTO `goods` VALUES (27, '3期免息【送手环】HONOR/荣耀30青春版 5G手机柔滑全速屏超清智能游戏学生5g手机拍照自拍三际数码官方旗舰店', '268451883.jpg', 2399.00, 1999, '\n三际数码官方旗舰店\n', 701, '手机', '2021-04-28 19:16:57', '2021-05-04 22:59:55', 2);
 INSERT INTO `goods` VALUES (28, 'Apple/苹果手机iPhone 12 Pro Max 手机 国行全国联保', '8-0-lubanu.jpg', 9299.00, 1532, '\n天猫超市\n', 146, '手机', '2021-04-28 19:16:57', NULL, 1);
 INSERT INTO `goods` VALUES (29, '【抢200天猫券低至2779起】Xiaomi/小米10 5G手机1亿像素8K电影相机游戏智能手机官方旗舰店小米手机10s', '3063905773.jpg', 3099.00, 549, '\n创汇通达数码旗舰店\n', 671, '手机', '2021-04-28 19:16:57', NULL, 1);
 INSERT INTO `goods` VALUES (30, 'vivo iQOO Neo5新5G手机iqooneo5爱酷iqoonoe5 vivoiqoonoe5 iqqo vivoneo5官方旗舰iooq店iq00neo5 ipooneo5', '1864868535.jpg', 2999.00, 736, '\nvivo航鹰专卖店\n', 468, '手机', '2021-04-28 19:16:57', NULL, 1);
@@ -79,7 +79,7 @@ CREATE TABLE `goods_seckill`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for menu
@@ -98,10 +98,10 @@ CREATE TABLE `menu`  (
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES (1, '/**', '2021-04-28 19:25:24', NULL, 1);
+INSERT INTO `menu` VALUES (1, '/*', '2021-04-28 19:25:24', NULL, 1);
 INSERT INTO `menu` VALUES (2, '/admin/**', '2021-04-28 19:25:24', NULL, 1);
 INSERT INTO `menu` VALUES (3, '/user/**', '2021-04-28 19:25:24', NULL, 1);
-INSERT INTO `menu` VALUES (4, '', '2021-04-29 18:56:06', NULL, 1);
+INSERT INTO `menu` VALUES (4, '/goods/**', '2021-04-29 18:56:06', NULL, 1);
 
 -- ----------------------------
 -- Table structure for menu_role
@@ -132,7 +132,7 @@ INSERT INTO `menu_role` VALUES (5, 3, 2, '2021-04-28 19:28:00', NULL, 1);
 INSERT INTO `menu_role` VALUES (6, 3, 3, '2021-04-28 19:28:00', NULL, 1);
 INSERT INTO `menu_role` VALUES (7, 4, 1, '2021-04-29 18:58:22', NULL, 1);
 INSERT INTO `menu_role` VALUES (11, 4, 2, '2021-04-29 18:58:37', NULL, 1);
-INSERT INTO `menu_role` VALUES (12, 4, 3, '2021-04-29 18:58:58', NULL, 1);
+INSERT INTO `menu_role` VALUES (12, 4, 4, '2021-04-29 18:58:58', NULL, 1);
 
 -- ----------------------------
 -- Table structure for orders
@@ -148,7 +148,7 @@ CREATE TABLE `orders`  (
   `update_date` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders
@@ -186,30 +186,24 @@ CREATE TABLE `user`  (
   `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
   `username` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
+  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号码',
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '头像',
   `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '修改时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `username`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'root', '$2a$10$9dGTSRzO90qYpi2jmJSLMecFAYoMT4ijBGRZG2/pCZe.2AJLrUE.C', NULL, '2021-04-28 19:34:34', '2021-05-04 16:40:55', 2);
-INSERT INTO `user` VALUES (2, 'admin', '$2a$10$xLbctedxEk/D3cv11LzFjOMRaBLk25SrWIidTETr1aa.Ho.0RZTba', NULL, '2021-04-28 19:34:34', '2021-05-04 16:08:32', 2);
-INSERT INTO `user` VALUES (3, 'user', '$2a$10$gG2uw7LB0OTyyDNrg9fnquJCe9QYtuOZ/Yj973sr6dGusLMjfSKJe', NULL, '2021-04-28 19:34:34', '2021-05-04 16:40:52', 2);
-INSERT INTO `user` VALUES (4, 'string', 'string4', NULL, '2021-04-28 19:34:34', '2021-05-01 18:26:20', 1);
-INSERT INTO `user` VALUES (8, 'hello2', 'hello2', NULL, '2021-05-01 23:22:21', '2021-05-04 16:08:47', 12);
-INSERT INTO `user` VALUES (24, '游戏', 'adads', NULL, '2021-05-02 17:26:25', '2021-05-02 17:26:25', 1);
-INSERT INTO `user` VALUES (25, '山羊', 'daa', NULL, '2021-05-02 17:26:40', '2021-05-02 17:26:40', 1);
-INSERT INTO `user` VALUES (26, '不死鸟', 'd0d9ada', NULL, '2021-05-02 17:26:59', '2021-05-02 17:26:59', 1);
-INSERT INTO `user` VALUES (27, 'daewrq', 'das', NULL, '2021-05-02 17:27:04', '2021-05-02 17:27:04', 1);
-INSERT INTO `user` VALUES (28, 'dsafa', 'dasd1', NULL, '2021-05-02 17:31:46', '2021-05-02 21:26:02', 2);
-INSERT INTO `user` VALUES (29, 'mp', 'mp', NULL, '2021-05-02 19:00:16', '2021-05-02 19:00:16', 1);
-INSERT INTO `user` VALUES (30, '超人', 'chaoren', NULL, '2021-05-02 19:05:41', '2021-05-02 19:05:41', 1);
-INSERT INTO `user` VALUES (34, 'weaew', 'sa', NULL, '2021-05-02 19:05:54', '2021-05-02 19:05:54', 1);
+INSERT INTO `user` VALUES (1, 'root', '$2a$10$9dGTSRzO90qYpi2jmJSLMecFAYoMT4ijBGRZG2/pCZe.2AJLrUE.C', NULL, NULL, '2021-04-28 19:34:34', '2021-05-04 16:40:55', 2);
+INSERT INTO `user` VALUES (2, 'admin', '$2a$10$xLbctedxEk/D3cv11LzFjOMRaBLk25SrWIidTETr1aa.Ho.0RZTba', NULL, NULL, '2021-04-28 19:34:34', '2021-05-04 16:08:32', 2);
+INSERT INTO `user` VALUES (3, 'user', '$2a$10$gG2uw7LB0OTyyDNrg9fnquJCe9QYtuOZ/Yj973sr6dGusLMjfSKJe', NULL, NULL, '2021-04-28 19:34:34', '2021-05-04 16:40:52', 2);
+INSERT INTO `user` VALUES (60, 'a', '$2a$10$g9oz7ia.TPkoBurSuVPmOu2PvbP4vOxXSaHkoJkN48LIAiYyHFksq', NULL, NULL, '2021-05-14 18:07:44', '2021-05-14 18:07:44', 1);
+INSERT INTO `user` VALUES (61, 'c', '$2a$10$o.MxnwRK..dWzlS7ePN0OuPQCGR1BTrZsSGJIc2NXU.saoSOL2UWa', NULL, NULL, '2021-05-14 18:07:47', '2021-05-14 18:48:00', 3);
+INSERT INTO `user` VALUES (62, 'f', '$2a$10$fGsC.gTi318XXvxWR1xsseTe6.cqY7KLg2teuF3Bo1ks5qQHhySNy', NULL, NULL, '2021-05-14 18:07:51', '2021-05-14 18:07:51', 1);
 
 -- ----------------------------
 -- Table structure for user_role
@@ -238,5 +232,8 @@ INSERT INTO `user_role` VALUES (3, 1, 3, NULL, '2021-04-28 19:36:33', 1);
 INSERT INTO `user_role` VALUES (4, 2, 2, NULL, '2021-04-28 19:36:33', 1);
 INSERT INTO `user_role` VALUES (5, 2, 3, NULL, '2021-04-28 19:36:33', 1);
 INSERT INTO `user_role` VALUES (6, 3, 3, NULL, '2021-04-28 19:36:33', 1);
+INSERT INTO `user_role` VALUES (16, 60, 3, NULL, '2021-05-14 18:07:43', 1);
+INSERT INTO `user_role` VALUES (17, 61, 3, NULL, '2021-05-14 18:07:46', 1);
+INSERT INTO `user_role` VALUES (18, 62, 3, NULL, '2021-05-14 18:07:50', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

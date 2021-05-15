@@ -31,6 +31,9 @@ public class User implements Serializable {
     @ApiModelProperty(value = "密码")
     private String password;
 
+    @ApiModelProperty(value = "手机号码")
+    private String phone;
+
     @ApiModelProperty(value = "头像")
     private String avatar;
 
@@ -103,12 +106,21 @@ public class User implements Serializable {
         this.avatar = avatar;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
