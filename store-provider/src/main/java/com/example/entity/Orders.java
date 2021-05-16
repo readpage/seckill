@@ -1,12 +1,15 @@
 package com.example.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.Version;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * <p>
@@ -23,19 +26,16 @@ public class Orders implements Serializable {
 
     @ApiModelProperty(value = "订单ID")
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    private Integer id;
+
+    @ApiModelProperty("订单编号")
+    private String number;
 
     @ApiModelProperty(value = "用户ID")
     private Long uid;
 
-    @ApiModelProperty(value = "商品ID")
-    private Long gid;
-
     @ApiModelProperty(value = "创建时间")
     private Date createDate;
-
-    @ApiModelProperty(value = "支付时间")
-    private Date payDate;
 
     @ApiModelProperty(value = "订单状态")
     private String status;
@@ -47,12 +47,14 @@ public class Orders implements Serializable {
     @Version
     private Integer version;
 
+    @ApiModelProperty("订单")
+    private List<Goods> goods;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -64,28 +66,12 @@ public class Orders implements Serializable {
         this.uid = uid;
     }
 
-    public Long getGid() {
-        return gid;
-    }
-
-    public void setGid(Long gid) {
-        this.gid = gid;
-    }
-
     public Date getCreateDate() {
         return createDate;
     }
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
-    }
-
-    public Date getPayDate() {
-        return payDate;
-    }
-
-    public void setPayDate(Date payDate) {
-        this.payDate = payDate;
     }
 
     public String getStatus() {
@@ -112,17 +98,33 @@ public class Orders implements Serializable {
         this.version = version;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = UUID.randomUUID().toString();
+    }
+
+    public List<Goods> getGoods() {
+        return goods;
+    }
+
+    public void setGoods(List<Goods> goods) {
+        this.goods = goods;
+    }
+
     @Override
     public String toString() {
         return "Orders{" +
-        "id=" + id +
-        ", uid=" + uid +
-        ", gid=" + gid +
-        ", createDate=" + createDate +
-        ", payDate=" + payDate +
-        ", status=" + status +
-        ", updateDate=" + updateDate +
-        ", version=" + version +
-        "}";
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", uid=" + uid +
+                ", createDate=" + createDate +
+                ", status='" + status + '\'' +
+                ", updateDate=" + updateDate +
+                ", version=" + version +
+                ", goods=" + goods +
+                '}';
     }
 }

@@ -7,6 +7,7 @@ import com.example.entity.User;
 import com.example.mapper.UserMapper;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
+import com.example.service.OrdersService;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -31,14 +32,22 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Resource
     private UserMapper userMapper;
     @Autowired
+    private OrdersService ordersService;
+    @Autowired
     @Lazy
     private PasswordEncoder pw;
 
-    @Override
+//    @Override
+//    public PageInfo<User> myPage(Integer pageNum, Integer pageSize) {
+//        PageHelper.startPage(pageNum, pageSize);
+//        return new PageInfo<>(userMapper.findUserWithOrders());
+//    }
     public Map<String, Object> myPage(Integer pageNum, Integer pageSize) {
+        Map<String, Object> resultMap = new HashMap<>();
         Page<User> page = new Page<>(pageNum, pageSize);
-        userMapper.selectPage(page, null);
-        HashMap<String, Object> resultMap = new HashMap<>();
+        QueryWrapper<User> wrapper = new QueryWrapper();
+        wrapper.select("*");
+        userMapper.selectPage(page, wrapper);
         resultMap.put("list", page.getRecords());
         resultMap.put("total", page.getTotal());
         return resultMap;
@@ -61,7 +70,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public Result myUpdateById(User user) {
         //乐观锁
-        userMapper.selectById(user.getId());
         user.setPassword(pw.encode(user.getPassword()));
         int n = userMapper.updateById(user);
         if (n==1) {
@@ -72,6 +80,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Result myDeleteById(Integer id) {
+        ordersService.deleteByUId(id);
         userMapper.deleteUserRole(id);
         int n = userMapper.deleteById(id);
         if (n==1) {
@@ -84,11 +93,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public List<User> like(String username) {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.like("username", username);
+        wrapper.select("*");
         return userMapper.selectList(wrapper);
     }
-
     @Override
     public Result myDeleteBatchId(List<Integer> lists) {
+        ordersService.deleteBatchUId(lists);
         userMapper.deleteBatchUserRole(lists);
         int n = userMapper.deleteBatchIds(lists);
         if (n >= 1) {

@@ -57,7 +57,6 @@ public class Goods implements Serializable {
     @Version
     private Integer verison;
 
-
     public Integer getId() {
         return id;
     }
@@ -149,17 +148,17 @@ public class Goods implements Serializable {
     @Override
     public String toString() {
         return "Goods{" +
-        "id=" + id +
-        ", name=" + name +
-        ", img=" + img +
-        ", price=" + price +
-        ", stock=" + stock +
-        ", store=" + store +
-        ", evaluate=" + evaluate +
-        ", type=" + type +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        ", verison=" + verison +
-        "}";
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", img='" + img + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                ", store='" + store + '\'' +
+                ", evaluate=" + evaluate +
+                ", type='" + type + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", verison=" + verison +
+                '}';
     }
 }

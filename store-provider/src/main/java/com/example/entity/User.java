@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -48,6 +49,9 @@ public class User implements Serializable {
     @ApiModelProperty(value = "乐观锁")
     @Version
     private Integer version;
+
+    @ApiModelProperty(value = "订单")
+    private List<Orders> ordersList;
 
 
     public Long getId() {
@@ -114,6 +118,14 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
+    public List<Orders> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Orders> ordersList) {
+        this.ordersList = ordersList;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -125,6 +137,7 @@ public class User implements Serializable {
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", version=" + version +
+                ", ordersList=" + ordersList +
                 '}';
     }
 }

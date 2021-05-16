@@ -20,4 +20,9 @@ public interface UserMapper extends BaseMapper<User> {
     int deleteUserRole(int uid);
 
     int deleteBatchUserRole(List<Integer> list);
+
+    List<User> findUserWithOrders();
+
+    List<User> selectById(Integer id);
+
 }

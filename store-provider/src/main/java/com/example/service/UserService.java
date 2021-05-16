@@ -27,4 +27,5 @@ public interface UserService extends IService<User> {
     List<User> like(String username);
 
     Result myDeleteBatchId(List<Integer> lists);
+
 }

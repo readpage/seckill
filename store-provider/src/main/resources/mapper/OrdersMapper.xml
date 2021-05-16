@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.OrdersMapper">
-
+    <delete id="deleteBatchUid" parameterType="List">
+        DELETE FROM orders WHERE uid IN
+        <foreach collection="list" item="uid" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </delete>
+    <delete id="deleteOrdersGoods" parameterType="Integer">
+        DELETE FROM orders_goods WHERE oid=#{oid}
+    </delete>
+    <delete id="deleteBatchOrdersGoods" parameterType="List">
+        DELETE FROM orders_goods WHERE oid IN
+        <foreach collection="list" item="oid" open="(" separator="," close=")">
+            #{oid}
+        </foreach>
+    </delete>
+    <select id="selectBatchUId" parameterType="Integer" resultType="Orders">
+        SELECT * FROM orders WHERE uid IN
+        <foreach collection="list" item="uid" open="(" separator="," close=")">
+            #{uid}
+        </foreach>
+    </select>
 </mapper>

@@ -28,10 +28,15 @@ public class UserController {
     private UserService userService;
 
     @ApiOperation("分页查询数据")
-    @GetMapping("/page/{pageNum}/{pageSize}")
+    @GetMapping("/page//{pageNum}/{pageSize}")
     public Map<String, Object> page(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
         return userService.myPage(pageNum, pageSize);
     }
+    //    @ApiOperation("分页查询数据")
+//    @GetMapping("/page/{pageSize}/{pageNum}")
+//    public PageInfo<User> page(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
+//        return userService.myPage(pageNum, pageSize);
+//    }
 
     @ApiOperation(value = "添加用户", notes = "参数只需添加<em>username,password</em>")
     @PostMapping("/save")

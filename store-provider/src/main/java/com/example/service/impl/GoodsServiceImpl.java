@@ -31,7 +31,9 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     @Override
     public Map<String, Object> myPage(Integer pageNum, Integer pageSize) {
         Page<Goods> page = new Page<>(pageNum, pageSize);
-        goodsMapper.selectPage(page, null);
+        QueryWrapper<Goods> wrapper = new QueryWrapper<>();
+        wrapper.select("*");
+        goodsMapper.selectPage(page, wrapper);
         HashMap<String, Object> resultMap = new HashMap<>();
         resultMap.put("list", page.getRecords());
         resultMap.put("total", page.getTotal());
@@ -49,7 +51,6 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
 
     @Override
     public Result myUpdateById(Goods goods) {
-        goodsMapper.selectById(goods.getId());
         int n = goodsMapper.updateById(goods);
         if (n==1) {
             return ResultUtils.ok().message("修改成功😀!");
@@ -59,6 +60,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
 
     @Override
     public Result myDeleteById(Integer id) {
+        goodsMapper.deleteOrderGoods(id);
         int n = goodsMapper.deleteById(id);
         if (n==1) {
             return ResultUtils.ok().message("删除成功😀!");
@@ -70,11 +72,13 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     public List<Goods> like(String name) {
         QueryWrapper<Goods> wrapper = new QueryWrapper<>();
         wrapper.like("name", name);
+        wrapper.select("*");
         return goodsMapper.selectList(wrapper);
     }
 
     @Override
     public Result myDeleteBatchId(List<Integer> lists) {
+        goodsMapper.deleteBatchOrderGoods(lists);
         int n = goodsMapper.deleteBatchIds(lists);
         if (n >= 1) {
             return ResultUtils.ok().message("删除成功😀!");
