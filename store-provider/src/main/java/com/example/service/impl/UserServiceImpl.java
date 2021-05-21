@@ -106,4 +106,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         return ResultUtils.error().message("删除失败!😭");
     }
+
+    @Override
+    public User findByUsername(String username) {
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("username", username);
+        wrapper.select("*");
+        User user = userMapper.selectOne(wrapper);
+        return user;
+    }
 }

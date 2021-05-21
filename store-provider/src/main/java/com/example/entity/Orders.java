@@ -1,5 +1,6 @@
 package com.example.entity;
 
+import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.Version;
@@ -9,7 +10,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * <p>
@@ -29,7 +29,7 @@ public class Orders implements Serializable {
     private Integer id;
 
     @ApiModelProperty("订单编号")
-    private String number;
+    private String number = IdUtil.simpleUUID();
 
     @ApiModelProperty(value = "用户ID")
     private Long uid;
@@ -38,7 +38,7 @@ public class Orders implements Serializable {
     private Date createDate;
 
     @ApiModelProperty(value = "订单状态")
-    private String status;
+    private int status;
 
     @ApiModelProperty(value = "更新时间")
     private Date updateDate;
@@ -49,6 +49,7 @@ public class Orders implements Serializable {
 
     @ApiModelProperty("订单")
     private List<Goods> goods;
+
 
     public Integer getId() {
         return id;
@@ -74,11 +75,11 @@ public class Orders implements Serializable {
         this.createDate = createDate;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -103,7 +104,7 @@ public class Orders implements Serializable {
     }
 
     public void setNumber(String number) {
-        this.number = UUID.randomUUID().toString();
+        this.number = number;
     }
 
     public List<Goods> getGoods() {

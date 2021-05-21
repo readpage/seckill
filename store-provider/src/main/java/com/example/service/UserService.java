@@ -28,4 +28,5 @@ public interface UserService extends IService<User> {
 
     Result myDeleteBatchId(List<Integer> lists);
 
+    User findByUsername(String username);
 }

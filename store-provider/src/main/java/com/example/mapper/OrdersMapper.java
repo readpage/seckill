@@ -21,4 +21,6 @@ public interface OrdersMapper extends BaseMapper<Orders> {
     int deleteBatchOrdersGoods(List<Integer> list);
 
     List<Orders> selectBatchUId(List<Integer> list);
+
+    int insertOrdersWithGoods();
 }

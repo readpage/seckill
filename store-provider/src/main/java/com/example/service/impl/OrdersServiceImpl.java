@@ -4,7 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.Orders;
-import com.example.entity.User;
+import com.example.entity.OrdersGoods;
+import com.example.mapper.OrdersGoodsMapper;
 import com.example.mapper.OrdersMapper;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
@@ -30,6 +31,9 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     @Resource
     private OrdersMapper ordersMapper;
 
+    @Resource
+    private OrdersGoodsMapper ordersGoodsMapper;
+
     @Override
     public Result myDeleteBatchId(List<Integer> lists) {
         return null;
@@ -47,9 +51,26 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         return resultMap;
     }
 
+
     @Override
-    public Result save(User user) {
-        return null;
+    public Result add(Long uid, List<OrdersGoods> products) {
+        int r =0;
+        Orders orders = new Orders();
+        orders.setUid(uid);
+        ordersMapper.insert(orders);
+        for (int i = 0; i < products.size(); i++) {
+            products.get(i).setOid(orders.getId());
+        }
+        for (int i = 0; i < products.size(); i++) {
+            int n = products.get(i).getCount();
+            for (int j = 0; j < n; j++) {
+                r=ordersGoodsMapper.insert(products.get(i));
+            }
+        }
+        if (r >= 1) {
+            return ResultUtils.ok().message("添加成功😀!");
+        }
+        return ResultUtils.error().message("添加失败!😭");
     }
 
     @Override

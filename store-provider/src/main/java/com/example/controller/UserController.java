@@ -28,7 +28,7 @@ public class UserController {
     private UserService userService;
 
     @ApiOperation("分页查询数据")
-    @GetMapping("/page//{pageNum}/{pageSize}")
+    @GetMapping("/page/{pageNum}/{pageSize}")
     public Map<String, Object> page(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
         return userService.myPage(pageNum, pageSize);
     }
@@ -66,6 +66,12 @@ public class UserController {
     @DeleteMapping("/deleteBatchId/{list}")
     public Result DeleteBatchId(@PathVariable List<Integer> list) {
         return userService.myDeleteBatchId(list);
+    }
+    
+    @ApiOperation("查询用户名")
+    @GetMapping("/findByUsername/{username}")
+    public User findByUsername(@PathVariable String username) {
+        return userService.findByUsername(username);
     }
 }
 

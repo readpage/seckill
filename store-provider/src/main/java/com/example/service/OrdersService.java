@@ -2,7 +2,7 @@ package com.example.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.Orders;
-import com.example.entity.User;
+import com.example.entity.OrdersGoods;
 import com.example.response.Result;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public interface OrdersService extends IService<Orders> {
 
     Map<String, Object> myPage(Integer pageNum, Integer pageSize);
 
-    Result save(User user);
+    Result add(Long uid, List<OrdersGoods> list);
 
     Result deleteById(Integer id);
 
@@ -30,4 +30,5 @@ public interface OrdersService extends IService<Orders> {
     Result deleteByUId(Integer uid);
 
     Result deleteBatchUId(List<Integer> list);
+
 }

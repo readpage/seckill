@@ -27,4 +27,5 @@ public interface GoodsService extends IService<Goods> {
     List<Goods> like(String name);
 
     Result myDeleteBatchId(List<Integer> lists);
+
 }
