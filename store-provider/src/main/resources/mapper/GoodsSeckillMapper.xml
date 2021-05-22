@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.GoodsSeckillMapper">
-
+    <delete id="deleteByGid" parameterType="Integer">
+        DELETE FROM goods_seckill WHERE gid=#{gid}
+    </delete>
+    <delete id="deleteBatchByGid" parameterType="List">
+        DELETE FROM goods_seckill WHERE gid IN
+        <foreach collection="list" item="gid" open="(" separator="," close=")">
+            #{gid}
+        </foreach>
+    </delete>
+    <select id="selectToId" parameterType="Integer" resultType="Integer">
+        SELECT id FROM goods_seckill WHERE gid=#{gid}
+    </select>
+    <select id="selectBatchToId" parameterType="List" resultType="Integer">
+        SELECT id FROM goods_seckill WHERE gid IN
+        <foreach collection="list" item="gid" open="(" separator="," close=")">
+            #{gid}
+        </foreach>
+    </select>
+    <update id="updateStockByOrdersSeckill" parameterType="OrdersSeckill">
+        UPDATE goods_seckill SET stock=stock-#{count} WHERE id=#{gsId} AND stock-#{count}>=0
+    </update>
 </mapper>

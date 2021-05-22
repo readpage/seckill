@@ -31,4 +31,5 @@ public interface OrdersService extends IService<Orders> {
 
     Result deleteBatchUId(List<Integer> list);
 
+    boolean updateGoods(OrdersGoods ordersGoods);
 }

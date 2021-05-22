@@ -1,7 +1,10 @@
 package com.example.service;
 
-import com.example.entity.GoodsSeckill;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.entity.GoodsSeckill;
+import com.example.entity.OrdersSeckill;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2021-04-28
  */
 public interface GoodsSeckillService extends IService<GoodsSeckill> {
+    int deleteByGid(Integer gid);
 
+    int deleteBatchByGid(List<Integer> list);
+
+    Integer selectToId(Integer gid);
+
+    List<Integer> selectBatchToId(List<Integer> list);
+
+    boolean updateStockByOrdersSeckill(OrdersSeckill ordersSeckill);
 }

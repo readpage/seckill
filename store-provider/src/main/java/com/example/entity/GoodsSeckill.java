@@ -1,14 +1,11 @@
 package com.example.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -26,6 +23,9 @@ public class GoodsSeckill implements Serializable {
     @ApiModelProperty(value = "秒杀商品id")
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+
+    @ApiModelProperty(value = "商品gid")
+    private Integer gid;
 
     @ApiModelProperty(value = "秒杀价")
     private Double seckillPrice;
@@ -66,6 +66,14 @@ public class GoodsSeckill implements Serializable {
 
     public void setSeckillPrice(Double seckillPrice) {
         this.seckillPrice = seckillPrice;
+    }
+
+    public Integer getGid() {
+        return gid;
+    }
+
+    public void setGid(Integer gid) {
+        this.gid = gid;
     }
 
     public Integer getStockCount() {
@@ -119,14 +127,15 @@ public class GoodsSeckill implements Serializable {
     @Override
     public String toString() {
         return "GoodsSeckill{" +
-        "id=" + id +
-        ", seckillPrice=" + seckillPrice +
-        ", stockCount=" + stockCount +
-        ", startDate=" + startDate +
-        ", endDate=" + endDate +
-        ", createTime=" + createTime +
-        ", updateTime=" + updateTime +
-        ", version=" + version +
-        "}";
+                "id=" + id +
+                ", gid=" + gid +
+                ", seckillPrice=" + seckillPrice +
+                ", stockCount=" + stockCount +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", version=" + version +
+                '}';
     }
 }

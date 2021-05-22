@@ -17,4 +17,5 @@ public interface GoodsMapper extends BaseMapper<Goods> {
     Integer deleteOrderGoods(Integer gid);
 
     Integer deleteBatchOrderGoods(List<Integer> list);
+
 }

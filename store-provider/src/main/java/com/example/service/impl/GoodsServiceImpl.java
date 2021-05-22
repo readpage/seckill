@@ -7,7 +7,9 @@ import com.example.entity.Goods;
 import com.example.mapper.GoodsMapper;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
+import com.example.service.GoodsSeckillService;
 import com.example.service.GoodsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,6 +29,8 @@ import java.util.Map;
 public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements GoodsService {
     @Resource
     private GoodsMapper goodsMapper;
+    @Autowired
+    private GoodsSeckillService goodsSeckillService;
 
     @Override
     public Map<String, Object> myPage(Integer pageNum, Integer pageSize) {
@@ -59,7 +63,16 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     }
 
     @Override
+    public List<Goods> like(String name) {
+        QueryWrapper<Goods> wrapper = new QueryWrapper<>();
+        wrapper.like("name", name);
+        wrapper.select("*");
+        return goodsMapper.selectList(wrapper);
+    }
+
+    @Override
     public Result myDeleteById(Integer id) {
+        goodsSeckillService.deleteByGid(id);
         goodsMapper.deleteOrderGoods(id);
         int n = goodsMapper.deleteById(id);
         if (n==1) {
@@ -69,15 +82,8 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     }
 
     @Override
-    public List<Goods> like(String name) {
-        QueryWrapper<Goods> wrapper = new QueryWrapper<>();
-        wrapper.like("name", name);
-        wrapper.select("*");
-        return goodsMapper.selectList(wrapper);
-    }
-
-    @Override
     public Result myDeleteBatchId(List<Integer> lists) {
+        goodsSeckillService.deleteBatchByGid(lists);
         goodsMapper.deleteBatchOrderGoods(lists);
         int n = goodsMapper.deleteBatchIds(lists);
         if (n >= 1) {

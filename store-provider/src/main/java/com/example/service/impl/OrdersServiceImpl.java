@@ -9,7 +9,9 @@ import com.example.mapper.OrdersGoodsMapper;
 import com.example.mapper.OrdersMapper;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
+import com.example.service.OrdersSeckillService;
 import com.example.service.OrdersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -33,6 +35,9 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
     @Resource
     private OrdersGoodsMapper ordersGoodsMapper;
+
+    @Autowired
+    private OrdersSeckillService ordersSeckillService;
 
     @Override
     public Result myDeleteBatchId(List<Integer> lists) {
@@ -64,7 +69,6 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         for (int i = 0; i < products.size(); i++) {
             if (ordersMapper.updateGoods(products.get(i))>0) {
                 r=ordersGoodsMapper.insert(products.get(i));
-                System.out.println(products.get(i).getCount());
             } else {
                 ordersMapper.deleteById(orders.getId());
                 return ResultUtils.error().message("购买失败!😭库存不足");
@@ -79,6 +83,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
     @Override
     public Result deleteById(Integer id) {
+        ordersSeckillService.deleteByOid(id);
         ordersMapper.deleteOrdersGoods(id);
         int n = ordersMapper.deleteById(id);
         if (n >= 1) {
@@ -89,6 +94,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
     @Override
     public Result deleteBatchId(List<Integer> list) {
+        ordersSeckillService.deleteBatchByOid(list);
         ordersMapper.deleteBatchOrdersGoods(list);
         int n = ordersMapper.deleteBatchIds(list);
         if (n >= 1) {
@@ -114,6 +120,11 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
             list1.add(orders.get(i).getId());
         }
         return this.deleteBatchId(list1);
+    }
+
+    @Override
+    public boolean updateGoods(OrdersGoods ordersGoods) {
+        return ordersMapper.updateGoods(ordersGoods) > 0;
     }
 
 }
