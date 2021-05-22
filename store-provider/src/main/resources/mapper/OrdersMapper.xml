@@ -22,4 +22,7 @@
             #{uid}
         </foreach>
     </select>
+    <update id="updateGoods" parameterType="OrdersGoods">
+        UPDATE goods SET stock=stock-#{count} WHERE id=#{gid} AND stock-#{count}>=0
+    </update>
 </mapper>

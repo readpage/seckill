@@ -62,15 +62,19 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
             products.get(i).setOid(orders.getId());
         }
         for (int i = 0; i < products.size(); i++) {
-            int n = products.get(i).getCount();
-            for (int j = 0; j < n; j++) {
+            if (ordersMapper.updateGoods(products.get(i))>0) {
                 r=ordersGoodsMapper.insert(products.get(i));
+                System.out.println(products.get(i).getCount());
+            } else {
+                ordersMapper.deleteById(orders.getId());
+                return ResultUtils.error().message("购买失败!😭库存不足");
             }
         }
+
         if (r >= 1) {
-            return ResultUtils.ok().message("添加成功😀!");
+            return ResultUtils.ok().message("购买成功😀!");
         }
-        return ResultUtils.error().message("添加失败!😭");
+        return ResultUtils.error().message("购买失败!😭");
     }
 
     @Override

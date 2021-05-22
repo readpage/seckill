@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.OrdersGoodsMapper">
     <insert id="insert" parameterType="OrdersGoods">
-        INSERT INTO orders_goods(oid, gid) VALUES(#{oid}, #{gid})
+        INSERT INTO orders_goods(oid, gid, count) VALUES(#{oid}, #{gid}, #{count})
     </insert>
     <select id="page" resultType="OrdersInfo">
-        SELECT u.username, o.number, o.create_date, g.name, SUM(g.price) price, g.img, g.store, COUNT(*) count
+        SELECT u.username, o.number, o.create_date, g.name, g.price, g.img, g.store, og.count
         FROM user u, orders o, goods g, orders_goods og
         WHERE u.id=o.uid AND o.id=og.oid AND g.id=og.gid
         GROUP BY g.id

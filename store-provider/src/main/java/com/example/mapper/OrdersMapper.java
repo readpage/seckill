@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.entity.Orders;
+import com.example.entity.OrdersGoods;
 
 import java.util.List;
 
@@ -23,4 +24,6 @@ public interface OrdersMapper extends BaseMapper<Orders> {
     List<Orders> selectBatchUId(List<Integer> list);
 
     int insertOrdersWithGoods();
+
+    int updateGoods(OrdersGoods ordersGoods);
 }
