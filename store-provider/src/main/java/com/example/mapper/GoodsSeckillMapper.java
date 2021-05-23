@@ -24,4 +24,5 @@ public interface GoodsSeckillMapper extends BaseMapper<GoodsSeckill> {
     List<Integer> selectBatchToId(List<Integer> list);
 
     int updateStockByOrdersSeckill(OrdersSeckill ordersSeckill);
+
 }

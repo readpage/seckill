@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.example.input.InGoodsSeckill;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -15,7 +16,7 @@ import java.util.Date;
  * @author f1dao
  * @since 2021-04-28
  */
-@ApiModel(value="GoodsSeckill对象", description="")
+@ApiModel(value="GoodsSeckill实体类", description="")
 public class GoodsSeckill implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,7 +32,7 @@ public class GoodsSeckill implements Serializable {
     private Double seckillPrice;
 
     @ApiModelProperty(value = "库存数量")
-    private Integer stockCount;
+    private Integer stock;
 
     @ApiModelProperty(value = "秒杀开始时间")
     private Date startDate;
@@ -51,6 +52,13 @@ public class GoodsSeckill implements Serializable {
     @Version
     private Integer version;
 
+    public GoodsSeckill(InGoodsSeckill inGoodsSeckill) {
+        this.gid = inGoodsSeckill.getGid();
+        this.seckillPrice = inGoodsSeckill.getSeckillPrice();
+        this.stock = inGoodsSeckill.getStock();
+        this.startDate = inGoodsSeckill.getStartDate();
+        this.endDate = inGoodsSeckill.getEndDate();
+    }
 
     public Long getId() {
         return id;
@@ -76,12 +84,12 @@ public class GoodsSeckill implements Serializable {
         this.gid = gid;
     }
 
-    public Integer getStockCount() {
-        return stockCount;
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setStockCount(Integer stockCount) {
-        this.stockCount = stockCount;
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
     public Date getStartDate() {
@@ -130,7 +138,7 @@ public class GoodsSeckill implements Serializable {
                 "id=" + id +
                 ", gid=" + gid +
                 ", seckillPrice=" + seckillPrice +
-                ", stockCount=" + stockCount +
+                ", stockCount=" + stock +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", createTime=" + createTime +

@@ -28,4 +28,6 @@ public interface GoodsService extends IService<Goods> {
 
     Result myDeleteBatchId(List<Integer> lists);
 
+    boolean updateStock(Integer count);
+
 }

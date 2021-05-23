@@ -18,10 +18,9 @@ import java.io.Serializable;
  */
 @ApiModel(value="OrdersSeckill对象", description="")
 public class OrdersSeckill implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "id")
+    @ApiModelProperty(hidden = true)
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
@@ -29,10 +28,10 @@ public class OrdersSeckill implements Serializable {
     @TableField("gsId")
     private Integer gsId;
 
-    @ApiModelProperty(value = "订单id")
+    @ApiModelProperty(hidden = true)
     private Long oid;
 
-    @ApiModelProperty(value = "商品数量")
+    @ApiModelProperty(value = "商品数量", example = "2")
     private Integer count;
 
 

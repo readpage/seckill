@@ -16,6 +16,7 @@ public class OrdersGoodsServiceImpl implements OrdersGoodsService {
     @Override
     public PageInfo<OrdersInfo> page(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
+
         return new PageInfo<>(ordersGoodsMapper.page());
     }
 }

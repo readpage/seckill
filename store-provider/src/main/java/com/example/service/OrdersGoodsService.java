@@ -5,4 +5,5 @@ import com.github.pagehelper.PageInfo;
 
 public interface OrdersGoodsService {
     PageInfo<OrdersInfo> page(int pageNum, int PageSize);
+
 }

@@ -61,8 +61,9 @@ public class OrdersSeckillServiceImpl extends ServiceImpl<OrdersSeckillMapper, O
         for (int i = 0; i < list.size(); i++) {
             boolean b = goodsSeckillService.updateStockByOrdersSeckill(list.get(i));
             if (b) {
-
+                return this.save(list.get(i));
             }
+            ordersService.deleteById(orders.getId());
         }
         return false;
     }

@@ -91,4 +91,9 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
         }
         return ResultUtils.error().message("删除失败!😭");
     }
+
+    @Override
+    public boolean updateStock(Integer count) {
+        return goodsMapper.updateStock(count)>0;
+    }
 }

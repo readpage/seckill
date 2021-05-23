@@ -18,4 +18,5 @@ public interface GoodsMapper extends BaseMapper<Goods> {
 
     Integer deleteBatchOrderGoods(List<Integer> list);
 
+    int updateStock(Integer count);
 }

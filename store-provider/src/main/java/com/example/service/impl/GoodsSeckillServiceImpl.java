@@ -5,7 +5,10 @@ import com.example.entity.OrdersSeckill;
 import com.example.mapper.GoodsSeckillMapper;
 import com.example.service.GoodsSeckillService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.service.GoodsService;
 import com.example.service.OrdersSeckillService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +29,8 @@ public class GoodsSeckillServiceImpl extends ServiceImpl<GoodsSeckillMapper, Goo
     private GoodsSeckillMapper goodsSeckillMapper;
     @Autowired
     private OrdersSeckillService ordersSeckillService;
+    @Autowired
+    private GoodsService goodsService;
 
     @Override
     public int deleteByGid(Integer gid) {
@@ -54,5 +59,20 @@ public class GoodsSeckillServiceImpl extends ServiceImpl<GoodsSeckillMapper, Goo
     @Override
     public boolean updateStockByOrdersSeckill(OrdersSeckill ordersSeckill) {
         return goodsSeckillMapper.updateStockByOrdersSeckill(ordersSeckill)>0;
+    }
+
+    @Override
+    public PageInfo<GoodsSeckill> page(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return new PageInfo<>(goodsSeckillMapper.selectList(null));
+    }
+
+    @Override
+    public boolean add(GoodsSeckill goodsSeckill) {
+        boolean b = goodsService.updateStock(goodsSeckill.getStock());
+        if (b) {
+            return this.save(goodsSeckill);
+        }
+        return false;
     }
 }

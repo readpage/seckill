@@ -10,4 +10,7 @@
             #{gid}
         </foreach>
     </delete>
+    <update id="updateStock" parameterType="Integer">
+        UPDATE goods SET stock=stock-#{count} WHERE stock-#{count}>=0
+    </update>
 </mapper>
