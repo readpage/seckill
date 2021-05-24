@@ -1,24 +1,24 @@
 package com.example.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.Orders;
 import com.example.entity.OrdersGoods;
 import com.example.mapper.OrdersGoodsMapper;
 import com.example.mapper.OrdersMapper;
+import com.example.output.OrdersInfo;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
+import com.example.service.OrdersGoodsService;
 import com.example.service.OrdersSeckillService;
 import com.example.service.OrdersService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -39,23 +39,13 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     @Autowired
     private OrdersSeckillService ordersSeckillService;
 
+    @Autowired
+    private OrdersGoodsService ordersGoodsService;
+
     @Override
     public Result myDeleteBatchId(List<Integer> lists) {
         return null;
     }
-
-    @Override
-    public Map<String, Object> myPage(Integer pageNum, Integer pageSize) {
-        Page<Orders> page = new Page<>(pageNum, pageSize);
-        QueryWrapper<Orders> wrapper = new QueryWrapper<>();
-        wrapper.select("*");
-        ordersMapper.selectPage(page, wrapper);
-        HashMap<String, Object> resultMap = new HashMap<>();
-        resultMap.put("list", page.getRecords());
-        resultMap.put("total", page.getTotal());
-        return resultMap;
-    }
-
 
     @Override
     public Result add(Long uid, List<OrdersGoods> products) {
@@ -125,6 +115,21 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     @Override
     public boolean updateGoods(OrdersGoods ordersGoods) {
         return ordersMapper.updateGoods(ordersGoods) > 0;
+    }
+
+    @Override
+    public List<OrdersInfo> selectAll() {
+        List<OrdersInfo> list = ordersGoodsService.selectAll();
+        List<OrdersInfo> list1 = ordersSeckillService.selectAll();
+        List<OrdersInfo> list2 = new ArrayList<>();
+        list2.addAll(list);
+        list2.addAll(list1);
+        return list2;
+    }
+
+    @Override
+    public PageInfo<OrdersInfo> page(int pageNum, int pageSize) {
+        return new PageInfo<>();
     }
 
 }

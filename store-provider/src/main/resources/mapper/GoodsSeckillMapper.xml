@@ -19,7 +19,7 @@
             #{gid}
         </foreach>
     </select>
-    <update id="updateStockByOrdersSeckill" parameterType="OrdersSeckill">
-        UPDATE goods_seckill SET stock=stock-#{count} WHERE id=#{gsId} AND stock-#{count}>=0
+    <update id="updateStockByOrdersSeckill" parameterType="Integer">
+        UPDATE goods_seckill SET stock=stock-1 WHERE id=#{gsId} AND stock-1>=0
     </update>
 </mapper>

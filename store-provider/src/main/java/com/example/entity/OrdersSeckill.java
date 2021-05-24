@@ -16,11 +16,11 @@ import java.io.Serializable;
  * @author f1dao😂
  * @since 2021-05-22
  */
-@ApiModel(value="OrdersSeckill对象", description="")
+@ApiModel(value="OrdersSeckill实体类", description="")
 public class OrdersSeckill implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty(value = "id")
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
@@ -28,11 +28,8 @@ public class OrdersSeckill implements Serializable {
     @TableField("gsId")
     private Integer gsId;
 
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty(value = "抢购订单oid")
     private Long oid;
-
-    @ApiModelProperty(value = "商品数量", example = "2")
-    private Integer count;
 
 
     public Integer getId() {
@@ -59,13 +56,6 @@ public class OrdersSeckill implements Serializable {
         this.oid = oid;
     }
 
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
 
     @Override
     public String toString() {
@@ -73,7 +63,6 @@ public class OrdersSeckill implements Serializable {
         "id=" + id +
         ", gsid=" + gsId +
         ", oid=" + oid +
-        ", count=" + count +
         "}";
     }
 }

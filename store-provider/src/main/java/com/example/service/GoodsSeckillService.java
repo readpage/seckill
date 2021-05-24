@@ -2,7 +2,6 @@ package com.example.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.GoodsSeckill;
-import com.example.entity.OrdersSeckill;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
@@ -24,7 +23,7 @@ public interface GoodsSeckillService extends IService<GoodsSeckill> {
 
     List<Integer> selectBatchToId(List<Integer> list);
 
-    boolean updateStockByOrdersSeckill(OrdersSeckill ordersSeckill);
+    boolean updateStockById(Integer gsId);
 
     PageInfo<GoodsSeckill> page(int pageNum, int pageSize);
 

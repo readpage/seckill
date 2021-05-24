@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.OrdersSeckill;
+import com.example.output.OrdersInfo;
 
 import java.util.List;
 
@@ -22,7 +23,8 @@ public interface OrdersSeckillService extends IService<OrdersSeckill> {
 
     int deleteBatchByOid(List<Integer> list);
 
-    boolean add(Integer uid, List<OrdersSeckill> list);
+    boolean add(Integer uid, Integer gsId);
 
+    List<OrdersInfo> selectAll();
 
 }

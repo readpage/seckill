@@ -3,10 +3,11 @@ package com.example.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.Orders;
 import com.example.entity.OrdersGoods;
+import com.example.output.OrdersInfo;
 import com.example.response.Result;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -19,8 +20,6 @@ import java.util.Map;
 public interface OrdersService extends IService<Orders> {
     Result myDeleteBatchId(List<Integer> lists);
 
-    Map<String, Object> myPage(Integer pageNum, Integer pageSize);
-
     Result add(Long uid, List<OrdersGoods> list);
 
     Result deleteById(Integer id);
@@ -32,4 +31,8 @@ public interface OrdersService extends IService<Orders> {
     Result deleteBatchUId(List<Integer> list);
 
     boolean updateGoods(OrdersGoods ordersGoods);
+
+    List<OrdersInfo> selectAll();
+
+    PageInfo<OrdersInfo> page(int pageNum, int pageSize);
 }

@@ -39,9 +39,6 @@ public class Goods implements Serializable {
     @ApiModelProperty(value = "商品店铺")
     private String store;
 
-    @ApiModelProperty(value = "商品评价")
-    private Integer evaluate;
-
     @ApiModelProperty(value = "商品类型")
     private String type;
 
@@ -105,14 +102,6 @@ public class Goods implements Serializable {
         this.store = store;
     }
 
-    public Integer getEvaluate() {
-        return evaluate;
-    }
-
-    public void setEvaluate(Integer evaluate) {
-        this.evaluate = evaluate;
-    }
-
     public String getType() {
         return type;
     }
@@ -154,7 +143,6 @@ public class Goods implements Serializable {
                 ", price=" + price +
                 ", stock=" + stock +
                 ", store='" + store + '\'' +
-                ", evaluate=" + evaluate +
                 ", type='" + type + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +

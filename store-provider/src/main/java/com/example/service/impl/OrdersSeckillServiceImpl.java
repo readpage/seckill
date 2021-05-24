@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.Orders;
 import com.example.entity.OrdersSeckill;
 import com.example.mapper.OrdersSeckillMapper;
+import com.example.output.OrdersInfo;
 import com.example.service.GoodsSeckillService;
 import com.example.service.OrdersSeckillService;
 import com.example.service.OrdersService;
@@ -51,21 +52,25 @@ public class OrdersSeckillServiceImpl extends ServiceImpl<OrdersSeckillMapper, O
     }
 
     @Override
-    public boolean add(Integer uid, List<OrdersSeckill> list) {
+    public boolean add(Integer uid, Integer gsId) {
         Orders orders = new Orders();
         orders.setUid(Long.valueOf(uid));
         ordersService.save(orders);
-        for (int i = 0; i < list.size(); i++) {
-            list.get(i).setOid(Long.valueOf(orders.getId()));
+        OrdersSeckill ordersSeckill = new OrdersSeckill();
+        ordersSeckill.setGsId(gsId);
+        ordersSeckill.setOid(Long.valueOf(orders.getId()));
+        System.out.println(ordersSeckill.getGsId());
+        boolean b = goodsSeckillService.updateStockById(ordersSeckill.getGsId());
+        if (b) {
+            return this.save(ordersSeckill);
         }
-        for (int i = 0; i < list.size(); i++) {
-            boolean b = goodsSeckillService.updateStockByOrdersSeckill(list.get(i));
-            if (b) {
-                return this.save(list.get(i));
-            }
-            ordersService.deleteById(orders.getId());
-        }
+        ordersService.deleteById(orders.getId());
         return false;
+    }
+
+    @Override
+    public List<OrdersInfo> selectAll() {
+        return ordersSeckillMapper.selectAll();
     }
 
 }

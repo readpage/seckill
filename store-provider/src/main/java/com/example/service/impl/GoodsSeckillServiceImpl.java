@@ -1,10 +1,9 @@
 package com.example.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.GoodsSeckill;
-import com.example.entity.OrdersSeckill;
 import com.example.mapper.GoodsSeckillMapper;
 import com.example.service.GoodsSeckillService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.service.GoodsService;
 import com.example.service.OrdersSeckillService;
 import com.github.pagehelper.PageHelper;
@@ -57,8 +56,8 @@ public class GoodsSeckillServiceImpl extends ServiceImpl<GoodsSeckillMapper, Goo
     }
 
     @Override
-    public boolean updateStockByOrdersSeckill(OrdersSeckill ordersSeckill) {
-        return goodsSeckillMapper.updateStockByOrdersSeckill(ordersSeckill)>0;
+    public boolean updateStockById(Integer gsId) {
+        return goodsSeckillMapper.updateStockByOrdersSeckill(gsId)>0;
     }
 
     @Override

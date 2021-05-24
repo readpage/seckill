@@ -19,4 +19,10 @@
             #{oid}
         </foreach>
     </delete>
+    <select id="selectAll" resultType="OrdersInfo">
+        SELECT u.username, o.number, o.create_date, g.name, gs.price, g.img, g.store
+        FROM user u, orders o, goods g, orders_goods og, goods_seckill gs
+        WHERE u.id=o.uid AND o.id=og.oid AND g.id=gs.gid
+        GROUP BY gs.id
+    </select>
 </mapper>

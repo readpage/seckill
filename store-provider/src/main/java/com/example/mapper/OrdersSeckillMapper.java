@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.entity.OrdersSeckill;
+import com.example.output.OrdersInfo;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface OrdersSeckillMapper extends BaseMapper<OrdersSeckill> {
     int deleteByOid(Integer oid);
 
     int deleteBatchByOid(List<Integer> list);
+
+    List<OrdersInfo> selectAll();
 }

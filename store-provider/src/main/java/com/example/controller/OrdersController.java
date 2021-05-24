@@ -1,15 +1,12 @@
 package com.example.controller;
 
 
-import com.example.domain.OrdersInfo;
 import com.example.entity.OrdersGoods;
-import com.example.entity.OrdersSeckill;
+import com.example.output.OrdersInfo;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
-import com.example.service.OrdersGoodsService;
 import com.example.service.OrdersSeckillService;
 import com.example.service.OrdersService;
-import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +29,6 @@ public class OrdersController {
     @Autowired
     private OrdersService ordersService;
     @Autowired
-    private OrdersGoodsService ordersGoodsService;
-    @Autowired
     private OrdersSeckillService ordersSeckillService;
 
     @ApiOperation("删除订单")
@@ -53,18 +48,24 @@ public class OrdersController {
     }
 
     @ApiOperation("添加抢购订单")
-    @PostMapping("/add/seckill/{uid}")
-    public Result addSeckill(@PathVariable Integer uid, @RequestBody List<OrdersSeckill> list) {
-        boolean n = ordersSeckillService.add(uid, list);
+    @PostMapping("/add/seckill/{uid}/{gsId}")
+    public Result addSeckill(@PathVariable Integer uid, @PathVariable Integer gsId) {
+        boolean n = ordersSeckillService.add(uid, gsId);
         if (n) {
             return ResultUtils.ok().message("添加成功!😀");
         }
-        return ResultUtils.error().message("添加失败😂");
+        return ResultUtils.error().message("添加失败😂,库存不足");
     }
-    @ApiOperation("查询订单")
-    @GetMapping("/page/{pageNum}/{pageSize}")
-    public PageInfo<OrdersInfo> page(@PathVariable int pageNum, @PathVariable int pageSize) {
-        return ordersGoodsService.page(pageNum, pageSize);
+//    @ApiOperation("查询订单")
+//    @GetMapping("/page/{pageNum}/{pageSize}")
+//    public PageInfo<OrdersInfo> page(@PathVariable int pageNum, @PathVariable int pageSize) {
+//        return ordersService.page(pageNum, pageSize);
+//    }
+
+    @ApiOperation("查询所有订单")
+    @GetMapping("/selectAll")
+    public List<OrdersInfo> selectAll() {
+        return ordersService.selectAll();
     }
 }
 

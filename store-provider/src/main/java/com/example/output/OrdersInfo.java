@@ -1,4 +1,4 @@
-package com.example.domain;
+package com.example.output;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ public class OrdersInfo {
     private Double price;
     private String img;
     private String store;
-    private Integer count;
+    private Integer count=1;
 
     public String getUsername() {
         return username;
@@ -78,7 +78,7 @@ public class OrdersInfo {
 
     @Override
     public String toString() {
-        return "Orders{" +
+        return "OrdersInfo{" +
                 "username='" + username + '\'' +
                 ", number='" + number + '\'' +
                 ", createDate=" + createDate +
