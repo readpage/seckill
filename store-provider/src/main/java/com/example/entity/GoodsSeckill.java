@@ -1,6 +1,8 @@
 package com.example.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.Version;
 import com.example.input.InGoodsSeckill;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -13,26 +15,23 @@ import java.util.Date;
  * 
  * </p>
  *
- * @author f1dao
- * @since 2021-04-28
+ * @author f1dao😂
+ * @since 2021-05-24
  */
-@ApiModel(value="GoodsSeckill实体类", description="")
+@ApiModel(value="GoodsSeckill对象", description="")
 public class GoodsSeckill implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "秒杀商品id")
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    private Integer gsId;
 
     @ApiModelProperty(value = "商品gid")
     private Integer gid;
 
     @ApiModelProperty(value = "秒杀价")
-    private Double price;
-
-    @ApiModelProperty(value = "库存数量")
-    private Integer stock;
+    private Float discounts;
 
     @ApiModelProperty(value = "秒杀开始时间")
     private Date startDate;
@@ -40,40 +39,27 @@ public class GoodsSeckill implements Serializable {
     @ApiModelProperty(value = "秒杀结束时间")
     private Date endDate;
 
-    @ApiModelProperty(value = "创建时间")
-    @TableField(fill = FieldFill.INSERT)
-    private Date createTime;
-
-    @ApiModelProperty(value = "更新时间")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date updateTime;
-
     @ApiModelProperty(value = "乐观锁")
     @Version
     private Integer version;
 
     public GoodsSeckill(InGoodsSeckill inGoodsSeckill) {
         this.gid = inGoodsSeckill.getGid();
-        this.price = inGoodsSeckill.getSeckillPrice();
-        this.stock = inGoodsSeckill.getStock();
+        this.discounts = inGoodsSeckill.getDiscounts();
         this.startDate = inGoodsSeckill.getStartDate();
         this.endDate = inGoodsSeckill.getEndDate();
     }
 
-    public Long getId() {
-        return id;
+    public GoodsSeckill() {
+        super();
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Integer getGsId() {
+        return gsId;
     }
 
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setGsId(Integer gsId) {
+        this.gsId = gsId;
     }
 
     public Integer getGid() {
@@ -84,12 +70,12 @@ public class GoodsSeckill implements Serializable {
         this.gid = gid;
     }
 
-    public Integer getStock() {
-        return stock;
+    public Float getDiscounts() {
+        return discounts;
     }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
+    public void setDiscounts(Float discounts) {
+        this.discounts = discounts;
     }
 
     public Date getStartDate() {
@@ -108,22 +94,6 @@ public class GoodsSeckill implements Serializable {
         this.endDate = endDate;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
     public Integer getVersion() {
         return version;
     }
@@ -135,14 +105,11 @@ public class GoodsSeckill implements Serializable {
     @Override
     public String toString() {
         return "GoodsSeckill{" +
-                "id=" + id +
+                "gsId=" + gsId +
                 ", gid=" + gid +
-                ", price=" + price +
-                ", stock=" + stock +
+                ", discounts=" + discounts +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
                 ", version=" + version +
                 '}';
     }

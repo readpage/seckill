@@ -3,6 +3,7 @@ package com.example.output;
 import java.util.Date;
 
 public class OrdersInfo {
+    private Integer id;
     private String username;
     private String number;
     private Date createDate;
@@ -10,7 +11,18 @@ public class OrdersInfo {
     private Double price;
     private String img;
     private String store;
-    private Integer count=1;
+    private Integer count;
+    private Date startDate;
+    private Date endDate;
+    private float discounts;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
@@ -76,10 +88,35 @@ public class OrdersInfo {
         this.count = count;
     }
 
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public float getDiscounts() {
+        return discounts;
+    }
+
+    public void setDiscounts(float discounts) {
+        this.discounts = discounts;
+    }
+
     @Override
     public String toString() {
         return "OrdersInfo{" +
-                "username='" + username + '\'' +
+                "id=" + id +
+                ", username='" + username + '\'' +
                 ", number='" + number + '\'' +
                 ", createDate=" + createDate +
                 ", name='" + name + '\'' +
@@ -87,6 +124,9 @@ public class OrdersInfo {
                 ", img='" + img + '\'' +
                 ", store='" + store + '\'' +
                 ", count=" + count +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", discounts=" + discounts +
                 '}';
     }
 }

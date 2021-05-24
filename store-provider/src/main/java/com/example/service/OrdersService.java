@@ -18,9 +18,8 @@ import java.util.List;
  * @since 2021-04-28
  */
 public interface OrdersService extends IService<Orders> {
-    Result myDeleteBatchId(List<Integer> lists);
 
-    Result add(Long uid, List<OrdersGoods> list);
+    boolean add(Long uid, List<OrdersGoods> list);
 
     Result deleteById(Integer id);
 

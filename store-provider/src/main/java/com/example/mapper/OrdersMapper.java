@@ -26,5 +26,4 @@ public interface OrdersMapper extends BaseMapper<Orders> {
     int insertOrdersWithGoods();
 
     int updateGoods(OrdersGoods ordersGoods);
-
 }

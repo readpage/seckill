@@ -3,13 +3,22 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.OrdersGoodsMapper">
+    <delete id="deleteOrderGoods" parameterType="Integer">
+        DELETE FROM orders_goods WHERE gid=#{gid}
+    </delete>
+    <delete id="deleteBatchOrderGoods" parameterType="List">
+        DELETE FROM orders_goods WHERE gid IN
+        <foreach collection="list" item="gid" open="(" separator="," close=")">
+            #{gid}
+        </foreach>
+    </delete>
     <insert id="insert" parameterType="OrdersGoods">
         INSERT INTO orders_goods(oid, gid, count) VALUES(#{oid}, #{gid}, #{count})
     </insert>
     <select id="selectAll" resultType="OrdersInfo">
-        SELECT u.username, o.number, o.create_date, g.name, g.price, g.img, g.store, og.count
-        FROM user u, orders o, goods g, orders_goods og
-        WHERE u.id=o.uid AND o.id=og.oid AND g.id=og.gid
+        SELECT o.id, u.username, o.number, o.create_date, g.name, g.price, g.img, g.store, og.count, gs.start_date, gs.end_date, gs.discounts
+        FROM user u, orders o, goods g, orders_goods og, goods_seckill gs
+        WHERE u.id=o.uid AND o.id=og.oid AND g.id=og.gid AND g.id=gs.gid
         GROUP BY g.id
     </select>
 </mapper>

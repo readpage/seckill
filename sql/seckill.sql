@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 24/05/2021 11:19:45
+ Date: 24/05/2021 23:45:22
 */
 
 SET NAMES utf8mb4;
@@ -31,41 +31,42 @@ CREATE TABLE `goods`  (
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品类型',
   `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
-  `verison` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
+  `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES (23, '分期免息/现货速发nubia/努比亚红魔6 Pro 5G电竞游戏手机官方旗舰店骁龙888透明s', '686947088.jpg', 4399.00, 1464, '\n壹品良机旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-16 15:52:25', 3);
-INSERT INTO `goods` VALUES (24, '【新品享12期免息】ZTE中兴Axon 30 Pro 5G旗舰手机6400万双主摄骁龙888轻薄7.86mm智能5G手机', '2765414748.jpg', 2998.00, 1273, '\nZTE中兴官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (25, '【20日10点限时开售】MIX FOLD小米折叠屏手机5g骁龙888哈曼卡顿立体声四扬声器2K+折叠屏', '2616970884.jpg', 9999.00, 500, '\n苏宁易购官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (26, '【限时直降1050 至高享1000元换新补贴】Samsung/三星GalaxyS20+ SM-G9860 国行骁龙官方旗舰5G手机', '2616970884.jpg', 6999.00, 1723, '\n苏宁易购官方旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-09 13:07:04', 3);
-INSERT INTO `goods` VALUES (27, '3期免息【送手环】HONOR/荣耀30青春版 5G手机柔滑全速屏超清智能游戏学生5g手机拍照自拍三际数码官方旗舰店', '268451883.jpg', 2399.00, 1996, '\n三际数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-16 15:51:48', 3);
-INSERT INTO `goods` VALUES (28, 'Apple/苹果手机iPhone 12 Pro Max 手机 国行全国联保', '8-0-lubanu.jpg', 9299.00, 1529, '\n天猫超市\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (29, '【抢200天猫券低至2779起】Xiaomi/小米10 5G手机1亿像素8K电影相机游戏智能手机官方旗舰店小米手机10s', '3063905773.jpg', 3099.00, 545, '\n创汇通达数码旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (30, 'vivo iQOO Neo5新5G手机iqooneo5爱酷iqoonoe5 vivoiqoonoe5 iqqo vivoneo5官方旗舰iooq店iq00neo5 ipooneo5', '1864868535.jpg', 2999.00, 730, '\nvivo航鹰专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (31, '【新品上市】OPPO Reno5 K opporeno5k手机5g新款手机上市opporeno5pro曲面屏限量版 oppo手机官方旗舰店官网', '2386434092.jpg', 2699.00, 1219, '\nOPPO普天精诚专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (32, '【可省150元】OPPO K7x oppok7x手机5g新款oppok7x限量版全网通oppo官网旗舰店官0ppok7 oppo手机官方正品', '268451883.jpg', 1399.00, 508, '\n三际数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (33, '顺丰包邮 Huawei/华为Nova 8 5g手机麒麟新品66W快充nova8直降9', '94-0-lubanu.jpg', 4149.00, 1927, '\n天猫超市\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (34, '【整点赠耳机 晒单返20】vivo iQOO U1x畅销大电池学生老人智能手机官方旗舰店官网正品vivoiqooU1x vivou1x', '883737303.png', 999.00, 1491, '\nvivo官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (35, '当天发货【下单立减50元】红米Redmi Note9 Pro手机官网手机官方旗舰店Xiaomi/小米红米note9pro系列5G新品', '2211163110445.jpg', 1599.00, 1274, '\n平天数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (36, '分期免息/现货速发nubia/努比亚红魔6 Pro 5G电竞游戏手机官方旗舰店骁龙888透明s', '686947088.jpg', 4399.00, 1243, '\n壹品良机旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (37, '直降200+现货速发+送原装配件】nubia/努比亚红魔6游戏手机165hz骁龙888腾讯红魔6pro电竞5S代官方旗舰红魔5G', '2200586761792.jpg', 5367.00, 967, '\n信通志远数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (38, '【24期免息 可减500元】Huawei/华为P40 5G手机P40Pro官方旗舰店麒麟芯片徕卡摄影智能手机P40 Pro+新品直降', '2615238525.jpg', 6968.00, 1698, '\n华为莫问专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (39, '【立省300元】蜜茶手机Apple/苹果 iPhoneXR 全网通 全新国行 iPhonexr手机 iphonexr 苹果xr iphone xr', '2124156138.jpg', 4299.00, 1651, '\n搜酷数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (40, 'vivo iQOO neo5 5g手机 iqooneo5 iqoonoe5 vivoneo5 ipooneo5 iq00neo5 爱酷neo5 neo7 pro vivo官方旗舰店', '263726286.jpg', 2699.00, 1167, '\n能良数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (41, '【立减1100元】OPPO Ace2 oppoace2新款5g手机 oppo手机官方旗舰店 游戏手机 oppoace限量版 全网通', '297810316.jpg', 3499.00, 1350, '\n骏灿数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (42, '【当天发 24期分期】Huawei/华为P40 Pro 5G手机 官方旗舰店P40 Pro+麒麟芯片 摄像官网正品直降P50', '2615238525.jpg', 5188.00, 557, '\n华为莫问专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (43, '【低至2679起/领300优惠】 一加OnePlus 8T 5G手机 正品官方旗舰店1加8t官网一加8pro赛博朋克直降新款1+8t', '1710936647.jpg', 3289.00, 836, '\n佰分购旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (44, '【咨询领券立减】OPPO K7x oppok7x手机5g全网通新品能良中国移动官旗oppo手机官方旗舰店oppo官网旗舰店官5g', '1776456424.jpg', 1499.00, 1501, '\n中国移动官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (45, '到手4469起 12期分期顺丰现货速发苹果iPhone 11 全网通4G手机官方旗舰原装正品苹果11/12Pro 2020新版简装', '1115488308.jpg', 4499.00, 1736, '\n君问数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (46, '当天速发 Huawei/华为 畅享8 Plus 全面屏正品手机 全网通4G手机 全网通4G手机', '682299517.jpg', 759.00, 1078, '\n旭翼数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (47, '【新品上市】HUAWEI/华为nova 8 Pro麒麟曲面屏华为手机5g手机智能手机华为官方旗舰店nova8pro', '2838892713.jpg', 3999.00, 1141, '\n华为官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (58, 'da', NULL, 123.00, NULL, 'ada', NULL, '2021-05-16 16:07:06', '2021-05-16 16:28:30', 2);
-INSERT INTO `goods` VALUES (59, 'a', NULL, 123.00, 120, NULL, NULL, '2021-05-22 22:35:00', NULL, 1);
-INSERT INTO `goods` VALUES (60, 'b', NULL, 234.00, 230, NULL, NULL, '2021-05-22 22:35:14', NULL, 1);
+INSERT INTO `goods` VALUES (23, '分期免息/现货速发nubia/努比亚红魔6 Pro 5G电竞游戏手机官方旗舰店骁龙888透明s', '686947088.jpg', 4399.00, 1447, '\n壹品良机旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-16 15:52:25', 3);
+INSERT INTO `goods` VALUES (24, '【新品享12期免息】ZTE中兴Axon 30 Pro 5G旗舰手机6400万双主摄骁龙888轻薄7.86mm智能5G手机', '2765414748.jpg', 2998.00, 1256, '\nZTE中兴官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (25, '【20日10点限时开售】MIX FOLD小米折叠屏手机5g骁龙888哈曼卡顿立体声四扬声器2K+折叠屏', '2616970884.jpg', 9999.00, 483, '\n苏宁易购官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (26, '【限时直降1050 至高享1000元换新补贴】Samsung/三星GalaxyS20+ SM-G9860 国行骁龙官方旗舰5G手机', '2616970884.jpg', 6999.00, 1706, '\n苏宁易购官方旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-09 13:07:04', 3);
+INSERT INTO `goods` VALUES (27, '3期免息【送手环】HONOR/荣耀30青春版 5G手机柔滑全速屏超清智能游戏学生5g手机拍照自拍三际数码官方旗舰店', '268451883.jpg', 2399.00, 1979, '\n三际数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-16 15:51:48', 3);
+INSERT INTO `goods` VALUES (28, 'Apple/苹果手机iPhone 12 Pro Max 手机 国行全国联保', '8-0-lubanu.jpg', 9299.00, 1512, '\n天猫超市\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (29, '【抢200天猫券低至2779起】Xiaomi/小米10 5G手机1亿像素8K电影相机游戏智能手机官方旗舰店小米手机10s', '3063905773.jpg', 3099.00, 528, '\n创汇通达数码旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (30, 'vivo iQOO Neo5新5G手机iqooneo5爱酷iqoonoe5 vivoiqoonoe5 iqqo vivoneo5官方旗舰iooq店iq00neo5 ipooneo5', '1864868535.jpg', 2999.00, 713, '\nvivo航鹰专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (31, '【新品上市】OPPO Reno5 K opporeno5k手机5g新款手机上市opporeno5pro曲面屏限量版 oppo手机官方旗舰店官网', '2386434092.jpg', 2699.00, 1202, '\nOPPO普天精诚专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (32, '【可省150元】OPPO K7x oppok7x手机5g新款oppok7x限量版全网通oppo官网旗舰店官0ppok7 oppo手机官方正品', '268451883.jpg', 1399.00, 491, '\n三际数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (33, '顺丰包邮 Huawei/华为Nova 8 5g手机麒麟新品66W快充nova8直降9', '94-0-lubanu.jpg', 4149.00, 1910, '\n天猫超市\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (34, '【整点赠耳机 晒单返20】vivo iQOO U1x畅销大电池学生老人智能手机官方旗舰店官网正品vivoiqooU1x vivou1x', '883737303.png', 999.00, 1474, '\nvivo官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (35, '当天发货【下单立减50元】红米Redmi Note9 Pro手机官网手机官方旗舰店Xiaomi/小米红米note9pro系列5G新品', '2211163110445.jpg', 1599.00, 1257, '\n平天数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (36, '分期免息/现货速发nubia/努比亚红魔6 Pro 5G电竞游戏手机官方旗舰店骁龙888透明s', '686947088.jpg', 4399.00, 1226, '\n壹品良机旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (37, '直降200+现货速发+送原装配件】nubia/努比亚红魔6游戏手机165hz骁龙888腾讯红魔6pro电竞5S代官方旗舰红魔5G', '2200586761792.jpg', 5367.00, 950, '\n信通志远数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (38, '【24期免息 可减500元】Huawei/华为P40 5G手机P40Pro官方旗舰店麒麟芯片徕卡摄影智能手机P40 Pro+新品直降', '2615238525.jpg', 6968.00, 1681, '\n华为莫问专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (39, '【立省300元】蜜茶手机Apple/苹果 iPhoneXR 全网通 全新国行 iPhonexr手机 iphonexr 苹果xr iphone xr', '2124156138.jpg', 4299.00, 1634, '\n搜酷数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (40, 'vivo iQOO neo5 5g手机 iqooneo5 iqoonoe5 vivoneo5 ipooneo5 iq00neo5 爱酷neo5 neo7 pro vivo官方旗舰店', '263726286.jpg', 2699.00, 1150, '\n能良数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (41, '【立减1100元】OPPO Ace2 oppoace2新款5g手机 oppo手机官方旗舰店 游戏手机 oppoace限量版 全网通', '297810316.jpg', 3499.00, 1333, '\n骏灿数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (42, '【当天发 24期分期】Huawei/华为P40 Pro 5G手机 官方旗舰店P40 Pro+麒麟芯片 摄像官网正品直降P50', '2615238525.jpg', 5188.00, 540, '\n华为莫问专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (43, '【低至2679起/领300优惠】 一加OnePlus 8T 5G手机 正品官方旗舰店1加8t官网一加8pro赛博朋克直降新款1+8t', '1710936647.jpg', 3289.00, 819, '\n佰分购旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (44, '【咨询领券立减】OPPO K7x oppok7x手机5g全网通新品能良中国移动官旗oppo手机官方旗舰店oppo官网旗舰店官5g', '1776456424.jpg', 1499.00, 1484, '\n中国移动官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (45, '到手4469起 12期分期顺丰现货速发苹果iPhone 11 全网通4G手机官方旗舰原装正品苹果11/12Pro 2020新版简装', '1115488308.jpg', 4499.00, 1719, '\n君问数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (46, '当天速发 Huawei/华为 畅享8 Plus 全面屏正品手机 全网通4G手机 全网通4G手机', '682299517.jpg', 759.00, 1061, '\n旭翼数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (47, '【新品上市】HUAWEI/华为nova 8 Pro麒麟曲面屏华为手机5g手机智能手机华为官方旗舰店nova8pro', '2838892713.jpg', 3999.00, 1124, '\n华为官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (59, 'a', NULL, 123.00, 99, NULL, NULL, '2021-05-22 22:35:00', NULL, 1);
+INSERT INTO `goods` VALUES (78, 'd', 'd', 1.00, 1, 'd', 'd', '2021-05-24 23:15:59', '2021-05-24 23:17:29', 1);
+INSERT INTO `goods` VALUES (79, 'e', 'string', 0.00, 1, 'string', 'string', '2021-05-24 23:18:00', '2021-05-24 23:18:00', 1);
+INSERT INTO `goods` VALUES (80, 'f', 'string', 0.00, 1, 'string', 'string', '2021-05-24 23:18:04', '2021-05-24 23:18:04', 1);
 
 -- ----------------------------
 -- Table structure for goods_seckill
@@ -74,24 +75,47 @@ DROP TABLE IF EXISTS `goods_seckill`;
 CREATE TABLE `goods_seckill`  (
   `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '秒杀商品id',
   `gid` int(0) NULL DEFAULT NULL COMMENT '商品gid',
-  `price` double NULL DEFAULT 0 COMMENT '秒杀价',
-  `stock` int(0) NULL DEFAULT NULL COMMENT '秒杀库存数量',
+  `discounts` float NULL DEFAULT 0 COMMENT '秒杀价',
   `start_date` datetime(0) NULL DEFAULT NULL COMMENT '秒杀开始时间',
   `end_date` datetime(0) NULL DEFAULT NULL COMMENT '秒杀结束时间',
-  `create_time` datetime(0) NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `gid`(`gid`) USING BTREE,
   CONSTRAINT `goods_seckill_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 72 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 73 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods_seckill
 -- ----------------------------
-INSERT INTO `goods_seckill` VALUES (70, 59, 200, 17, NULL, NULL, '2021-05-22 22:35:27', NULL, 1);
-INSERT INTO `goods_seckill` VALUES (71, 60, 200, 20, NULL, NULL, '2021-05-22 22:35:30', NULL, 1);
-INSERT INTO `goods_seckill` VALUES (72, 47, 200, 0, '2021-05-23 21:17:00', '2021-05-23 22:10:00', '2021-05-23 22:05:16', '2021-05-23 22:05:16', 1);
+INSERT INTO `goods_seckill` VALUES (70, 23, 0.8, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (71, 24, 0.8, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (72, 25, 0.7, '2021-05-23 21:17:00', '2021-05-23 22:10:00', 1);
+INSERT INTO `goods_seckill` VALUES (73, 26, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (74, 27, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (75, 28, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (76, 29, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (77, 30, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (78, 31, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (79, 32, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (80, 33, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (81, 34, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (82, 35, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (83, 36, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (84, 37, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (85, 38, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (86, 39, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (87, 40, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (88, 41, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (89, 42, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (90, 43, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (91, 44, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (92, 45, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (93, 46, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (94, 47, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (96, 59, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (116, 78, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (117, 79, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (118, 80, 0, NULL, NULL, 1);
 
 -- ----------------------------
 -- Table structure for menu
@@ -158,24 +182,7 @@ CREATE TABLE `orders`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `uid`(`uid`) USING BTREE,
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 52 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of orders
--- ----------------------------
-INSERT INTO `orders` VALUES (43, '16529dee70034ba29e365d0397c83102', 2, '2021-05-22 15:10:18', 0, NULL, 1);
-INSERT INTO `orders` VALUES (44, '0b2b820669754efa9b7d20e294a4ed04', 3, '2021-05-22 15:10:42', 0, NULL, 1);
-INSERT INTO `orders` VALUES (45, '2eef7779370141099241ae2fccb36295', 2, '2021-05-22 15:11:13', 0, NULL, 1);
-INSERT INTO `orders` VALUES (46, '741260618ab3493d8cb813badcc90740', 1, '2021-05-22 17:22:18', 0, NULL, 1);
-INSERT INTO `orders` VALUES (50, 'df4104ee45e24cf39b90047953b99276', 1, '2021-05-23 14:44:44', 0, NULL, 1);
-INSERT INTO `orders` VALUES (51, '60502a1ac98c4c15acd701abf6aff2e8', 1, '2021-05-23 14:46:13', 0, NULL, 1);
-INSERT INTO `orders` VALUES (52, '79f2410f5c4d42718c57ba0fba2ea4c8', 3, '2021-05-24 08:54:58', 0, NULL, 1);
-INSERT INTO `orders` VALUES (53, '8ab05f17013b4530bb9b2827b5270cc3', 3, '2021-05-24 08:55:52', 0, NULL, 1);
-INSERT INTO `orders` VALUES (54, '175f50e54bf54074b09c0daf53db40bf', 3, '2021-05-24 08:56:05', 0, NULL, 1);
-INSERT INTO `orders` VALUES (56, 'd7e84fa4f97446ef97ae079c44115cc6', 3, '2021-05-24 08:58:43', 0, NULL, 1);
-INSERT INTO `orders` VALUES (57, '503848e487954757893a5e6605b816e5', 3, '2021-05-24 09:05:14', 0, NULL, 1);
-INSERT INTO `orders` VALUES (58, '411e73cc812d4bda8dfbabb5f31c54e7', 3, '2021-05-24 09:05:29', 0, NULL, 1);
-INSERT INTO `orders` VALUES (61, '4393e965171a4d91bb573c67a2bdf76f', 3, '2021-05-24 11:18:43', 0, NULL, 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for orders_goods
@@ -192,43 +199,6 @@ CREATE TABLE `orders_goods`  (
   CONSTRAINT `orders_goods_ibfk_1` FOREIGN KEY (`oid`) REFERENCES `orders` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `orders_goods_ibfk_2` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of orders_goods
--- ----------------------------
-INSERT INTO `orders_goods` VALUES (43, 43, 29, 1);
-INSERT INTO `orders_goods` VALUES (44, 43, 30, 3);
-INSERT INTO `orders_goods` VALUES (45, 44, 31, 1);
-INSERT INTO `orders_goods` VALUES (46, 44, 32, 1);
-INSERT INTO `orders_goods` VALUES (47, 45, 40, 1);
-INSERT INTO `orders_goods` VALUES (48, 45, 34, 1);
-INSERT INTO `orders_goods` VALUES (49, 45, 23, 1);
-INSERT INTO `orders_goods` VALUES (50, 46, 38, 4);
-
--- ----------------------------
--- Table structure for orders_seckill
--- ----------------------------
-DROP TABLE IF EXISTS `orders_seckill`;
-CREATE TABLE `orders_seckill`  (
-  `id` int(0) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `gsId` int(0) NULL DEFAULT NULL COMMENT '抢购id',
-  `oid` bigint(0) NULL DEFAULT NULL COMMENT '订单id',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `gsId`(`gsId`) USING BTREE,
-  INDEX `oid`(`oid`) USING BTREE,
-  CONSTRAINT `orders_seckill_ibfk_1` FOREIGN KEY (`gsId`) REFERENCES `goods_seckill` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `orders_seckill_ibfk_2` FOREIGN KEY (`oid`) REFERENCES `orders` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of orders_seckill
--- ----------------------------
-INSERT INTO `orders_seckill` VALUES (6, 70, NULL);
-INSERT INTO `orders_seckill` VALUES (7, 71, NULL);
-INSERT INTO `orders_seckill` VALUES (11, 70, 51);
-INSERT INTO `orders_seckill` VALUES (12, 72, 57);
-INSERT INTO `orders_seckill` VALUES (13, 72, 58);
-INSERT INTO `orders_seckill` VALUES (14, 70, 61);
 
 -- ----------------------------
 -- Table structure for role
@@ -296,7 +266,7 @@ CREATE TABLE `user_role`  (
   INDEX `uid`(`uid`) USING BTREE,
   CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`rid`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_role

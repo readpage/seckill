@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.entity.Goods;
+import com.example.entity.OrdersGoods;
 
 import java.util.List;
 
@@ -14,9 +15,8 @@ import java.util.List;
  * @since 2021-04-28
  */
 public interface GoodsMapper extends BaseMapper<Goods> {
-    Integer deleteOrderGoods(Integer gid);
 
-    Integer deleteBatchOrderGoods(List<Integer> list);
+    int updateStockByOrdersGoods(OrdersGoods ordersGoods);
 
-    int updateStock(Integer count);
+    List<Goods> selectAll();
 }

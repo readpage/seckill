@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.GoodsMapper">
-    <delete id="deleteOrderGoods" parameterType="Integer">
-        DELETE FROM orders_goods WHERE gid=#{gid}
-    </delete>
-    <delete id="deleteBatchOrderGoods" parameterType="List">
-        DELETE FROM orders_goods WHERE gid IN
-        <foreach collection="list" item="gid" open="(" separator="," close=")">
-            #{gid}
-        </foreach>
-    </delete>
-    <update id="updateStock" parameterType="Integer">
-        UPDATE goods SET stock=stock-#{count} WHERE stock-#{count}>=0
+    <update id="updateStockByOrdersGoods" parameterType="ordersGoods">
+        UPDATE goods SET stock=stock-#{count} WHERE stock-#{count}>=0 AND id=#{gid}
     </update>
+    <resultMap id="GoodsResult" type="Goods">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="img" column="img"/>
+        <result property="price" column="price"/>
+        <result property="stock" column="stock"/>
+        <result property="store" column="store"/>
+        <result property="type" column="type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="version" column="version"/>
+        <association property="goodsSeckill" javaType="GoodsSeckill">
+            <id property="gsId" column="gsId"/>
+            <result property="gid" column="gid"/>
+            <result property="discounts" column="discounts"/>
+            <result property="startDate" column="start_date"/>
+            <result property="endDate" column="end_date"/>
+            <result property="version" column="version"/>
+        </association>
+    </resultMap>
+    <select id="selectAll" resultMap="GoodsResult">
+        SELECT * , gs.id gsId FROM goods g, goods_seckill gs
+        WHERE g.id=gs.gid
+    </select>
 </mapper>

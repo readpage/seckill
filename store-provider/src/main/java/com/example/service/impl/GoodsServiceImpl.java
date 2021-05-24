@@ -1,21 +1,23 @@
 package com.example.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.Goods;
+import com.example.entity.GoodsSeckill;
+import com.example.entity.OrdersGoods;
 import com.example.mapper.GoodsMapper;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
 import com.example.service.GoodsSeckillService;
 import com.example.service.GoodsService;
+import com.example.service.OrdersGoodsService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -31,26 +33,31 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     private GoodsMapper goodsMapper;
     @Autowired
     private GoodsSeckillService goodsSeckillService;
+    @Autowired
+    private OrdersGoodsService ordersGoodsService;
 
     @Override
-    public Map<String, Object> myPage(Integer pageNum, Integer pageSize) {
-        Page<Goods> page = new Page<>(pageNum, pageSize);
-        QueryWrapper<Goods> wrapper = new QueryWrapper<>();
-        wrapper.select("*");
-        goodsMapper.selectPage(page, wrapper);
-        HashMap<String, Object> resultMap = new HashMap<>();
-        resultMap.put("list", page.getRecords());
-        resultMap.put("total", page.getTotal());
-        return resultMap;
+    public PageInfo<Goods> page(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return new PageInfo<>(goodsMapper.selectAll());
     }
 
     @Override
-    public Result mySave(Goods goods) {
-        int n = goodsMapper.insert(goods);
-        if (n==1) {
-            return ResultUtils.ok().message("添加成功😀!");
+    public List<Goods> selectAll() {
+        return goodsMapper.selectAll();
+    }
+
+
+    @Override
+    public Boolean add(Goods goods) {
+        goodsMapper.insert(goods);
+        GoodsSeckill goodsSeckill = new GoodsSeckill();
+        goodsSeckill.setGid(goods.getId());
+        if (goodsSeckillService.save(goodsSeckill)) {
+            return true;
         }
-        return ResultUtils.error().message("添加失败!😭");
+        goodsMapper.deleteById(goods.getId());
+        return false;
     }
 
     @Override
@@ -71,29 +78,25 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     }
 
     @Override
-    public Result myDeleteById(Integer id) {
-        goodsSeckillService.deleteByGid(id);
-        goodsMapper.deleteOrderGoods(id);
-        int n = goodsMapper.deleteById(id);
-        if (n==1) {
-            return ResultUtils.ok().message("删除成功😀!");
+    public Boolean deleteById(Integer id) {
+        if (goodsSeckillService.deleteByGid(id)) {
+            ordersGoodsService.deleteOrderGoods(id);
+            return goodsMapper.deleteById(id)>0;
         }
-        return ResultUtils.error().message("删除失败!😭");
+        return false;
     }
 
     @Override
-    public Result myDeleteBatchId(List<Integer> lists) {
-        goodsSeckillService.deleteBatchByGid(lists);
-        goodsMapper.deleteBatchOrderGoods(lists);
-        int n = goodsMapper.deleteBatchIds(lists);
-        if (n >= 1) {
-            return ResultUtils.ok().message("删除成功😀!");
+    public Boolean deleteBatchId(List<Integer> list) {
+        if (goodsSeckillService.deleteBatchByGid(list)) {
+            ordersGoodsService.deleteBatchOrderGoods(list);
+            return goodsMapper.deleteBatchIds(list)>0;
         }
-        return ResultUtils.error().message("删除失败!😭");
+        return false;
     }
 
     @Override
-    public boolean updateStock(Integer count) {
-        return goodsMapper.updateStock(count)>0;
+    public boolean updateStockByOrdersGoods(OrdersGoods ordersGoods) {
+        return goodsMapper.updateStockByOrdersGoods(ordersGoods)>0;
     }
 }

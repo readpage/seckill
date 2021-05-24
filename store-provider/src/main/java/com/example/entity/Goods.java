@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.example.input.InGoods;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -52,7 +53,23 @@ public class Goods implements Serializable {
 
     @ApiModelProperty(value = "乐观锁")
     @Version
-    private Integer verison;
+    private Integer version;
+
+    private GoodsSeckill goodsSeckill;
+
+    public Goods(InGoods inGoods) {
+        this.name = inGoods.getName();
+        this.img = inGoods.getImg();
+        this.price = inGoods.getPrice();
+        this.stock = inGoods.getStock();
+        this.store = inGoods.getStore();
+        this.type = inGoods.getType();
+    }
+
+
+    public Goods() {
+        super();
+    }
 
     public Integer getId() {
         return id;
@@ -126,12 +143,20 @@ public class Goods implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Integer getVerison() {
-        return verison;
+    public Integer getVersion() {
+        return version;
     }
 
-    public void setVerison(Integer verison) {
-        this.verison = verison;
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    public GoodsSeckill getGoodsSeckill() {
+        return goodsSeckill;
+    }
+
+    public void setGoodsSeckill(GoodsSeckill goodsSeckill) {
+        this.goodsSeckill = goodsSeckill;
     }
 
     @Override
@@ -146,7 +171,8 @@ public class Goods implements Serializable {
                 ", type='" + type + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
-                ", verison=" + verison +
+                ", version=" + version +
+                ", goodsSeckill=" + goodsSeckill +
                 '}';
     }
 }

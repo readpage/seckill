@@ -1,9 +1,20 @@
 package com.example.entity;
 
+import com.example.input.InOrdersGoods;
+
 public class OrdersGoods {
     private int count;
     private int gid;
     private int oid;
+
+    public OrdersGoods(InOrdersGoods inOrdersGoods) {
+        this.gid = inOrdersGoods.getGid();
+        this.count = inOrdersGoods.getCount();
+    }
+
+    public OrdersGoods() {
+        super();
+    }
 
     public int getOid() {
         return oid;

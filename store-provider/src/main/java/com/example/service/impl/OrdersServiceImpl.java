@@ -9,9 +9,10 @@ import com.example.mapper.OrdersMapper;
 import com.example.output.OrdersInfo;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
+import com.example.service.GoodsService;
 import com.example.service.OrdersGoodsService;
-import com.example.service.OrdersSeckillService;
 import com.example.service.OrdersService;
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,43 +38,33 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     private OrdersGoodsMapper ordersGoodsMapper;
 
     @Autowired
-    private OrdersSeckillService ordersSeckillService;
-
-    @Autowired
     private OrdersGoodsService ordersGoodsService;
 
-    @Override
-    public Result myDeleteBatchId(List<Integer> lists) {
-        return null;
-    }
+    @Autowired
+    private GoodsService goodsService;
+
 
     @Override
-    public Result add(Long uid, List<OrdersGoods> products) {
-        int r =0;
+    public boolean add(Long uid, List<OrdersGoods> products) {
         Orders orders = new Orders();
         orders.setUid(uid);
-        ordersMapper.insert(orders);
+        this.save(orders);
         for (int i = 0; i < products.size(); i++) {
             products.get(i).setOid(orders.getId());
         }
         for (int i = 0; i < products.size(); i++) {
-            if (ordersMapper.updateGoods(products.get(i))>0) {
-                r=ordersGoodsMapper.insert(products.get(i));
+            if (goodsService.updateStockByOrdersGoods(products.get(i))) {
+                return ordersGoodsService.save(products.get(i));
             } else {
-                ordersMapper.deleteById(orders.getId());
-                return ResultUtils.error().message("购买失败!😭库存不足");
+                this.deleteById(orders.getId());
+                return false;
             }
         }
-
-        if (r >= 1) {
-            return ResultUtils.ok().message("购买成功😀!");
-        }
-        return ResultUtils.error().message("购买失败!😭");
+        return false;
     }
 
     @Override
     public Result deleteById(Integer id) {
-        ordersSeckillService.deleteByOid(id);
         ordersMapper.deleteOrdersGoods(id);
         int n = ordersMapper.deleteById(id);
         if (n >= 1) {
@@ -84,7 +75,6 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
     @Override
     public Result deleteBatchId(List<Integer> list) {
-        ordersSeckillService.deleteBatchByOid(list);
         ordersMapper.deleteBatchOrdersGoods(list);
         int n = ordersMapper.deleteBatchIds(list);
         if (n >= 1) {
@@ -119,17 +109,13 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
 
     @Override
     public List<OrdersInfo> selectAll() {
-        List<OrdersInfo> list = ordersGoodsService.selectAll();
-        List<OrdersInfo> list1 = ordersSeckillService.selectAll();
-        List<OrdersInfo> list2 = new ArrayList<>();
-        list2.addAll(list);
-        list2.addAll(list1);
-        return list2;
+        return ordersGoodsService.selectAll();
     }
 
     @Override
     public PageInfo<OrdersInfo> page(int pageNum, int pageSize) {
-        return new PageInfo<>();
+        PageHelper.startPage(pageNum, pageSize);
+        return new PageInfo<>(ordersGoodsService.selectAll());
     }
 
 }

@@ -2,10 +2,11 @@ package com.example.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.Goods;
+import com.example.entity.OrdersGoods;
 import com.example.response.Result;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -16,18 +17,20 @@ import java.util.Map;
  * @since 2021-04-28
  */
 public interface GoodsService extends IService<Goods> {
-    Map<String, Object> myPage(Integer pageNum, Integer pageSize);
+    PageInfo<Goods> page(int pageNum, int pageSize);
 
-    Result mySave(Goods goods);
+    List<Goods> selectAll();
+
+    Boolean add(Goods goods);
 
     Result myUpdateById(Goods goods);
 
-    Result myDeleteById(Integer id);
+    Boolean deleteById(Integer id);
 
     List<Goods> like(String name);
 
-    Result myDeleteBatchId(List<Integer> lists);
+    Boolean deleteBatchId(List<Integer> lists);
 
-    boolean updateStock(Integer count);
+    boolean updateStockByOrdersGoods(OrdersGoods ordersGoods);
 
 }
