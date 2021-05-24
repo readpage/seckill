@@ -45,7 +45,7 @@ public class OrdersController {
 
     @ApiOperation("添加订单 ")
     @PostMapping("/add/{uid}")
-    public Result add(@PathVariable Integer uid, @RequestBody List<InOrdersGoods> list) {
+    public Result add(@PathVariable Integer uid, @RequestBody List<InOrdersGoods> list) throws Exception {
         ArrayList<OrdersGoods> list1 = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             InOrdersGoods inOrdersGoods = list.get(i);
@@ -58,12 +58,12 @@ public class OrdersController {
         if (b) {
             return ResultUtils.ok().message("添加成功!😀");
         }
-        return ResultUtils.error().message("添加失败😂,库存不足");
+        return ResultUtils.error().message("添加失败😂,");
     }
 
     @ApiOperation("添加抢购订单")
     @PostMapping("/add/seckill/{uid}/{gid}")
-    public Result addSeckill(@PathVariable Integer uid, @PathVariable Integer gid) {
+    public Result addSeckill(@PathVariable Integer uid, @PathVariable Integer gid) throws Exception {
         OrdersGoods ordersGoods = new OrdersGoods();
         ordersGoods.setGid(gid);
         ordersGoods.setCount(1);

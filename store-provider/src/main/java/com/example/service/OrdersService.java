@@ -19,7 +19,7 @@ import java.util.List;
  */
 public interface OrdersService extends IService<Orders> {
 
-    boolean add(Long uid, List<OrdersGoods> list);
+    boolean add(Long uid, List<OrdersGoods> list) throws Exception;
 
     Result deleteById(Integer id);
 

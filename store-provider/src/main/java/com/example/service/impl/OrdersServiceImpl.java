@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.Orders;
 import com.example.entity.OrdersGoods;
-import com.example.mapper.OrdersGoodsMapper;
 import com.example.mapper.OrdersMapper;
 import com.example.output.OrdersInfo;
 import com.example.response.Result;
@@ -16,6 +15,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -34,9 +34,6 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     @Resource
     private OrdersMapper ordersMapper;
 
-    @Resource
-    private OrdersGoodsMapper ordersGoodsMapper;
-
     @Autowired
     private OrdersGoodsService ordersGoodsService;
 
@@ -44,8 +41,9 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     private GoodsService goodsService;
 
 
+    @Transactional(rollbackFor = Exception.class)//设置检查时异常时回滚事务
     @Override
-    public boolean add(Long uid, List<OrdersGoods> products) {
+    public boolean add(Long uid, List<OrdersGoods> products) throws Exception {
         Orders orders = new Orders();
         orders.setUid(uid);
         this.save(orders);
@@ -54,13 +52,14 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         }
         for (int i = 0; i < products.size(); i++) {
             if (goodsService.updateStockByOrdersGoods(products.get(i))) {
-                return ordersGoodsService.save(products.get(i));
+                if (!ordersGoodsService.save(products.get(i))) {
+                    throw new Exception("添加失败!");
+                }
             } else {
-                this.deleteById(orders.getId());
-                return false;
+                throw new Exception("添加失败库存不足!😂");
             }
         }
-        return false;
+        return true;
     }
 
     @Override
