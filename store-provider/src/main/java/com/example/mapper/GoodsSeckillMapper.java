@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.entity.GoodsSeckill;
+import com.example.output.GoodsSeckillInfo;
 
 import java.util.List;
 
@@ -24,4 +25,5 @@ public interface GoodsSeckillMapper extends BaseMapper<GoodsSeckill> {
 
     int updateStockByOrdersSeckill(Integer gsId);
 
+    List<GoodsSeckillInfo> selectAll();
 }

@@ -22,4 +22,9 @@
     <update id="updateStockByOrdersSeckill" parameterType="Integer">
         UPDATE goods_seckill SET stock=stock-1 WHERE id=#{gsId} AND stock-1>=0
     </update>
+    <select id="selectAll" resultType="GoodsSeckillInfo">
+        SELECT g.name, g.img, g.store, g.type, gs.id, gs.price, gs.stock, gs.create_time, gs.end_date
+        FROM goods g, goods_seckill gs
+        WHERE g.id=gs.gid
+    </select>
 </mapper>

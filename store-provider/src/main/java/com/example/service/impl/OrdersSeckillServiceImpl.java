@@ -59,7 +59,6 @@ public class OrdersSeckillServiceImpl extends ServiceImpl<OrdersSeckillMapper, O
         OrdersSeckill ordersSeckill = new OrdersSeckill();
         ordersSeckill.setGsId(gsId);
         ordersSeckill.setOid(Long.valueOf(orders.getId()));
-        System.out.println(ordersSeckill.getGsId());
         boolean b = goodsSeckillService.updateStockById(ordersSeckill.getGsId());
         if (b) {
             return this.save(ordersSeckill);

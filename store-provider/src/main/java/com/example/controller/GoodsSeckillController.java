@@ -3,6 +3,7 @@ package com.example.controller;
 
 import com.example.entity.GoodsSeckill;
 import com.example.input.InGoodsSeckill;
+import com.example.output.GoodsSeckillInfo;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
 import com.example.service.GoodsSeckillService;
@@ -11,6 +12,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -33,6 +36,11 @@ public class GoodsSeckillController {
         return goodsSeckillService.page(pageNum, pageSize);
     }
 
+    @ApiOperation("查询所有抢购商品")
+    @GetMapping("/selectAll")
+    public List<GoodsSeckillInfo> selectAll() {
+        return goodsSeckillService.selectAll();
+    }
     @ApiOperation("添加抢购商品")
     @PostMapping("/add")
     public Result add(@RequestBody InGoodsSeckill inGoodsSeckill) {
@@ -42,5 +50,6 @@ public class GoodsSeckillController {
             return ResultUtils.error().message("添加失败!");
         }
     }
+
 }
 

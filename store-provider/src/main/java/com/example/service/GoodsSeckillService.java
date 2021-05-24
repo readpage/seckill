@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.GoodsSeckill;
+import com.example.output.GoodsSeckillInfo;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
@@ -28,4 +29,6 @@ public interface GoodsSeckillService extends IService<GoodsSeckill> {
     PageInfo<GoodsSeckill> page(int pageNum, int pageSize);
 
     boolean add(GoodsSeckill goodsSeckill);
+
+    List<GoodsSeckillInfo> selectAll();
 }

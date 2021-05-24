@@ -3,6 +3,7 @@ package com.example.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.GoodsSeckill;
 import com.example.mapper.GoodsSeckillMapper;
+import com.example.output.GoodsSeckillInfo;
 import com.example.service.GoodsSeckillService;
 import com.example.service.GoodsService;
 import com.example.service.OrdersSeckillService;
@@ -73,5 +74,10 @@ public class GoodsSeckillServiceImpl extends ServiceImpl<GoodsSeckillMapper, Goo
             return this.save(goodsSeckill);
         }
         return false;
+    }
+
+    @Override
+    public List<GoodsSeckillInfo> selectAll() {
+        return goodsSeckillMapper.selectAll();
     }
 }

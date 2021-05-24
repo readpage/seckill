@@ -29,7 +29,7 @@ public class GoodsSeckill implements Serializable {
     private Integer gid;
 
     @ApiModelProperty(value = "秒杀价")
-    private Double seckillPrice;
+    private Double price;
 
     @ApiModelProperty(value = "库存数量")
     private Integer stock;
@@ -54,7 +54,7 @@ public class GoodsSeckill implements Serializable {
 
     public GoodsSeckill(InGoodsSeckill inGoodsSeckill) {
         this.gid = inGoodsSeckill.getGid();
-        this.seckillPrice = inGoodsSeckill.getSeckillPrice();
+        this.price = inGoodsSeckill.getSeckillPrice();
         this.stock = inGoodsSeckill.getStock();
         this.startDate = inGoodsSeckill.getStartDate();
         this.endDate = inGoodsSeckill.getEndDate();
@@ -68,12 +68,12 @@ public class GoodsSeckill implements Serializable {
         this.id = id;
     }
 
-    public Double getSeckillPrice() {
-        return seckillPrice;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setSeckillPrice(Double seckillPrice) {
-        this.seckillPrice = seckillPrice;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public Integer getGid() {
@@ -137,8 +137,8 @@ public class GoodsSeckill implements Serializable {
         return "GoodsSeckill{" +
                 "id=" + id +
                 ", gid=" + gid +
-                ", seckillPrice=" + seckillPrice +
-                ", stockCount=" + stock +
+                ", price=" + price +
+                ", stock=" + stock +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", createTime=" + createTime +
