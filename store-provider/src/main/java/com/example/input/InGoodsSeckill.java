@@ -8,9 +8,6 @@ public class InGoodsSeckill {
     @ApiModelProperty(value = "商品gid")
     private Integer gid;
 
-    @ApiModelProperty(value = "秒杀价")
-    private Float discounts;
-
     @ApiModelProperty(value = "秒杀开始时间")
     private Date startDate;
 
@@ -23,14 +20,6 @@ public class InGoodsSeckill {
 
     public void setGid(Integer gid) {
         this.gid = gid;
-    }
-
-    public Float getDiscounts() {
-        return discounts;
-    }
-
-    public void setDiscounts(Float discounts) {
-        this.discounts = discounts;
     }
 
     public Date getStartDate() {
@@ -53,7 +42,6 @@ public class InGoodsSeckill {
     public String toString() {
         return "InGoodsSeckill{" +
                 "gid=" + gid +
-                ", discounts=" + discounts +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 '}';

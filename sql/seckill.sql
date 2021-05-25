@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 24/05/2021 23:45:22
+ Date: 25/05/2021 10:59:35
 */
 
 SET NAMES utf8mb4;
@@ -66,7 +66,7 @@ INSERT INTO `goods` VALUES (47, '【新品上市】HUAWEI/华为nova 8 Pro麒麟
 INSERT INTO `goods` VALUES (59, 'a', NULL, 123.00, 99, NULL, NULL, '2021-05-22 22:35:00', NULL, 1);
 INSERT INTO `goods` VALUES (78, 'd', 'd', 1.00, 1, 'd', 'd', '2021-05-24 23:15:59', '2021-05-24 23:17:29', 1);
 INSERT INTO `goods` VALUES (79, 'e', 'string', 0.00, 1, 'string', 'string', '2021-05-24 23:18:00', '2021-05-24 23:18:00', 1);
-INSERT INTO `goods` VALUES (80, 'f', 'string', 0.00, 1, 'string', 'string', '2021-05-24 23:18:04', '2021-05-24 23:18:04', 1);
+INSERT INTO `goods` VALUES (80, 'f', 'string', 0.00, 0, 'string', 'string', '2021-05-24 23:18:04', '2021-05-24 23:18:04', 1);
 
 -- ----------------------------
 -- Table structure for goods_seckill
@@ -75,7 +75,6 @@ DROP TABLE IF EXISTS `goods_seckill`;
 CREATE TABLE `goods_seckill`  (
   `id` int(0) NOT NULL AUTO_INCREMENT COMMENT '秒杀商品id',
   `gid` int(0) NULL DEFAULT NULL COMMENT '商品gid',
-  `discounts` float NULL DEFAULT 0 COMMENT '秒杀价',
   `start_date` datetime(0) NULL DEFAULT NULL COMMENT '秒杀开始时间',
   `end_date` datetime(0) NULL DEFAULT NULL COMMENT '秒杀结束时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
@@ -87,35 +86,35 @@ CREATE TABLE `goods_seckill`  (
 -- ----------------------------
 -- Records of goods_seckill
 -- ----------------------------
-INSERT INTO `goods_seckill` VALUES (70, 23, 0.8, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (71, 24, 0.8, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (72, 25, 0.7, '2021-05-23 21:17:00', '2021-05-23 22:10:00', 1);
-INSERT INTO `goods_seckill` VALUES (73, 26, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (74, 27, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (75, 28, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (76, 29, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (77, 30, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (78, 31, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (79, 32, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (80, 33, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (81, 34, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (82, 35, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (83, 36, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (84, 37, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (85, 38, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (86, 39, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (87, 40, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (88, 41, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (89, 42, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (90, 43, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (91, 44, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (92, 45, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (93, 46, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (94, 47, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (96, 59, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (116, 78, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (117, 79, 0, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (118, 80, 0, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (70, 23, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (71, 24, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (72, 25, '2021-05-23 21:17:00', '2021-05-23 22:10:00', 1);
+INSERT INTO `goods_seckill` VALUES (73, 26, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (74, 27, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (75, 28, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (76, 29, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (77, 30, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (78, 31, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (79, 32, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (80, 33, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (81, 34, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (82, 35, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (83, 36, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (84, 37, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (85, 38, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (86, 39, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (87, 40, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (88, 41, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (89, 42, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (90, 43, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (91, 44, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (92, 45, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (93, 46, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (94, 47, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (96, 59, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (116, 78, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (117, 79, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (118, 80, NULL, NULL, 1);
 
 -- ----------------------------
 -- Table structure for menu
@@ -179,10 +178,17 @@ CREATE TABLE `orders`  (
   `status` int(0) NULL DEFAULT 0 COMMENT '订单状态',
   `update_date` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
+  `discounts` float NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `uid`(`uid`) USING BTREE,
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of orders
+-- ----------------------------
+INSERT INTO `orders` VALUES (90, 'dcfe03dd16df489fb47d1cb296b9fd00', 3, '2021-05-25 00:27:16', 0, NULL, 1, NULL);
+INSERT INTO `orders` VALUES (93, '65a1ff5c33ff4d7692a5ba17fe577202', 1, '2021-05-25 00:33:27', 0, NULL, 1, NULL);
 
 -- ----------------------------
 -- Table structure for orders_goods
@@ -199,6 +205,13 @@ CREATE TABLE `orders_goods`  (
   CONSTRAINT `orders_goods_ibfk_1` FOREIGN KEY (`oid`) REFERENCES `orders` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `orders_goods_ibfk_2` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of orders_goods
+-- ----------------------------
+INSERT INTO `orders_goods` VALUES (72, 90, 80, 1);
+INSERT INTO `orders_goods` VALUES (74, 93, 79, 1);
+INSERT INTO `orders_goods` VALUES (75, 93, 80, 1);
 
 -- ----------------------------
 -- Table structure for role

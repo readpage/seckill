@@ -30,9 +30,6 @@ public class GoodsSeckill implements Serializable {
     @ApiModelProperty(value = "商品gid")
     private Integer gid;
 
-    @ApiModelProperty(value = "秒杀价")
-    private Float discounts;
-
     @ApiModelProperty(value = "秒杀开始时间")
     private Date startDate;
 
@@ -45,7 +42,6 @@ public class GoodsSeckill implements Serializable {
 
     public GoodsSeckill(InGoodsSeckill inGoodsSeckill) {
         this.gid = inGoodsSeckill.getGid();
-        this.discounts = inGoodsSeckill.getDiscounts();
         this.startDate = inGoodsSeckill.getStartDate();
         this.endDate = inGoodsSeckill.getEndDate();
     }
@@ -68,14 +64,6 @@ public class GoodsSeckill implements Serializable {
 
     public void setGid(Integer gid) {
         this.gid = gid;
-    }
-
-    public Float getDiscounts() {
-        return discounts;
-    }
-
-    public void setDiscounts(Float discounts) {
-        this.discounts = discounts;
     }
 
     public Date getStartDate() {
@@ -107,7 +95,6 @@ public class GoodsSeckill implements Serializable {
         return "GoodsSeckill{" +
                 "gsId=" + gsId +
                 ", gid=" + gid +
-                ", discounts=" + discounts +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", version=" + version +

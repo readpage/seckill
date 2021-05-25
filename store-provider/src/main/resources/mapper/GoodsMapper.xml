@@ -18,7 +18,6 @@
         <association property="goodsSeckill" javaType="GoodsSeckill">
             <id property="gsId" column="gsId"/>
             <result property="gid" column="gid"/>
-            <result property="discounts" column="discounts"/>
             <result property="startDate" column="start_date"/>
             <result property="endDate" column="end_date"/>
             <result property="version" column="version"/>
