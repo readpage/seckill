@@ -14,4 +14,6 @@ public interface OrdersGoodsService {
     Boolean deleteOrderGoods(Integer gid);
 
     Boolean deleteBatchOrderGoods(List<Integer> list);
+
+    int selectCountByGid(Integer gid);
 }

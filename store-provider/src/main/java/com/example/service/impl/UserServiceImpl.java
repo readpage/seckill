@@ -9,6 +9,8 @@ import com.example.response.Result;
 import com.example.response.ResultUtils;
 import com.example.service.OrdersService;
 import com.example.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -42,16 +44,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 //        PageHelper.startPage(pageNum, pageSize);
 //        return new PageInfo<>(userMapper.findUserWithOrders());
 //    }
-    public Map<String, Object> myPage(Integer pageNum, Integer pageSize) {
-        Map<String, Object> resultMap = new HashMap<>();
-        Page<User> page = new Page<>(pageNum, pageSize);
-        QueryWrapper<User> wrapper = new QueryWrapper();
-        wrapper.select("*");
-        userMapper.selectPage(page, wrapper);
-        resultMap.put("list", page.getRecords());
-        resultMap.put("total", page.getTotal());
-        return resultMap;
-    }
 
     @Override
     public Result mySave(User user) {
@@ -114,5 +106,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         wrapper.select("*");
         User user = userMapper.selectOne(wrapper);
         return user;
+    }
+
+    @Override
+    public PageInfo<User> page(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return new PageInfo<>(userMapper.selectAll());
     }
 }

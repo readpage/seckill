@@ -36,6 +36,9 @@ public class GoodsSeckill implements Serializable {
     @ApiModelProperty(value = "秒杀结束时间")
     private Date endDate;
 
+    @ApiModelProperty(value = "是否开启秒杀")
+    private int status;
+
     @ApiModelProperty(value = "乐观锁")
     @Version
     private Integer version;
@@ -90,6 +93,14 @@ public class GoodsSeckill implements Serializable {
         this.version = version;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "GoodsSeckill{" +
@@ -97,6 +108,7 @@ public class GoodsSeckill implements Serializable {
                 ", gid=" + gid +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+                ", status=" + status +
                 ", version=" + version +
                 '}';
     }

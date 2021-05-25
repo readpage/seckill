@@ -25,4 +25,5 @@ public interface UserMapper extends BaseMapper<User> {
 
     List<User> selectById(Integer id);
 
+    List<User> selectAll();
 }

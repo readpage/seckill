@@ -37,4 +37,7 @@
             <id property="number" column="number"/>
         </collection>
     </resultMap>
+    <select id="selectAll" resultType="User">
+        SELECT * FROM user
+    </select>
 </mapper>

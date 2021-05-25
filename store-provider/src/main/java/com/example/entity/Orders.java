@@ -47,6 +47,9 @@ public class Orders implements Serializable {
     @Version
     private Integer version;
 
+    @ApiModelProperty(value = "折扣")
+    private Float discounts;
+
     @ApiModelProperty("订单")
     private List<Goods> goods;
 
@@ -115,6 +118,14 @@ public class Orders implements Serializable {
         this.goods = goods;
     }
 
+    public Float getDiscounts() {
+        return discounts;
+    }
+
+    public void setDiscounts(Float discounts) {
+        this.discounts = discounts;
+    }
+
     @Override
     public String toString() {
         return "Orders{" +
@@ -122,10 +133,12 @@ public class Orders implements Serializable {
                 ", number='" + number + '\'' +
                 ", uid=" + uid +
                 ", createDate=" + createDate +
-                ", status='" + status + '\'' +
+                ", status=" + status +
                 ", updateDate=" + updateDate +
                 ", version=" + version +
+                ", discounts=" + discounts +
                 ", goods=" + goods +
                 '}';
     }
+
 }

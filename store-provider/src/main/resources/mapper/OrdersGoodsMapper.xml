@@ -16,9 +16,14 @@
         INSERT INTO orders_goods(oid, gid, count) VALUES(#{oid}, #{gid}, #{count})
     </insert>
     <select id="selectAll" resultType="OrdersInfo">
-        SELECT o.id, u.username, o.number, o.create_date, g.name, g.price, g.img, g.store, og.count, gs.start_date, gs.end_date, o.discounts
+        SELECT o.id, u.username, o.number, o.create_date, g.name, g.price, g.img, g.store, og.count, gs.start_date, gs.end_date, o.discounts,  u.phone
         FROM user u, orders o, goods g, orders_goods og, goods_seckill gs
         WHERE u.id=o.uid AND o.id=og.oid AND g.id=og.gid AND g.id=gs.gid
-        GROUP BY g.id
+        GROUP BY og.id
+    </select>
+    <select id="selectCountByGid" resultType="int">
+        SELECT count(0) FROM orders_goods og,goods g, goods_seckill gs, orders o
+        WHERE g.id=gs.gid AND g.id=og.gid AND o.id=og.oid
+        AND g.id=#{gid} AND gs.start_date&lt;=o.create_date AND  o.create_date&lt;=gs.end_date
     </select>
 </mapper>

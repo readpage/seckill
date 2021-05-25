@@ -4,13 +4,13 @@ package com.example.controller;
 import com.example.entity.User;
 import com.example.response.Result;
 import com.example.service.UserService;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -29,14 +29,9 @@ public class UserController {
 
     @ApiOperation("分页查询数据")
     @GetMapping("/page/{pageNum}/{pageSize}")
-    public Map<String, Object> page(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
-        return userService.myPage(pageNum, pageSize);
+    public PageInfo<User> page(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
+        return userService.page(pageNum, pageSize);
     }
-    //    @ApiOperation("分页查询数据")
-//    @GetMapping("/page/{pageSize}/{pageNum}")
-//    public PageInfo<User> page(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
-//        return userService.myPage(pageNum, pageSize);
-//    }
 
     @ApiOperation(value = "添加用户", notes = "参数只需添加<em>username,password</em>")
     @PostMapping("/save")

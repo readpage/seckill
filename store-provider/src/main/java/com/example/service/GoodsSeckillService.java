@@ -17,4 +17,8 @@ public interface GoodsSeckillService extends IService<GoodsSeckill> {
     Boolean deleteByGid(Integer gid);
 
     Boolean deleteBatchByGid(List<Integer> list);
+
+    Boolean selectStatusByGid(Integer gid);
+
+    Boolean selectIsExpire(Integer gid);
 }

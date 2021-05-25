@@ -3,9 +3,9 @@ package com.example.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.User;
 import com.example.response.Result;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>
@@ -16,8 +16,6 @@ import java.util.Map;
  * @since 2021-04-28
  */
 public interface UserService extends IService<User> {
-    Map<String, Object> myPage(Integer pageNum, Integer pageSize);
-
     Result mySave(User user);
 
     Result myUpdateById(User user);
@@ -29,4 +27,6 @@ public interface UserService extends IService<User> {
     Result myDeleteBatchId(List<Integer> lists);
 
     User findByUsername(String username);
+
+    PageInfo<User> page(int pageNum, int pageSize);
 }

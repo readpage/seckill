@@ -14,6 +14,9 @@ public class InGoodsSeckill {
     @ApiModelProperty(value = "秒杀结束时间")
     private Date endDate;
 
+    @ApiModelProperty(value = "是否开启秒杀")
+    private int status;
+
     public Integer getGid() {
         return gid;
     }
@@ -38,12 +41,21 @@ public class InGoodsSeckill {
         this.endDate = endDate;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "InGoodsSeckill{" +
                 "gid=" + gid +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
+                ", status=" + status +
                 '}';
     }
 }

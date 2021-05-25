@@ -15,6 +15,7 @@ public class OrdersInfo {
     private Date startDate;
     private Date endDate;
     private float discounts;
+    private String phone;
 
     public Integer getId() {
         return id;
@@ -112,6 +113,14 @@ public class OrdersInfo {
         this.discounts = discounts;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "OrdersInfo{" +
@@ -127,6 +136,7 @@ public class OrdersInfo {
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", discounts=" + discounts +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

@@ -33,4 +33,9 @@ public class OrdersGoodsServiceImpl implements OrdersGoodsService {
     public Boolean deleteBatchOrderGoods(List<Integer> list) {
         return ordersGoodsMapper.deleteBatchOrderGoods(list)>0;
     }
+
+    @Override
+    public int selectCountByGid(Integer gid) {
+        return ordersGoodsMapper.selectCountByGid(gid);
+    }
 }

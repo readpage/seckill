@@ -8,6 +8,7 @@ import com.example.mapper.OrdersMapper;
 import com.example.output.OrdersInfo;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
+import com.example.service.GoodsSeckillService;
 import com.example.service.GoodsService;
 import com.example.service.OrdersGoodsService;
 import com.example.service.OrdersService;
@@ -38,8 +39,43 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     private OrdersGoodsService ordersGoodsService;
 
     @Autowired
+    private GoodsSeckillService goodsSeckillService;
+
+    @Autowired
     private GoodsService goodsService;
 
+
+    @Transactional(rollbackFor = Exception.class)//设置检查时异常时回滚事务
+    @Override
+    public boolean add(Long uid, OrdersGoods ordersGoods) throws Exception {
+        Orders orders = new Orders();
+        int gid=ordersGoods.getGid();
+        float discounts=1.0f;
+        if (goodsSeckillService.selectStatusByGid(gid)&&goodsSeckillService.selectIsExpire(gid)) {
+            int count = ordersGoodsService.selectCountByGid(gid);
+            if (count<3) {
+                discounts=0.1f;
+            } else if (count<5) {
+                discounts=0.5f;
+            } else if (count<8) {
+                discounts=0.8f;
+            }
+        }
+        orders.setDiscounts(discounts);
+        orders.setUid(uid);
+        if (!this.save(orders)) {
+            throw new Exception("添加失败!");
+        }
+        ordersGoods.setOid(orders.getId());
+        if (goodsService.updateStockByOrdersGoods(ordersGoods)) {
+            if (!ordersGoodsService.save(ordersGoods)) {
+                throw new Exception("添加失败!");
+            }
+        } else {
+            throw new Exception("添加失败库存不足!😂");
+        }
+        return true;
+    }
 
     @Transactional(rollbackFor = Exception.class)//设置检查时异常时回滚事务
     @Override
@@ -116,5 +152,6 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         PageHelper.startPage(pageNum, pageSize);
         return new PageInfo<>(ordersGoodsService.selectAll());
     }
+
 
 }

@@ -56,9 +56,9 @@ public class OrdersController {
         }
         boolean b = ordersService.add(Long.valueOf(uid), list1);
         if (b) {
-            return ResultUtils.ok().message("添加成功!😀");
+            return ResultUtils.ok().message("添加成功😂");
         }
-        return ResultUtils.error().message("添加失败😂,");
+        return ResultUtils.error().message("添加失败😂");
     }
 
     @ApiOperation("添加抢购订单")
@@ -67,9 +67,7 @@ public class OrdersController {
         OrdersGoods ordersGoods = new OrdersGoods();
         ordersGoods.setGid(gid);
         ordersGoods.setCount(1);
-        List<OrdersGoods> list = new ArrayList<>();
-        list.add(ordersGoods);
-        boolean b = ordersService.add(Long.valueOf(uid), list);
+        boolean b = ordersService.add(Long.valueOf(uid), ordersGoods);
         if (b) {
             return ResultUtils.ok().message("添加成功!😀");
         }
@@ -86,5 +84,6 @@ public class OrdersController {
     public PageInfo<OrdersInfo> page(@PathVariable int pageNum, @PathVariable int pageSize) {
         return ordersService.page(pageNum, pageSize);
     }
+
 }
 

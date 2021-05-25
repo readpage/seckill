@@ -19,6 +19,8 @@ import java.util.List;
  */
 public interface OrdersService extends IService<Orders> {
 
+    boolean add(Long uid, OrdersGoods ordersGoods) throws Exception;
+
     boolean add(Long uid, List<OrdersGoods> list) throws Exception;
 
     Result deleteById(Integer id);
@@ -34,4 +36,5 @@ public interface OrdersService extends IService<Orders> {
     List<OrdersInfo> selectAll();
 
     PageInfo<OrdersInfo> page(int pageNum, int pageSize);
+
 }

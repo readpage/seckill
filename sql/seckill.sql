@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 25/05/2021 10:59:35
+ Date: 25/05/2021 18:10:45
 */
 
 SET NAMES utf8mb4;
@@ -33,7 +33,7 @@ CREATE TABLE `goods`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 84 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods
@@ -44,7 +44,7 @@ INSERT INTO `goods` VALUES (25, '【20日10点限时开售】MIX FOLD小米折�
 INSERT INTO `goods` VALUES (26, '【限时直降1050 至高享1000元换新补贴】Samsung/三星GalaxyS20+ SM-G9860 国行骁龙官方旗舰5G手机', '2616970884.jpg', 6999.00, 1706, '\n苏宁易购官方旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-09 13:07:04', 3);
 INSERT INTO `goods` VALUES (27, '3期免息【送手环】HONOR/荣耀30青春版 5G手机柔滑全速屏超清智能游戏学生5g手机拍照自拍三际数码官方旗舰店', '268451883.jpg', 2399.00, 1979, '\n三际数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-16 15:51:48', 3);
 INSERT INTO `goods` VALUES (28, 'Apple/苹果手机iPhone 12 Pro Max 手机 国行全国联保', '8-0-lubanu.jpg', 9299.00, 1512, '\n天猫超市\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (29, '【抢200天猫券低至2779起】Xiaomi/小米10 5G手机1亿像素8K电影相机游戏智能手机官方旗舰店小米手机10s', '3063905773.jpg', 3099.00, 528, '\n创汇通达数码旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
+INSERT INTO `goods` VALUES (29, '【抢200天猫券低至2779起】Xiaomi/小米10 5G手机1亿像素8K电影相机游戏智能手机官方旗舰店小米手机10s', '3063905773.jpg', 3099.00, 525, '\n创汇通达数码旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
 INSERT INTO `goods` VALUES (30, 'vivo iQOO Neo5新5G手机iqooneo5爱酷iqoonoe5 vivoiqoonoe5 iqqo vivoneo5官方旗舰iooq店iq00neo5 ipooneo5', '1864868535.jpg', 2999.00, 713, '\nvivo航鹰专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
 INSERT INTO `goods` VALUES (31, '【新品上市】OPPO Reno5 K opporeno5k手机5g新款手机上市opporeno5pro曲面屏限量版 oppo手机官方旗舰店官网', '2386434092.jpg', 2699.00, 1202, '\nOPPO普天精诚专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
 INSERT INTO `goods` VALUES (32, '【可省150元】OPPO K7x oppok7x手机5g新款oppok7x限量版全网通oppo官网旗舰店官0ppok7 oppo手机官方正品', '268451883.jpg', 1399.00, 491, '\n三际数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
@@ -63,10 +63,9 @@ INSERT INTO `goods` VALUES (44, '【咨询领券立减】OPPO K7x oppok7x手机5
 INSERT INTO `goods` VALUES (45, '到手4469起 12期分期顺丰现货速发苹果iPhone 11 全网通4G手机官方旗舰原装正品苹果11/12Pro 2020新版简装', '1115488308.jpg', 4499.00, 1719, '\n君问数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
 INSERT INTO `goods` VALUES (46, '当天速发 Huawei/华为 畅享8 Plus 全面屏正品手机 全网通4G手机 全网通4G手机', '682299517.jpg', 759.00, 1061, '\n旭翼数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
 INSERT INTO `goods` VALUES (47, '【新品上市】HUAWEI/华为nova 8 Pro麒麟曲面屏华为手机5g手机智能手机华为官方旗舰店nova8pro', '2838892713.jpg', 3999.00, 1124, '\n华为官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (59, 'a', NULL, 123.00, 99, NULL, NULL, '2021-05-22 22:35:00', NULL, 1);
-INSERT INTO `goods` VALUES (78, 'd', 'd', 1.00, 1, 'd', 'd', '2021-05-24 23:15:59', '2021-05-24 23:17:29', 1);
-INSERT INTO `goods` VALUES (79, 'e', 'string', 0.00, 1, 'string', 'string', '2021-05-24 23:18:00', '2021-05-24 23:18:00', 1);
-INSERT INTO `goods` VALUES (80, 'f', 'string', 0.00, 0, 'string', 'string', '2021-05-24 23:18:04', '2021-05-24 23:18:04', 1);
+INSERT INTO `goods` VALUES (78, 'd', 'd', 1.00, 8, 'd', 'd', '2021-05-24 23:15:59', '2021-05-24 23:17:29', 1);
+INSERT INTO `goods` VALUES (79, 'e', 'string', 200.00, 20, 'string', 'string', '2021-05-24 23:18:00', '2021-05-24 23:18:00', 1);
+INSERT INTO `goods` VALUES (80, 'f', 'string', 100.00, 11, 'string', 'string', '2021-05-24 23:18:04', '2021-05-24 23:18:04', 1);
 
 -- ----------------------------
 -- Table structure for goods_seckill
@@ -78,43 +77,43 @@ CREATE TABLE `goods_seckill`  (
   `start_date` datetime(0) NULL DEFAULT NULL COMMENT '秒杀开始时间',
   `end_date` datetime(0) NULL DEFAULT NULL COMMENT '秒杀结束时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
+  `status` int(0) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `gid`(`gid`) USING BTREE,
   CONSTRAINT `goods_seckill_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 73 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 122 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods_seckill
 -- ----------------------------
-INSERT INTO `goods_seckill` VALUES (70, 23, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (71, 24, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (72, 25, '2021-05-23 21:17:00', '2021-05-23 22:10:00', 1);
-INSERT INTO `goods_seckill` VALUES (73, 26, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (74, 27, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (75, 28, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (76, 29, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (77, 30, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (78, 31, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (79, 32, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (80, 33, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (81, 34, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (82, 35, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (83, 36, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (84, 37, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (85, 38, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (86, 39, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (87, 40, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (88, 41, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (89, 42, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (90, 43, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (91, 44, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (92, 45, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (93, 46, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (94, 47, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (96, 59, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (116, 78, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (117, 79, NULL, NULL, 1);
-INSERT INTO `goods_seckill` VALUES (118, 80, NULL, NULL, 1);
+INSERT INTO `goods_seckill` VALUES (70, 23, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (71, 24, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (72, 25, '2021-05-23 21:17:00', '2021-05-23 22:10:00', 1, 0);
+INSERT INTO `goods_seckill` VALUES (73, 26, '2021-05-25 14:48:22', '2021-05-26 14:48:27', 1, 0);
+INSERT INTO `goods_seckill` VALUES (74, 27, '2021-05-30 16:30:02', '2021-05-27 16:30:08', 1, 0);
+INSERT INTO `goods_seckill` VALUES (75, 28, '2021-05-24 16:30:32', '2021-05-26 16:30:35', 1, 0);
+INSERT INTO `goods_seckill` VALUES (76, 29, '2021-05-24 16:31:15', '2021-05-25 17:30:00', 1, 0);
+INSERT INTO `goods_seckill` VALUES (77, 30, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (78, 31, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (79, 32, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (80, 33, '2021-05-25 17:31:54', '2021-05-28 17:32:03', 1, 0);
+INSERT INTO `goods_seckill` VALUES (81, 34, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (82, 35, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (83, 36, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (84, 37, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (85, 38, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (86, 39, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (87, 40, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (88, 41, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (89, 42, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (90, 43, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (91, 44, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (92, 45, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (93, 46, NULL, NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (94, 47, '2021-05-25 13:43:04', NULL, 1, 0);
+INSERT INTO `goods_seckill` VALUES (116, 78, '2021-05-24 17:53:35', '2021-05-26 17:53:40', 1, 1);
+INSERT INTO `goods_seckill` VALUES (117, 79, '2021-05-24 13:43:10', '2021-05-28 17:33:11', 1, 0);
+INSERT INTO `goods_seckill` VALUES (118, 80, '2021-05-24 17:32:31', '2021-05-30 17:32:23', 1, 1);
 
 -- ----------------------------
 -- Table structure for menu
@@ -178,17 +177,51 @@ CREATE TABLE `orders`  (
   `status` int(0) NULL DEFAULT 0 COMMENT '订单状态',
   `update_date` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
-  `discounts` float NULL DEFAULT NULL,
+  `discounts` float NULL DEFAULT NULL COMMENT '折扣',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `uid`(`uid`) USING BTREE,
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 140 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES (90, 'dcfe03dd16df489fb47d1cb296b9fd00', 3, '2021-05-25 00:27:16', 0, NULL, 1, NULL);
-INSERT INTO `orders` VALUES (93, '65a1ff5c33ff4d7692a5ba17fe577202', 1, '2021-05-25 00:33:27', 0, NULL, 1, NULL);
+INSERT INTO `orders` VALUES (145, 'ba0ac8a822874238b19dfa1b2119869f', 1, '2021-05-25 17:52:40', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (146, '269f5f25affe43fbb457db15f83425c6', 1, '2021-05-25 17:52:58', 0, NULL, 1, 0.1);
+INSERT INTO `orders` VALUES (147, 'c36bc977890f4eaebcdaa797fd07f115', 2, '2021-05-25 17:53:12', 0, NULL, 1, 0.1);
+INSERT INTO `orders` VALUES (148, '911a3add0be7497e87037ea8a01d525c', 3, '2021-05-25 17:54:10', 0, NULL, 1, 0.1);
+INSERT INTO `orders` VALUES (149, '025ad1f45b134b62a065c40b2c4d6ae4', 3, '2021-05-25 17:54:32', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (150, '056c6846d03740ee85144310cbd4950f', 3, '2021-05-25 17:54:51', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (151, 'f3881237b3d144f2b3696ce83f0d0e1e', 1, '2021-05-25 17:55:03', 0, NULL, 1, 0.1);
+INSERT INTO `orders` VALUES (152, 'b4126432a14a45a2b4b80d7dd674dd17', 1, '2021-05-25 17:55:09', 0, NULL, 1, 0.1);
+INSERT INTO `orders` VALUES (153, '979c746b64f34d2094dca8ed312f4b79', 2, '2021-05-25 17:55:14', 0, NULL, 1, 0.5);
+INSERT INTO `orders` VALUES (154, '231fa778dc424635919b3efd6ab00717', 2, '2021-05-25 17:55:47', 0, NULL, 1, 0.5);
+INSERT INTO `orders` VALUES (155, 'c4b802200115468c873df7dc3e04ae6e', 2, '2021-05-25 17:55:48', 0, NULL, 1, 0.8);
+INSERT INTO `orders` VALUES (156, '8e547c8ccbe94b59b5965068b5bcd8fe', 2, '2021-05-25 17:55:49', 0, NULL, 1, 0.8);
+INSERT INTO `orders` VALUES (157, '8d9eccef43aa4b7688cd060813425c45', 2, '2021-05-25 17:55:49', 0, NULL, 1, 0.8);
+INSERT INTO `orders` VALUES (158, '75d93b64bf1d4de7bf46edc14196ac6c', 2, '2021-05-25 17:55:50', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (159, 'c75357f7ce25465aa5a88f4f12205a60', 2, '2021-05-25 17:55:57', 0, NULL, 1, 0.5);
+INSERT INTO `orders` VALUES (160, 'd4e71686e66441fcb201d5bffcba8727', 2, '2021-05-25 17:55:58', 0, NULL, 1, 0.5);
+INSERT INTO `orders` VALUES (161, '7b375cf328cf46f39d686078c4dc431e', 2, '2021-05-25 17:55:58', 0, NULL, 1, 0.8);
+INSERT INTO `orders` VALUES (162, '5f40a6e0b1044e19be9c6b622791fa4c', 2, '2021-05-25 17:56:01', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (163, 'c027f393dc6142f18032a698fc6e9ef2', 2, '2021-05-25 17:56:02', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (164, '9a78a412334a4cb196c05827f7e89859', 2, '2021-05-25 17:56:02', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (165, 'c5507f82082c4719bac7e1d36caeeb23', 2, '2021-05-25 17:56:04', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (166, '1c3947c52e6748c5bed759dce58448d9', 2, '2021-05-25 17:56:08', 0, NULL, 1, 0.8);
+INSERT INTO `orders` VALUES (167, 'ae039873c09a40a68a9dfc6aeab96e4b', 2, '2021-05-25 17:56:09', 0, NULL, 1, 0.8);
+INSERT INTO `orders` VALUES (168, '13d814bbda934bf0909b77c84a6ec32f', 2, '2021-05-25 17:56:09', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (169, '86d2a126362f4634a5285f101f3f6cf7', 2, '2021-05-25 17:56:09', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (170, '18f453a156774cb3b3a946b13f9c6313', 2, '2021-05-25 17:56:13', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (171, 'b2654f886cc1493e9f4a44255cd2e9d2', 2, '2021-05-25 17:56:14', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (172, '8a8ed2582faa4865b93e8ab603edfeec', 2, '2021-05-25 17:56:14', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (173, '160aff8fc4834914b632676e3dd9b716', 2, '2021-05-25 17:56:14', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (174, '05398b7d2e1443d6973d98e9766f9164', 2, '2021-05-25 17:56:17', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (175, '9cd2284d253b45f6a63a68ad79eff488', 2, '2021-05-25 17:56:18', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (176, '17fd5ff945fc47e08f97e4ccc75d32f0', 2, '2021-05-25 17:56:18', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (177, 'aaa0b57f5b304015a407af734f8cd5f7', 2, '2021-05-25 17:56:18', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (178, '81466d498cc148dea4648f4dc5e36123', 2, '2021-05-25 17:56:18', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (179, '186b4fceac9946528afeb1026416a408', 2, '2021-05-25 17:56:19', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (181, '9db9733c1c9447ecbaa5182a95741da1', 3, '2021-05-25 18:06:10', 0, NULL, 1, 1);
 
 -- ----------------------------
 -- Table structure for orders_goods
@@ -204,14 +237,48 @@ CREATE TABLE `orders_goods`  (
   INDEX `gid`(`gid`) USING BTREE,
   CONSTRAINT `orders_goods_ibfk_1` FOREIGN KEY (`oid`) REFERENCES `orders` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `orders_goods_ibfk_2` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders_goods
 -- ----------------------------
-INSERT INTO `orders_goods` VALUES (72, 90, 80, 1);
-INSERT INTO `orders_goods` VALUES (74, 93, 79, 1);
-INSERT INTO `orders_goods` VALUES (75, 93, 80, 1);
+INSERT INTO `orders_goods` VALUES (106, 145, 79, 1);
+INSERT INTO `orders_goods` VALUES (107, 146, 80, 1);
+INSERT INTO `orders_goods` VALUES (108, 147, 80, 1);
+INSERT INTO `orders_goods` VALUES (109, 148, 78, 1);
+INSERT INTO `orders_goods` VALUES (110, 149, 78, 1);
+INSERT INTO `orders_goods` VALUES (111, 150, 79, 1);
+INSERT INTO `orders_goods` VALUES (112, 151, 80, 1);
+INSERT INTO `orders_goods` VALUES (113, 152, 78, 1);
+INSERT INTO `orders_goods` VALUES (114, 153, 80, 1);
+INSERT INTO `orders_goods` VALUES (115, 154, 80, 1);
+INSERT INTO `orders_goods` VALUES (116, 155, 80, 1);
+INSERT INTO `orders_goods` VALUES (117, 156, 80, 1);
+INSERT INTO `orders_goods` VALUES (118, 157, 80, 1);
+INSERT INTO `orders_goods` VALUES (119, 158, 80, 1);
+INSERT INTO `orders_goods` VALUES (120, 159, 78, 1);
+INSERT INTO `orders_goods` VALUES (121, 160, 78, 1);
+INSERT INTO `orders_goods` VALUES (122, 161, 78, 1);
+INSERT INTO `orders_goods` VALUES (123, 162, 80, 1);
+INSERT INTO `orders_goods` VALUES (124, 163, 80, 1);
+INSERT INTO `orders_goods` VALUES (125, 164, 80, 1);
+INSERT INTO `orders_goods` VALUES (126, 165, 80, 1);
+INSERT INTO `orders_goods` VALUES (127, 166, 78, 1);
+INSERT INTO `orders_goods` VALUES (128, 167, 78, 1);
+INSERT INTO `orders_goods` VALUES (129, 168, 78, 1);
+INSERT INTO `orders_goods` VALUES (130, 169, 78, 1);
+INSERT INTO `orders_goods` VALUES (131, 170, 79, 1);
+INSERT INTO `orders_goods` VALUES (132, 171, 79, 1);
+INSERT INTO `orders_goods` VALUES (133, 172, 79, 1);
+INSERT INTO `orders_goods` VALUES (134, 173, 79, 1);
+INSERT INTO `orders_goods` VALUES (135, 174, 80, 1);
+INSERT INTO `orders_goods` VALUES (136, 175, 80, 1);
+INSERT INTO `orders_goods` VALUES (137, 176, 80, 1);
+INSERT INTO `orders_goods` VALUES (138, 177, 80, 1);
+INSERT INTO `orders_goods` VALUES (139, 178, 80, 1);
+INSERT INTO `orders_goods` VALUES (140, 179, 80, 1);
+INSERT INTO `orders_goods` VALUES (141, 181, 78, 2);
+INSERT INTO `orders_goods` VALUES (142, 181, 79, 2);
 
 -- ----------------------------
 -- Table structure for role

@@ -13,4 +13,6 @@ public interface OrdersGoodsMapper {
     int deleteOrderGoods(Integer gid);
 
     int deleteBatchOrderGoods(List<Integer> list);
+
+    int selectCountByGid(Integer gid);
 }

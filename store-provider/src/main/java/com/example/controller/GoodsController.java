@@ -3,6 +3,7 @@ package com.example.controller;
 
 import com.example.entity.Goods;
 import com.example.input.InGoods;
+import com.example.input.InGoodsSeckill;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
 import com.example.service.GoodsService;
@@ -51,6 +52,12 @@ public class GoodsController {
         return ResultUtils.error().message("添加失败!");
     }
 
+    @ApiOperation(value = "添加抢购商品信息")
+    @PostMapping("/add-seckill")
+    public Result addSeckill(@RequestBody InGoodsSeckill inGoodsSeckill) {
+        return ResultUtils.ok().message("d");
+    }
+
     @ApiOperation(value= "修改商品信息")
     @PutMapping("/update/{id}")
     public Result updateById(@PathVariable Integer id, @RequestBody InGoods inGoods) {
@@ -84,5 +91,6 @@ public class GoodsController {
         }
         return ResultUtils.error().message("删除失败!😭");
     }
+
 }
 
