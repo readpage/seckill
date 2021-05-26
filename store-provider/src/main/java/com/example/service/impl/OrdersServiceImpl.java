@@ -82,6 +82,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     public boolean add(Long uid, List<OrdersGoods> products) throws Exception {
         Orders orders = new Orders();
         orders.setUid(uid);
+        orders.setDiscounts(1f);
         this.save(orders);
         for (int i = 0; i < products.size(); i++) {
             products.get(i).setOid(orders.getId());

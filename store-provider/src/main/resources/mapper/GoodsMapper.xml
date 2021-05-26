@@ -28,4 +28,9 @@
         SELECT * , gs.id gsId FROM goods g, goods_seckill gs
         WHERE g.id=gs.gid
     </select>
+    <select id="like" parameterType="String" resultMap="GoodsResult">
+        SELECT * FROM goods g, goods_seckill gs
+        WHERE g.id=gs.gid
+        AND name like concat('%', #{name}, '%')
+    </select>
 </mapper>

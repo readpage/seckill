@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 25/05/2021 18:10:45
+ Date: 26/05/2021 12:18:00
 */
 
 SET NAMES utf8mb4;
@@ -38,34 +38,56 @@ CREATE TABLE `goods`  (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES (23, '分期免息/现货速发nubia/努比亚红魔6 Pro 5G电竞游戏手机官方旗舰店骁龙888透明s', '686947088.jpg', 4399.00, 1447, '\n壹品良机旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-16 15:52:25', 3);
-INSERT INTO `goods` VALUES (24, '【新品享12期免息】ZTE中兴Axon 30 Pro 5G旗舰手机6400万双主摄骁龙888轻薄7.86mm智能5G手机', '2765414748.jpg', 2998.00, 1256, '\nZTE中兴官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (25, '【20日10点限时开售】MIX FOLD小米折叠屏手机5g骁龙888哈曼卡顿立体声四扬声器2K+折叠屏', '2616970884.jpg', 9999.00, 483, '\n苏宁易购官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (26, '【限时直降1050 至高享1000元换新补贴】Samsung/三星GalaxyS20+ SM-G9860 国行骁龙官方旗舰5G手机', '2616970884.jpg', 6999.00, 1706, '\n苏宁易购官方旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-09 13:07:04', 3);
-INSERT INTO `goods` VALUES (27, '3期免息【送手环】HONOR/荣耀30青春版 5G手机柔滑全速屏超清智能游戏学生5g手机拍照自拍三际数码官方旗舰店', '268451883.jpg', 2399.00, 1979, '\n三际数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', '2021-05-16 15:51:48', 3);
-INSERT INTO `goods` VALUES (28, 'Apple/苹果手机iPhone 12 Pro Max 手机 国行全国联保', '8-0-lubanu.jpg', 9299.00, 1512, '\n天猫超市\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (29, '【抢200天猫券低至2779起】Xiaomi/小米10 5G手机1亿像素8K电影相机游戏智能手机官方旗舰店小米手机10s', '3063905773.jpg', 3099.00, 525, '\n创汇通达数码旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (30, 'vivo iQOO Neo5新5G手机iqooneo5爱酷iqoonoe5 vivoiqoonoe5 iqqo vivoneo5官方旗舰iooq店iq00neo5 ipooneo5', '1864868535.jpg', 2999.00, 713, '\nvivo航鹰专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (31, '【新品上市】OPPO Reno5 K opporeno5k手机5g新款手机上市opporeno5pro曲面屏限量版 oppo手机官方旗舰店官网', '2386434092.jpg', 2699.00, 1202, '\nOPPO普天精诚专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (32, '【可省150元】OPPO K7x oppok7x手机5g新款oppok7x限量版全网通oppo官网旗舰店官0ppok7 oppo手机官方正品', '268451883.jpg', 1399.00, 491, '\n三际数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (33, '顺丰包邮 Huawei/华为Nova 8 5g手机麒麟新品66W快充nova8直降9', '94-0-lubanu.jpg', 4149.00, 1910, '\n天猫超市\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (34, '【整点赠耳机 晒单返20】vivo iQOO U1x畅销大电池学生老人智能手机官方旗舰店官网正品vivoiqooU1x vivou1x', '883737303.png', 999.00, 1474, '\nvivo官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (35, '当天发货【下单立减50元】红米Redmi Note9 Pro手机官网手机官方旗舰店Xiaomi/小米红米note9pro系列5G新品', '2211163110445.jpg', 1599.00, 1257, '\n平天数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (36, '分期免息/现货速发nubia/努比亚红魔6 Pro 5G电竞游戏手机官方旗舰店骁龙888透明s', '686947088.jpg', 4399.00, 1226, '\n壹品良机旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (37, '直降200+现货速发+送原装配件】nubia/努比亚红魔6游戏手机165hz骁龙888腾讯红魔6pro电竞5S代官方旗舰红魔5G', '2200586761792.jpg', 5367.00, 950, '\n信通志远数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (38, '【24期免息 可减500元】Huawei/华为P40 5G手机P40Pro官方旗舰店麒麟芯片徕卡摄影智能手机P40 Pro+新品直降', '2615238525.jpg', 6968.00, 1681, '\n华为莫问专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (39, '【立省300元】蜜茶手机Apple/苹果 iPhoneXR 全网通 全新国行 iPhonexr手机 iphonexr 苹果xr iphone xr', '2124156138.jpg', 4299.00, 1634, '\n搜酷数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (40, 'vivo iQOO neo5 5g手机 iqooneo5 iqoonoe5 vivoneo5 ipooneo5 iq00neo5 爱酷neo5 neo7 pro vivo官方旗舰店', '263726286.jpg', 2699.00, 1150, '\n能良数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (41, '【立减1100元】OPPO Ace2 oppoace2新款5g手机 oppo手机官方旗舰店 游戏手机 oppoace限量版 全网通', '297810316.jpg', 3499.00, 1333, '\n骏灿数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (42, '【当天发 24期分期】Huawei/华为P40 Pro 5G手机 官方旗舰店P40 Pro+麒麟芯片 摄像官网正品直降P50', '2615238525.jpg', 5188.00, 540, '\n华为莫问专卖店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (43, '【低至2679起/领300优惠】 一加OnePlus 8T 5G手机 正品官方旗舰店1加8t官网一加8pro赛博朋克直降新款1+8t', '1710936647.jpg', 3289.00, 819, '\n佰分购旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (44, '【咨询领券立减】OPPO K7x oppok7x手机5g全网通新品能良中国移动官旗oppo手机官方旗舰店oppo官网旗舰店官5g', '1776456424.jpg', 1499.00, 1484, '\n中国移动官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (45, '到手4469起 12期分期顺丰现货速发苹果iPhone 11 全网通4G手机官方旗舰原装正品苹果11/12Pro 2020新版简装', '1115488308.jpg', 4499.00, 1719, '\n君问数码官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (46, '当天速发 Huawei/华为 畅享8 Plus 全面屏正品手机 全网通4G手机 全网通4G手机', '682299517.jpg', 759.00, 1061, '\n旭翼数码专营店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (47, '【新品上市】HUAWEI/华为nova 8 Pro麒麟曲面屏华为手机5g手机智能手机华为官方旗舰店nova8pro', '2838892713.jpg', 3999.00, 1124, '\n华为官方旗舰店\n', '手机', '2021-04-28 19:16:57', NULL, 1);
-INSERT INTO `goods` VALUES (78, 'd', 'd', 1.00, 8, 'd', 'd', '2021-05-24 23:15:59', '2021-05-24 23:17:29', 1);
-INSERT INTO `goods` VALUES (79, 'e', 'string', 200.00, 20, 'string', 'string', '2021-05-24 23:18:00', '2021-05-24 23:18:00', 1);
-INSERT INTO `goods` VALUES (80, 'f', 'string', 100.00, 11, 'string', 'string', '2021-05-24 23:18:04', '2021-05-24 23:18:04', 1);
+INSERT INTO `goods` VALUES (86, 'FlexPai2新一代5G双模折叠屏手机', '2022a0a4297058a8.jpg', 9999.00, 1638, '柔宇（ROYOLE）折叠屏手机京东自营旗舰店', '手机', '2021-05-26 11:08:50', NULL, 1);
+INSERT INTO `goods` VALUES (87, '9A5000mAh大电量大屏幕大字体大音量', '5b33ac76b2aaea9b.jpg', 599.00, 1224, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', NULL, 1);
+INSERT INTO `goods` VALUES (88, 'Note94G', 'c0cf7c9643743b71.jpg', 1099.00, 606, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', NULL, 1);
+INSERT INTO `goods` VALUES (89, 'Note9Pro', 'ed74bdb6decc03a0.jpg', 1799.00, 721, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', NULL, 1);
+INSERT INTO `goods` VALUES (90, '超级快充5000mAh大电池6.6英寸全面屏', '56b4eabc00aa04c8.jpg', 1299.00, 1302, '荣耀京东自营旗舰店', '手机', '2021-05-26 11:08:52', NULL, 1);
+INSERT INTO `goods` VALUES (91, 'iPhone12(A2404)', '63796cc95e30a40e.jpg', 6799.00, 930, 'Apple产品京东自营旗舰店', '手机', '2021-05-26 11:11:06', NULL, 1);
+INSERT INTO `goods` VALUES (92, '真我Q3骁龙750G120Hz可变帧电竞屏', '133030cccc51681c.jpg', 1249.00, 618, 'realme真我京东自营旗舰店', '手机', '2021-05-26 11:11:06', NULL, 1);
+INSERT INTO `goods` VALUES (93, 'K99老人手机全网通4G移动联通电信老年机', '8e0db42162d354ac.jpg', 199.00, 1430, '纽曼京东自营官方旗舰店', '手机', '2021-05-26 11:11:07', NULL, 1);
+INSERT INTO `goods` VALUES (94, 'Note95G', 'b0fe4cfb07693742.jpg', 1268.00, 1337, '小米京东自营旗舰店', '手机', '2021-05-26 11:11:08', NULL, 1);
+INSERT INTO `goods` VALUES (95, 'Reno55G6400万水光人像四摄', '330d61c61b9381a2.jpg', 2999.00, 1416, 'OPPO京东自营官方旗舰店', '手机', '2021-05-26 11:11:08', NULL, 1);
+INSERT INTO `goods` VALUES (97, 'E142021居家办公本', '634851842fa3ab8c.jpg', 5299.00, 511, 'ThinkPad京东自营旗舰店', '笔记本电脑', '2021-05-26 11:17:59', NULL, 1);
+INSERT INTO `goods` VALUES (98, '到手价4099；含199元套装；联想小新AIR14笔记本电脑', '7356351f6d7cc7dc.jpg', 4199.00, 1100, '联想华北授权专卖店', '笔记本电脑', '2021-05-26 11:17:59', NULL, 1);
+INSERT INTO `goods` VALUES (99, '2021超轻薄笔记本电脑高色域学生办公设计师游戏本八核锐龙R7-5700U', '0fa0d41877da5ff4.jpg', 5499.00, 1476, '联想华东授权专卖店', '笔记本电脑', '2021-05-26 11:17:59', NULL, 1);
+INSERT INTO `goods` VALUES (100, '15.6英寸游戏笔记本电脑(R7-4800H16G512G', '3700fb613c795f15.jpg', 6199.00, 1744, '联想京东自营旗舰店', '笔记本电脑', '2021-05-26 11:18:00', NULL, 1);
+INSERT INTO `goods` VALUES (101, '高性能轻薄本英特尔酷睿i513.3英寸全面屏学生笔记本电脑(i5-1135G7', '2e9c82bceb5e899f.jpg', 5999.00, 1932, '联想京东自营旗舰店', '笔记本电脑', '2021-05-26 11:18:00', NULL, 1);
+INSERT INTO `goods` VALUES (102, '立减300；联想IdeaPad14s增强版超轻薄笔记本电脑', '13b3c38d82f4a783.jpg', 3699.00, 1771, '联想华北授权专卖店', '笔记本电脑', '2021-05-26 11:18:53', NULL, 1);
+INSERT INTO `goods` VALUES (103, 'MagicBookX', '521c806110f6ae6f.jpg', 3899.00, 1159, '荣耀京东自营旗舰店', '笔记本电脑', '2021-05-26 11:18:54', NULL, 1);
+INSERT INTO `goods` VALUES (104, '16英寸全面屏笔记本电脑(标压R7-5800H16G', 'b336193f722ba9d1.jpg', 6499.00, 1870, '联想京东自营旗舰店', '笔记本电脑', '2021-05-26 11:18:54', NULL, 1);
+INSERT INTO `goods` VALUES (105, '15.6英寸高性能轻薄商务笔记本电脑(11代英特尔酷睿i5-1135G716G', '8ee97cd2969dce34.jpg', 4399.00, 1413, '戴尔京东自营官方旗舰店', '笔记本电脑', '2021-05-26 11:18:54', NULL, 1);
+INSERT INTO `goods` VALUES (106, '高性能轻薄本14英寸全面屏笔记本电脑(8核R7-5800H', '24ea633243870934.jpg', 5699.00, 1455, '联想京东自营旗舰店', '笔记本电脑', '2021-05-26 11:18:54', NULL, 1);
+INSERT INTO `goods` VALUES (107, '办公室下午茶休闲零食家庭装349g独立小包分享装囤货必备（新老包装随机发货）', '0a15d5b71eafadea.jpg', 19.90, 982, '亿滋京东自营官方旗舰店', '食品', '2021-05-26 12:06:32', NULL, 1);
+INSERT INTO `goods` VALUES (108, '糯米老婆饼1000g整箱礼盒装澳门风味特色小吃', '619bf8f7b80eccb4.jpg', 21.70, 1736, '葡记京东自营旗舰店', '食品', '2021-05-26 12:06:35', NULL, 1);
+INSERT INTO `goods` VALUES (109, '饼干蛋糕点心糕点零食酵母面包代餐早餐饼干口袋软面包礼盒1000g/盒', 'df5c73b38818c6a8.jpg', 32.90, 1059, '三只松鼠京东自营旗舰店', '食品', '2021-05-26 12:06:35', NULL, 1);
+INSERT INTO `goods` VALUES (110, '铜锣烧蛋糕1000g整箱礼盒装', 'b9f6679f38fab942.jpg', 29.90, 858, '葡记京东自营旗舰店', '食品', '2021-05-26 12:06:35', NULL, 1);
+INSERT INTO `goods` VALUES (111, '750g/30袋端午坚果礼盒零食大礼包儿童孕妇节日混合干果腰果夏威夷果核桃仁开心果巴旦木', '665db6224c197af9.jpg', 149.00, 1659, '三只松鼠京东自营旗舰店', '食品', '2021-05-26 12:06:36', NULL, 1);
+INSERT INTO `goods` VALUES (112, '京东超市	\n三只松鼠乳酸菌小伴侣面包 营养早餐代餐口袋手撕面包网红零食饼干生日蛋糕糕点520g/箱', '606887af934f806e.jpg', 28.90, 1267, '三只松鼠京东自营旗舰店', '食品', '2021-05-26 12:06:36', NULL, 1);
+INSERT INTO `goods` VALUES (113, '手撕干巴牛肉四川牛肉干', 'd15aab0bf393b70d.jpg', 108.00, 985, '椒享官方旗舰店', '食品', '2021-05-26 12:06:36', NULL, 1);
+INSERT INTO `goods` VALUES (114, '昆明冠生园梅花牌中华老字号鲜花饼440g礼盒装糕点零食小吃玫瑰花饼', '708865ec89b0336c.jpg', 29.80, 1108, '梅花牌京东自营旗舰店', '食品', '2021-05-26 12:06:37', NULL, 1);
+INSERT INTO `goods` VALUES (115, '京东超市	\n【满199减120】每日坚果礼盒600g/30袋 干果炒货核桃孕妇零食大礼包', '1b070a40afecc699.jpg', 199.90, 1187, '享食者食品旗舰店', '食品', '2021-05-26 12:06:37', NULL, 1);
+INSERT INTO `goods` VALUES (116, '京东超市	\n达利园饼干 好吃点香脆核桃饼800g薄饼脆片礼盒早餐食品曲奇饼干蛋糕零食办公室点心(新老包装随机发货)', '469e069a422d66c5.jpg', 29.90, 1091, '达利园京东自营旗舰店', '食品', '2021-05-26 12:06:38', NULL, 1);
+INSERT INTO `goods` VALUES (117, '3074白色XL', 'c9711fa3e3b0f9c5.jpg', 58.00, 1808, '奥帝洛姿服饰专营店', '服装', '2021-05-26 12:08:40', NULL, 1);
+INSERT INTO `goods` VALUES (118, '四格白+KY蓝+SP灰+海Z黑L建议120-135斤', '4992d74848f80fa5.jpg', 99.00, 680, '诚谊服饰专营店', '服装', '2021-05-26 12:08:41', NULL, 1);
+INSERT INTO `goods` VALUES (119, '水绿色(柯基男孩)L【推荐120-130斤左右】', '8b7d7209305599f5.jpg', 49.90, 1490, '南极人布克专卖店', '服装', '2021-05-26 12:08:42', NULL, 1);
+INSERT INTO `goods` VALUES (120, '深灰色XL', '63e0981481fca821.jpg', 139.00, 1305, '卡帝乐鳄鱼（CARTELO）男装京东自营专卖店', '服装', '2021-05-26 12:08:43', NULL, 1);
+INSERT INTO `goods` VALUES (121, '运动套装男健身服速干冰丝休闲短袖夏季宽松薄款训练篮球装备T恤跑步衣服晨跑短裤科幻宽松两件套【冰丝套装】', 'e61c5436f3471347.jpg', 59.00, 684, '艾伦伯顿官方旗舰店', '服装', '2021-05-26 12:08:44', NULL, 1);
+INSERT INTO `goods` VALUES (122, '白色XL', 'e842b9698a26c8b1.jpg', 99.00, 1918, '稻草人男装服饰京东自营专区', '服装', '2021-05-26 12:08:44', NULL, 1);
+INSERT INTO `goods` VALUES (123, '3件套】卫衣套装男春装男季运动套装2021新款潮休闲男装外套男衣服男服饰801灰色(三件套)', 'c16ac26c03712eaa.jpg', 128.00, 1740, '潮龙涧男装专营店', '服装', '2021-05-26 12:08:44', NULL, 1);
+INSERT INTO `goods` VALUES (124, '夹克男士外套休闲潮流修身立领夹克衫渐变上衣服男装2072', 'e33d77714aa8f2eb.jpg', 158.00, 1543, 'AEMAPE苹果男装京东自营专区', '服装', '2021-05-26 12:08:44', NULL, 1);
+INSERT INTO `goods` VALUES (125, '【纯棉4件】宾宇兄弟t恤男短袖2021年新款韩版修身大码t恤时尚休闲男装上衣服青年半截袖打底衫体恤潮 纯棉套餐7：三杠黑+des卡其+黄杠铁灰+帽子雾...', '382d938ae5835e2b.jpg', 99.00, 1050, '奥尼服饰专营店', '服装', '2021-05-26 12:08:46', NULL, 1);
+INSERT INTO `goods` VALUES (126, '长乱条黑+叶子黑', '5d403c4bccb1e51f.jpg', 25.00, 1440, '耀佳男装专营店', '服装', '2021-05-26 12:08:46', NULL, 1);
+INSERT INTO `goods` VALUES (127, '3.4米多人位升级版', '37ebba12e1ddfbbf.jpg', 5728.00, 1382, '班捷家居旗舰店', '家具', '2021-05-26 12:09:14', NULL, 1);
+INSERT INTO `goods` VALUES (128, '沙发实木沙发现代新中式布艺沙发组合小户型客厅整装家具', 'ab9c88ab2d2b8ce5.jpg', 1499.00, 560, '卡貝森家具旗舰店', '家具', '2021-05-26 12:09:14', NULL, 1);
+INSERT INTO `goods` VALUES (129, '三人位布板颜色样品寄送联系客服旗舰版海绵座包【颜...', '2aef1e0ee823f999.jpg', 1499.00, 1566, '宣梵家具旗舰店', '家具', '2021-05-26 12:09:15', NULL, 1);
+INSERT INTO `goods` VALUES (130, '衣柜推拉门简易木质两门小衣柜衣橱简约现代移门衣柜浅胡桃色', '9621d6ff10911bef.jpg', 258.00, 1604, '新尚.美家家具旗舰店', '家具', '2021-05-26 12:09:15', NULL, 1);
+INSERT INTO `goods` VALUES (131, '实木床双人床北欧主卧大床1.81.51.2米经济型现代简约单人床加厚出租房简易床裸床胡桃色', '733744d4acc30ddd.jpg', 391.00, 1149, '庆恩旗舰店', '家具', '2021-05-26 12:09:15', NULL, 1);
+INSERT INTO `goods` VALUES (132, '床真皮床卧室双人床现代简约', '5798168fa0ff004d.jpg', 2880.00, 1711, '百冠环球迅毅专卖店', '家具', '2021-05-26 12:09:15', NULL, 1);
+INSERT INTO `goods` VALUES (133, '衣柜现代简约卧室家具木质带转角边柜组合大衣橱四门五门白色衣柜', '2c47f712bf576185.jpg', 980.00, 749, '奥尚斯莱家居旗舰店', '家具', '2021-05-26 12:09:15', NULL, 1);
+INSERT INTO `goods` VALUES (134, '茶几实木质感茶几', '537a064d04a10785.jpg', 99.00, 1739, '雅美乐京东自营旗舰店', '家具', '2021-05-26 12:09:16', NULL, 1);
+INSERT INTO `goods` VALUES (135, '沙发现代简约皮布沙发北欧客厅可拆洗整装布艺沙发组合102085C', 'f27f18716aec7613.jpg', 3588.00, 1269, '全友家居京东自营旗舰店', '家具', '2021-05-26 12:09:16', NULL, 1);
+INSERT INTO `goods` VALUES (136, '三人位【颜色样品寄送联系客服】旗舰海绵座包【颜色备注...', 'b9bac2411640d95c.jpg', 1499.00, 1811, '亲友家居旗舰店', '家具', '2021-05-26 12:09:16', NULL, 1);
 
 -- ----------------------------
 -- Table structure for goods_seckill
@@ -82,38 +104,6 @@ CREATE TABLE `goods_seckill`  (
   INDEX `gid`(`gid`) USING BTREE,
   CONSTRAINT `goods_seckill_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 122 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of goods_seckill
--- ----------------------------
-INSERT INTO `goods_seckill` VALUES (70, 23, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (71, 24, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (72, 25, '2021-05-23 21:17:00', '2021-05-23 22:10:00', 1, 0);
-INSERT INTO `goods_seckill` VALUES (73, 26, '2021-05-25 14:48:22', '2021-05-26 14:48:27', 1, 0);
-INSERT INTO `goods_seckill` VALUES (74, 27, '2021-05-30 16:30:02', '2021-05-27 16:30:08', 1, 0);
-INSERT INTO `goods_seckill` VALUES (75, 28, '2021-05-24 16:30:32', '2021-05-26 16:30:35', 1, 0);
-INSERT INTO `goods_seckill` VALUES (76, 29, '2021-05-24 16:31:15', '2021-05-25 17:30:00', 1, 0);
-INSERT INTO `goods_seckill` VALUES (77, 30, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (78, 31, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (79, 32, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (80, 33, '2021-05-25 17:31:54', '2021-05-28 17:32:03', 1, 0);
-INSERT INTO `goods_seckill` VALUES (81, 34, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (82, 35, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (83, 36, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (84, 37, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (85, 38, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (86, 39, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (87, 40, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (88, 41, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (89, 42, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (90, 43, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (91, 44, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (92, 45, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (93, 46, NULL, NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (94, 47, '2021-05-25 13:43:04', NULL, 1, 0);
-INSERT INTO `goods_seckill` VALUES (116, 78, '2021-05-24 17:53:35', '2021-05-26 17:53:40', 1, 1);
-INSERT INTO `goods_seckill` VALUES (117, 79, '2021-05-24 13:43:10', '2021-05-28 17:33:11', 1, 0);
-INSERT INTO `goods_seckill` VALUES (118, 80, '2021-05-24 17:32:31', '2021-05-30 17:32:23', 1, 1);
 
 -- ----------------------------
 -- Table structure for menu
@@ -184,46 +174,6 @@ CREATE TABLE `orders`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 140 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of orders
--- ----------------------------
-INSERT INTO `orders` VALUES (145, 'ba0ac8a822874238b19dfa1b2119869f', 1, '2021-05-25 17:52:40', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (146, '269f5f25affe43fbb457db15f83425c6', 1, '2021-05-25 17:52:58', 0, NULL, 1, 0.1);
-INSERT INTO `orders` VALUES (147, 'c36bc977890f4eaebcdaa797fd07f115', 2, '2021-05-25 17:53:12', 0, NULL, 1, 0.1);
-INSERT INTO `orders` VALUES (148, '911a3add0be7497e87037ea8a01d525c', 3, '2021-05-25 17:54:10', 0, NULL, 1, 0.1);
-INSERT INTO `orders` VALUES (149, '025ad1f45b134b62a065c40b2c4d6ae4', 3, '2021-05-25 17:54:32', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (150, '056c6846d03740ee85144310cbd4950f', 3, '2021-05-25 17:54:51', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (151, 'f3881237b3d144f2b3696ce83f0d0e1e', 1, '2021-05-25 17:55:03', 0, NULL, 1, 0.1);
-INSERT INTO `orders` VALUES (152, 'b4126432a14a45a2b4b80d7dd674dd17', 1, '2021-05-25 17:55:09', 0, NULL, 1, 0.1);
-INSERT INTO `orders` VALUES (153, '979c746b64f34d2094dca8ed312f4b79', 2, '2021-05-25 17:55:14', 0, NULL, 1, 0.5);
-INSERT INTO `orders` VALUES (154, '231fa778dc424635919b3efd6ab00717', 2, '2021-05-25 17:55:47', 0, NULL, 1, 0.5);
-INSERT INTO `orders` VALUES (155, 'c4b802200115468c873df7dc3e04ae6e', 2, '2021-05-25 17:55:48', 0, NULL, 1, 0.8);
-INSERT INTO `orders` VALUES (156, '8e547c8ccbe94b59b5965068b5bcd8fe', 2, '2021-05-25 17:55:49', 0, NULL, 1, 0.8);
-INSERT INTO `orders` VALUES (157, '8d9eccef43aa4b7688cd060813425c45', 2, '2021-05-25 17:55:49', 0, NULL, 1, 0.8);
-INSERT INTO `orders` VALUES (158, '75d93b64bf1d4de7bf46edc14196ac6c', 2, '2021-05-25 17:55:50', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (159, 'c75357f7ce25465aa5a88f4f12205a60', 2, '2021-05-25 17:55:57', 0, NULL, 1, 0.5);
-INSERT INTO `orders` VALUES (160, 'd4e71686e66441fcb201d5bffcba8727', 2, '2021-05-25 17:55:58', 0, NULL, 1, 0.5);
-INSERT INTO `orders` VALUES (161, '7b375cf328cf46f39d686078c4dc431e', 2, '2021-05-25 17:55:58', 0, NULL, 1, 0.8);
-INSERT INTO `orders` VALUES (162, '5f40a6e0b1044e19be9c6b622791fa4c', 2, '2021-05-25 17:56:01', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (163, 'c027f393dc6142f18032a698fc6e9ef2', 2, '2021-05-25 17:56:02', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (164, '9a78a412334a4cb196c05827f7e89859', 2, '2021-05-25 17:56:02', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (165, 'c5507f82082c4719bac7e1d36caeeb23', 2, '2021-05-25 17:56:04', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (166, '1c3947c52e6748c5bed759dce58448d9', 2, '2021-05-25 17:56:08', 0, NULL, 1, 0.8);
-INSERT INTO `orders` VALUES (167, 'ae039873c09a40a68a9dfc6aeab96e4b', 2, '2021-05-25 17:56:09', 0, NULL, 1, 0.8);
-INSERT INTO `orders` VALUES (168, '13d814bbda934bf0909b77c84a6ec32f', 2, '2021-05-25 17:56:09', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (169, '86d2a126362f4634a5285f101f3f6cf7', 2, '2021-05-25 17:56:09', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (170, '18f453a156774cb3b3a946b13f9c6313', 2, '2021-05-25 17:56:13', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (171, 'b2654f886cc1493e9f4a44255cd2e9d2', 2, '2021-05-25 17:56:14', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (172, '8a8ed2582faa4865b93e8ab603edfeec', 2, '2021-05-25 17:56:14', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (173, '160aff8fc4834914b632676e3dd9b716', 2, '2021-05-25 17:56:14', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (174, '05398b7d2e1443d6973d98e9766f9164', 2, '2021-05-25 17:56:17', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (175, '9cd2284d253b45f6a63a68ad79eff488', 2, '2021-05-25 17:56:18', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (176, '17fd5ff945fc47e08f97e4ccc75d32f0', 2, '2021-05-25 17:56:18', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (177, 'aaa0b57f5b304015a407af734f8cd5f7', 2, '2021-05-25 17:56:18', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (178, '81466d498cc148dea4648f4dc5e36123', 2, '2021-05-25 17:56:18', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (179, '186b4fceac9946528afeb1026416a408', 2, '2021-05-25 17:56:19', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (181, '9db9733c1c9447ecbaa5182a95741da1', 3, '2021-05-25 18:06:10', 0, NULL, 1, 1);
-
--- ----------------------------
 -- Table structure for orders_goods
 -- ----------------------------
 DROP TABLE IF EXISTS `orders_goods`;
@@ -238,47 +188,6 @@ CREATE TABLE `orders_goods`  (
   CONSTRAINT `orders_goods_ibfk_1` FOREIGN KEY (`oid`) REFERENCES `orders` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `orders_goods_ibfk_2` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of orders_goods
--- ----------------------------
-INSERT INTO `orders_goods` VALUES (106, 145, 79, 1);
-INSERT INTO `orders_goods` VALUES (107, 146, 80, 1);
-INSERT INTO `orders_goods` VALUES (108, 147, 80, 1);
-INSERT INTO `orders_goods` VALUES (109, 148, 78, 1);
-INSERT INTO `orders_goods` VALUES (110, 149, 78, 1);
-INSERT INTO `orders_goods` VALUES (111, 150, 79, 1);
-INSERT INTO `orders_goods` VALUES (112, 151, 80, 1);
-INSERT INTO `orders_goods` VALUES (113, 152, 78, 1);
-INSERT INTO `orders_goods` VALUES (114, 153, 80, 1);
-INSERT INTO `orders_goods` VALUES (115, 154, 80, 1);
-INSERT INTO `orders_goods` VALUES (116, 155, 80, 1);
-INSERT INTO `orders_goods` VALUES (117, 156, 80, 1);
-INSERT INTO `orders_goods` VALUES (118, 157, 80, 1);
-INSERT INTO `orders_goods` VALUES (119, 158, 80, 1);
-INSERT INTO `orders_goods` VALUES (120, 159, 78, 1);
-INSERT INTO `orders_goods` VALUES (121, 160, 78, 1);
-INSERT INTO `orders_goods` VALUES (122, 161, 78, 1);
-INSERT INTO `orders_goods` VALUES (123, 162, 80, 1);
-INSERT INTO `orders_goods` VALUES (124, 163, 80, 1);
-INSERT INTO `orders_goods` VALUES (125, 164, 80, 1);
-INSERT INTO `orders_goods` VALUES (126, 165, 80, 1);
-INSERT INTO `orders_goods` VALUES (127, 166, 78, 1);
-INSERT INTO `orders_goods` VALUES (128, 167, 78, 1);
-INSERT INTO `orders_goods` VALUES (129, 168, 78, 1);
-INSERT INTO `orders_goods` VALUES (130, 169, 78, 1);
-INSERT INTO `orders_goods` VALUES (131, 170, 79, 1);
-INSERT INTO `orders_goods` VALUES (132, 171, 79, 1);
-INSERT INTO `orders_goods` VALUES (133, 172, 79, 1);
-INSERT INTO `orders_goods` VALUES (134, 173, 79, 1);
-INSERT INTO `orders_goods` VALUES (135, 174, 80, 1);
-INSERT INTO `orders_goods` VALUES (136, 175, 80, 1);
-INSERT INTO `orders_goods` VALUES (137, 176, 80, 1);
-INSERT INTO `orders_goods` VALUES (138, 177, 80, 1);
-INSERT INTO `orders_goods` VALUES (139, 178, 80, 1);
-INSERT INTO `orders_goods` VALUES (140, 179, 80, 1);
-INSERT INTO `orders_goods` VALUES (141, 181, 78, 2);
-INSERT INTO `orders_goods` VALUES (142, 181, 79, 2);
 
 -- ----------------------------
 -- Table structure for role

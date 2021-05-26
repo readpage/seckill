@@ -1,6 +1,5 @@
 package com.example.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.Goods;
 import com.example.entity.GoodsSeckill;
@@ -47,6 +46,11 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
         return goodsMapper.selectAll();
     }
 
+    @Override
+    public List<Goods> like(String name) {
+        return goodsMapper.like(name);
+    }
+
 
     @Override
     public Boolean add(Goods goods) {
@@ -67,14 +71,6 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
             return ResultUtils.ok().message("修改成功😀!");
         }
         return ResultUtils.error().message("修改失败!😭");
-    }
-
-    @Override
-    public List<Goods> like(String name) {
-        QueryWrapper<Goods> wrapper = new QueryWrapper<>();
-        wrapper.like("name", name);
-        wrapper.select("*");
-        return goodsMapper.selectList(wrapper);
     }
 
     @Override

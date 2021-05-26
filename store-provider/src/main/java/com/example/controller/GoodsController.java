@@ -76,7 +76,7 @@ public class GoodsController {
         return ResultUtils.error().message("删除失败!😭");
     }
 
-    @ApiOperation("模糊查询商品")
+    @ApiOperation("模糊查询")
     @GetMapping("/like/{name}")
     public List<Goods> like(@PathVariable String name) {
         return goodsService.like(name);

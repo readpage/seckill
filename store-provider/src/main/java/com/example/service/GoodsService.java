@@ -17,9 +17,12 @@ import java.util.List;
  * @since 2021-04-28
  */
 public interface GoodsService extends IService<Goods> {
+
     PageInfo<Goods> page(int pageNum, int pageSize);
 
     List<Goods> selectAll();
+
+    List<Goods> like(String name);
 
     Boolean add(Goods goods);
 
@@ -27,7 +30,6 @@ public interface GoodsService extends IService<Goods> {
 
     Boolean deleteById(Integer id);
 
-    List<Goods> like(String name);
 
     Boolean deleteBatchId(List<Integer> lists);
 
