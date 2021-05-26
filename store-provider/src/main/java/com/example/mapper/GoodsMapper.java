@@ -21,4 +21,7 @@ public interface GoodsMapper extends BaseMapper<Goods> {
     List<Goods> selectAll();
 
     List<Goods> like(String name);
+    
+    List<String> selectType();
+
 }

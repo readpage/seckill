@@ -20,6 +20,8 @@ public interface GoodsService extends IService<Goods> {
 
     PageInfo<Goods> page(int pageNum, int pageSize);
 
+    PageInfo<Goods> LikePage(int pageNum, int pageSize, String name);
+
     List<Goods> selectAll();
 
     List<Goods> like(String name);
@@ -34,5 +36,7 @@ public interface GoodsService extends IService<Goods> {
     Boolean deleteBatchId(List<Integer> lists);
 
     boolean updateStockByOrdersGoods(OrdersGoods ordersGoods);
+
+    List<String> selectType();
 
 }

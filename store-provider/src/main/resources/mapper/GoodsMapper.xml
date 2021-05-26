@@ -33,4 +33,7 @@
         WHERE g.id=gs.gid
         AND name like concat('%', #{name}, '%')
     </select>
+    <select id="selectType" resultType="String">
+        SELECT type FROM goods GROUP BY type
+    </select>
 </mapper>

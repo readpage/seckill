@@ -82,6 +82,12 @@ public class GoodsController {
         return goodsService.like(name);
     }
 
+    @ApiOperation("模糊查询分页")
+    @GetMapping("/page/{pageNum}/{pageSize}/{name}")
+    public PageInfo<Goods> likePage(@PathVariable int pageNum, @PathVariable int pageSize,@PathVariable String name) {
+        return goodsService.LikePage(pageNum, pageSize, name);
+    }
+
 
     @ApiOperation("批量删除")
     @DeleteMapping("/deleteBatchId/{list}")
@@ -92,5 +98,10 @@ public class GoodsController {
         return ResultUtils.error().message("删除失败!😭");
     }
 
+    @ApiOperation("查询商品类型")
+    @GetMapping("/type")
+    public List<String> selectType() {
+        return goodsService.selectType();
+    }
 }
 

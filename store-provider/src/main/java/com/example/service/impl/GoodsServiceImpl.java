@@ -42,6 +42,12 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     }
 
     @Override
+    public PageInfo<Goods> LikePage(int pageNum, int pageSize, String name) {
+        PageHelper.startPage(pageNum, pageSize);
+        return new PageInfo<>(goodsMapper.like(name));
+    }
+
+    @Override
     public List<Goods> selectAll() {
         return goodsMapper.selectAll();
     }
@@ -94,5 +100,10 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     @Override
     public boolean updateStockByOrdersGoods(OrdersGoods ordersGoods) {
         return goodsMapper.updateStockByOrdersGoods(ordersGoods)>0;
+    }
+
+    @Override
+    public List<String> selectType() {
+        return goodsMapper.selectType();
     }
 }
