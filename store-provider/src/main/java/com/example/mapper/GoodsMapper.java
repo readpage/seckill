@@ -3,6 +3,7 @@ package com.example.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.entity.Goods;
 import com.example.entity.OrdersGoods;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,8 +21,8 @@ public interface GoodsMapper extends BaseMapper<Goods> {
 
     List<Goods> selectAll();
 
-    List<Goods> like(String name);
-    
+    List<Goods> like(@Param("name") String name, @Param("type") String type);
+
     List<String> selectType();
 
 }

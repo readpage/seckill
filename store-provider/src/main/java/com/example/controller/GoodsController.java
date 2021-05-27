@@ -7,9 +7,10 @@ import com.example.input.InGoodsSeckill;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
 import com.example.service.GoodsService;
-import com.github.pagehelper.PageInfo;
+import com.example.utlis.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,12 +30,6 @@ import java.util.List;
 public class GoodsController {
     @Autowired
     private GoodsService goodsService;
-
-    @ApiOperation("分页查询数据")
-    @GetMapping("/page/{pageNum}/{pageSize}")
-    public PageInfo<Goods> page(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
-        return goodsService.page(pageNum, pageSize);
-    }
 
     @ApiOperation("查询所有商品")
     @GetMapping("/selectAll")
@@ -77,17 +72,17 @@ public class GoodsController {
     }
 
     @ApiOperation("模糊查询")
-    @GetMapping("/like/{name}")
-    public List<Goods> like(@PathVariable String name) {
-        return goodsService.like(name);
+    @GetMapping("/like")
+    public List<Goods> like(@ApiParam(value = "空值或空字符串查询所有同理") String name, String type) {
+        return goodsService.like(name, type);
     }
 
     @ApiOperation("模糊查询分页")
-    @GetMapping("/page/{pageNum}/{pageSize}/{name}")
-    public PageInfo<Goods> likePage(@PathVariable int pageNum, @PathVariable int pageSize,@PathVariable String name) {
-        return goodsService.LikePage(pageNum, pageSize, name);
+    @GetMapping("/page/{pageNum}/{pageSize}")
+    public PageInfo<Goods> likePage(@PathVariable int pageNum, @PathVariable int pageSize, @ApiParam(value = "空值或空字符串查询所有同理") String name,
+                                    String type) {
+        return goodsService.likePage(pageNum, pageSize, name, type);
     }
-
 
     @ApiOperation("批量删除")
     @DeleteMapping("/deleteBatchId/{list}")
@@ -98,10 +93,11 @@ public class GoodsController {
         return ResultUtils.error().message("删除失败!😭");
     }
 
-    @ApiOperation("查询商品类型")
+    @ApiOperation("获取所有商品类型")
     @GetMapping("/type")
     public List<String> selectType() {
         return goodsService.selectType();
     }
+
 }
 

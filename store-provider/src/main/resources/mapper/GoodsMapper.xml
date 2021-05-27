@@ -31,7 +31,12 @@
     <select id="like" parameterType="String" resultMap="GoodsResult">
         SELECT * FROM goods g, goods_seckill gs
         WHERE g.id=gs.gid
-        AND name like concat('%', #{name}, '%')
+        <if test="name !=null and name != ''">
+            AND name like concat('%', #{name}, '%')
+        </if>
+        <if test="type != null and type !=''">
+            AND type=#{type}
+        </if>
     </select>
     <select id="selectType" resultType="String">
         SELECT type FROM goods GROUP BY type

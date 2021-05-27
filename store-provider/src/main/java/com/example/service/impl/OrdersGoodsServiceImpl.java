@@ -4,6 +4,8 @@ import com.example.entity.OrdersGoods;
 import com.example.mapper.OrdersGoodsMapper;
 import com.example.output.OrdersInfo;
 import com.example.service.OrdersGoodsService;
+import com.example.utlis.PageInfo;
+import com.github.pagehelper.PageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -37,5 +39,21 @@ public class OrdersGoodsServiceImpl implements OrdersGoodsService {
     @Override
     public int selectCountByGid(Integer gid) {
         return ordersGoodsMapper.selectCountByGid(gid);
+    }
+
+    @Override
+    public PageInfo<OrdersInfo> likePage(int pageNum, int pageSize, String name, String number) {
+        PageHelper.startPage(pageNum, pageSize);
+        return new PageInfo<>(ordersGoodsMapper.like(name, number));
+    }
+
+    @Override
+    public List<String> likeNumber(String name, String number) {
+        return ordersGoodsMapper.likeNumber(name, number);
+    }
+
+    @Override
+    public List<String> likeName(String name) {
+        return ordersGoodsMapper.likeName(name);
     }
 }

@@ -12,8 +12,8 @@ import com.example.service.GoodsSeckillService;
 import com.example.service.GoodsService;
 import com.example.service.OrdersGoodsService;
 import com.example.service.OrdersService;
+import com.example.utlis.PageInfo;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -153,6 +153,5 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         PageHelper.startPage(pageNum, pageSize);
         return new PageInfo<>(ordersGoodsService.selectAll());
     }
-
 
 }

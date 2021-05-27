@@ -2,7 +2,7 @@ package com.example.entity;
 
 
 import com.baomidou.mybatisplus.annotation.*;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.example.input.InUser;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -20,7 +20,6 @@ import java.util.List;
  */
 @ApiModel(value="User对象", description="")
 public class User implements Serializable {
-    @JsonIgnoreProperties(value={"username, password"})
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "用户ID")
@@ -54,6 +53,15 @@ public class User implements Serializable {
     @ApiModelProperty(value = "订单")
     private List<Orders> ordersList;
 
+    public User() {
+        super();
+    }
+
+    public User(InUser inUser) {
+        this.username = inUser.getUsername();
+        this.password = inUser.getPassword();
+        this.phone = inUser.getPhone();
+    }
 
     public Long getId() {
         return id;

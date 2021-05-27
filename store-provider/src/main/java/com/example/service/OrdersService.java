@@ -5,7 +5,7 @@ import com.example.entity.Orders;
 import com.example.entity.OrdersGoods;
 import com.example.output.OrdersInfo;
 import com.example.response.Result;
-import com.github.pagehelper.PageInfo;
+import com.example.utlis.PageInfo;
 
 import java.util.List;
 
@@ -36,5 +36,4 @@ public interface OrdersService extends IService<Orders> {
     List<OrdersInfo> selectAll();
 
     PageInfo<OrdersInfo> page(int pageNum, int pageSize);
-
 }

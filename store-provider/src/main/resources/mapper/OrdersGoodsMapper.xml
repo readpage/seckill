@@ -16,7 +16,7 @@
         INSERT INTO orders_goods(oid, gid, count) VALUES(#{oid}, #{gid}, #{count})
     </insert>
     <select id="selectAll" resultType="OrdersInfo">
-        SELECT o.id, u.username, o.number, o.create_date, g.name, g.price, g.img, g.store, og.count, gs.start_date, gs.end_date, o.discounts,  u.phone
+        SELECT og.id, u.username, o.number, o.create_date, g.name, g.price, g.img, g.store, og.count, gs.start_date, gs.end_date, o.discounts,  u.phone
         FROM user u, orders o, goods g, orders_goods og, goods_seckill gs
         WHERE u.id=o.uid AND o.id=og.oid AND g.id=og.gid AND g.id=gs.gid
         GROUP BY og.id
@@ -25,5 +25,22 @@
         SELECT count(0) FROM orders_goods og,goods g, goods_seckill gs, orders o
         WHERE g.id=gs.gid AND g.id=og.gid AND o.id=og.oid
         AND g.id=#{gid} AND gs.start_date&lt;=o.create_date AND  o.create_date&lt;=gs.end_date
+    </select>
+    <select id="likeNumber" resultType="String">
+        SELECT o.number FROM goods g, orders_goods og, orders o
+        WHERE g.id=og.gid AND o.id=og.oid
+        <if test="name !=null and name != ''">
+            AND g.name LIKE concat('%', #{name}, '%')
+        </if>
+        <if test="number !=null and name !=''">
+            AND o.number LIKE concat('%', #{number}, '%')
+        </if>
+        GROUP BY o.number LIMIT 10
+    </select>
+    <select id="likeName" parameterType="String" resultType="String">
+        SELECT name FROM goods g, orders_goods og
+        WHERE g.id=og.gid
+        AND name LIKE concat('%', #{name}, '%')
+        GROUP BY name LIMIT 10
     </select>
 </mapper>

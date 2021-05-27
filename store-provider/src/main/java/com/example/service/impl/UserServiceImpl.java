@@ -1,13 +1,13 @@
 package com.example.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.User;
 import com.example.mapper.UserMapper;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
 import com.example.service.OrdersService;
+import com.example.service.UserRoleService;
 import com.example.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -15,11 +15,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * <p>
@@ -38,12 +40,26 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Autowired
     @Lazy
     private PasswordEncoder pw;
+    @Autowired
+    private UserRoleService userRoleService;
 
-//    @Override
-//    public PageInfo<User> myPage(Integer pageNum, Integer pageSize) {
-//        PageHelper.startPage(pageNum, pageSize);
-//        return new PageInfo<>(userMapper.findUserWithOrders());
-//    }
+    @Transactional(rollbackFor = Exception.class)//设置检查时异常时回滚事务
+    @Override
+    public boolean add(User user) throws Exception {
+        String phone = user.getPhone();
+        Pattern pattern = Pattern.compile("^[1][3,4,5,7,8][0-9]{9}$");// 验证手机号
+        if (!phone.matches(phone)) {
+            return false;
+        }
+        user.setPassword(pw.encode(user.getPassword()));
+        if (userMapper.insert(user)==0) {
+            throw new Exception("注册失败!😂");
+        }
+        if (!userRoleService.insert(user.getId(), 3)) {
+            throw new Exception("注册失败!😂");
+        }
+        return true;
+    }
 
     @Override
     public Result mySave(User user) {
@@ -112,5 +128,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public PageInfo<User> page(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         return new PageInfo<>(userMapper.selectAll());
+    }
+
+    @Override
+    public boolean selectIsUsername(String username) {
+        return userMapper.selectIsUsername(username)>0;
     }
 }

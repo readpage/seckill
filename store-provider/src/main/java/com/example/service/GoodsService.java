@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.Goods;
 import com.example.entity.OrdersGoods;
 import com.example.response.Result;
-import com.github.pagehelper.PageInfo;
+import com.example.utlis.PageInfo;
 
 import java.util.List;
 
@@ -20,11 +20,12 @@ public interface GoodsService extends IService<Goods> {
 
     PageInfo<Goods> page(int pageNum, int pageSize);
 
-    PageInfo<Goods> LikePage(int pageNum, int pageSize, String name);
+    PageInfo<Goods> likePage(int pageNum, int pageSize, String name, String type);
 
     List<Goods> selectAll();
 
-    List<Goods> like(String name);
+    List<Goods> like(String name, String type);
+
 
     Boolean add(Goods goods);
 
@@ -38,5 +39,6 @@ public interface GoodsService extends IService<Goods> {
     boolean updateStockByOrdersGoods(OrdersGoods ordersGoods);
 
     List<String> selectType();
+
 
 }

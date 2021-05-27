@@ -6,8 +6,9 @@ import com.example.input.InOrdersGoods;
 import com.example.output.OrdersInfo;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
+import com.example.service.OrdersGoodsService;
 import com.example.service.OrdersService;
-import com.github.pagehelper.PageInfo;
+import com.example.utlis.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ import java.util.List;
 public class OrdersController {
     @Autowired
     private OrdersService ordersService;
+
+    @Autowired
+    private OrdersGoodsService ordersGoodsService;
 
     @ApiOperation("删除订单")
     @DeleteMapping("/delete/{id}")
@@ -79,11 +83,23 @@ public class OrdersController {
     public List<OrdersInfo> selectAll() {
         return ordersService.selectAll();
     }
-    @ApiOperation("查询订单")
+
+    @ApiOperation("分页模糊查询")
     @GetMapping("/page/{pageNum}/{pageSize}")
-    public PageInfo<OrdersInfo> page(@PathVariable int pageNum, @PathVariable int pageSize) {
-        return ordersService.page(pageNum, pageSize);
+    public PageInfo<OrdersInfo> page(@PathVariable int pageNum, @PathVariable int pageSize, String name, String number) {
+        return ordersGoodsService.likePage(pageNum, pageSize, name, number);
     }
 
+    @ApiOperation("模糊名字查询")
+    @GetMapping("/likeName")
+    public List<String> likeName(String name) {
+        return ordersGoodsService.likeName(name);
+    }
+
+    @ApiOperation("模糊订单编号查询")
+    @GetMapping("/likeNumber")
+    public List<String> likeNumber(String name, String number) {
+        return ordersGoodsService.likeNumber(name, number);
+    }
 }
 

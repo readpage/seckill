@@ -16,6 +16,8 @@ import java.util.List;
  * @since 2021-04-28
  */
 public interface UserService extends IService<User> {
+    boolean add(User user) throws Exception;
+
     Result mySave(User user);
 
     Result myUpdateById(User user);
@@ -29,4 +31,6 @@ public interface UserService extends IService<User> {
     User findByUsername(String username);
 
     PageInfo<User> page(int pageNum, int pageSize);
+
+    boolean selectIsUsername(String username);
 }

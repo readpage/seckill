@@ -10,8 +10,8 @@ import com.example.response.ResultUtils;
 import com.example.service.GoodsSeckillService;
 import com.example.service.GoodsService;
 import com.example.service.OrdersGoodsService;
+import com.example.utlis.PageInfo;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,9 +42,9 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     }
 
     @Override
-    public PageInfo<Goods> LikePage(int pageNum, int pageSize, String name) {
+    public PageInfo<Goods> likePage(int pageNum, int pageSize, String name, String type) {
         PageHelper.startPage(pageNum, pageSize);
-        return new PageInfo<>(goodsMapper.like(name));
+        return new PageInfo<>(goodsMapper.like(name, type));
     }
 
     @Override
@@ -53,10 +53,9 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     }
 
     @Override
-    public List<Goods> like(String name) {
-        return goodsMapper.like(name);
+    public List<Goods> like(String name, String type) {
+        return goodsMapper.like(name, type);
     }
-
 
     @Override
     public Boolean add(Goods goods) {
@@ -106,4 +105,5 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     public List<String> selectType() {
         return goodsMapper.selectType();
     }
+
 }
