@@ -16,7 +16,7 @@
         <result property="updateTime" column="update_time"/>
         <result property="version" column="version"/>
         <association property="goodsSeckill" javaType="GoodsSeckill">
-            <id property="gsId" column="gsId"/>
+            <id property="gsId" column="id"/>
             <result property="gid" column="gid"/>
             <result property="startDate" column="start_date"/>
             <result property="endDate" column="end_date"/>

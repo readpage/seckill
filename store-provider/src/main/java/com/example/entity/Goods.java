@@ -59,7 +59,6 @@ public class Goods implements Serializable {
 
     public Goods(InGoods inGoods) {
         this.name = inGoods.getName();
-        this.img = inGoods.getImg();
         this.price = inGoods.getPrice();
         this.stock = inGoods.getStock();
         this.store = inGoods.getStore();

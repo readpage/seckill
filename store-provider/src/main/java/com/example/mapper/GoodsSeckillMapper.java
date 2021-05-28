@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.entity.GoodsSeckill;
+import com.example.input.InGoodsSeckill;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
@@ -23,4 +24,6 @@ public interface GoodsSeckillMapper extends BaseMapper<GoodsSeckill> {
     int selectStatusByGid(Integer gid);
 
     int selectIsExpire(@Param("now") Date now, @Param("gid") Integer gid);
+
+    int updateByGid(InGoodsSeckill inGoodsSeckill);
 }

@@ -6,6 +6,7 @@ import com.example.input.InGoods;
 import com.example.input.InGoodsSeckill;
 import com.example.response.Result;
 import com.example.response.ResultUtils;
+import com.example.service.GoodsSeckillService;
 import com.example.service.GoodsService;
 import com.example.utlis.PageInfo;
 import io.swagger.annotations.Api;
@@ -30,6 +31,8 @@ import java.util.List;
 public class GoodsController {
     @Autowired
     private GoodsService goodsService;
+    @Autowired
+    private GoodsSeckillService goodsSeckillService;
 
     @ApiOperation("查询所有商品")
     @GetMapping("/selectAll")
@@ -47,10 +50,13 @@ public class GoodsController {
         return ResultUtils.error().message("添加失败!");
     }
 
-    @ApiOperation(value = "添加抢购商品信息")
+    @ApiOperation(value = "秒杀管理")
     @PostMapping("/add-seckill")
     public Result addSeckill(@RequestBody InGoodsSeckill inGoodsSeckill) {
-        return ResultUtils.ok().message("d");
+        if (goodsSeckillService.updateByGid(inGoodsSeckill)) {
+            return ResultUtils.ok().message("修改成功😂!");
+        }
+        return ResultUtils.error().message("修改失败😂!");
     }
 
     @ApiOperation(value= "修改商品信息")

@@ -2,6 +2,7 @@ package com.example.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.GoodsSeckill;
+import com.example.input.InGoodsSeckill;
 import com.example.mapper.GoodsSeckillMapper;
 import com.example.service.GoodsSeckillService;
 import org.springframework.stereotype.Service;
@@ -41,5 +42,10 @@ public class GoodsSeckillServiceImpl extends ServiceImpl<GoodsSeckillMapper, Goo
     @Override
     public Boolean selectIsExpire(Integer gid) {
         return goodsSeckillMapper.selectIsExpire(new Date(), gid)>0;
+    }
+
+    @Override
+    public boolean updateByGid(InGoodsSeckill inGoodsSeckill) {
+        return goodsSeckillMapper.updateByGid(inGoodsSeckill)>0;
     }
 }

@@ -25,4 +25,5 @@ public interface GoodsMapper extends BaseMapper<Goods> {
 
     List<String> selectType();
 
+
 }

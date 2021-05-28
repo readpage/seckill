@@ -9,9 +9,6 @@ public class InGoods {
     @ApiModelProperty(value = "商品名称")
     private String name;
 
-    @ApiModelProperty(value = "商品图片")
-    private String img;
-
     @ApiModelProperty(value = "商品价格")
     private Double price;
 
@@ -31,14 +28,6 @@ public class InGoods {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
     }
 
     public Double getPrice() {
@@ -77,7 +66,6 @@ public class InGoods {
     public String toString() {
         return "InGoods{" +
                 "name='" + name + '\'' +
-                ", img='" + img + '\'' +
                 ", price=" + price +
                 ", stock=" + stock +
                 ", store='" + store + '\'' +

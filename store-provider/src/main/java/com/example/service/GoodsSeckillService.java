@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.GoodsSeckill;
+import com.example.input.InGoodsSeckill;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface GoodsSeckillService extends IService<GoodsSeckill> {
     Boolean selectStatusByGid(Integer gid);
 
     Boolean selectIsExpire(Integer gid);
+
+    boolean updateByGid(InGoodsSeckill inGoodsSeckill);
 }

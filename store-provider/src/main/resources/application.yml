@@ -29,5 +29,5 @@ mybatis-plus:
     #加载mapper目录下的所有xml文件
   mapper-locations: classpath:mapper/*.xml
     # 实体类别名,无需添加完整包路径
-  type-aliases-package: com.example.entity,com.example.output
+  type-aliases-package: com.example.entity,com.example.output,com.example.input
 
