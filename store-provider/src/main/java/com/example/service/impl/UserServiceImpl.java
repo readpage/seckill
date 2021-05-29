@@ -18,9 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
@@ -45,7 +43,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Transactional(rollbackFor = Exception.class)//设置检查时异常时回滚事务
     @Override
-    public boolean add(User user) throws Exception {
+    public boolean register(User user) throws Exception {
         String phone = user.getPhone();
         Pattern pattern = Pattern.compile("^[1][3,4,5,7,8][0-9]{9}$");// 验证手机号
         if (!phone.matches(phone)) {
@@ -62,17 +60,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public Result mySave(User user) {
-        user.setPassword(pw.encode(user.getPassword()));
-        userMapper.insert(user);
-        Map<String, Object> map = new HashMap<>();
-        map.put("uid", user.getId());
-        map.put("rid", 3);
-        int n = userMapper.saveUserRole(map);
-        if (n==1) {
-            return ResultUtils.ok().message("添加成功😀!");
-        }
-        return ResultUtils.error().message("添加失败!😭");
+    public boolean add(User user) {
+        return false;
     }
 
     @Override
@@ -104,6 +93,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         wrapper.select("*");
         return userMapper.selectList(wrapper);
     }
+
     @Override
     public Result myDeleteBatchId(List<Integer> lists) {
         ordersService.deleteBatchUId(lists);

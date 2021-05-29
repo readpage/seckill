@@ -16,13 +16,13 @@
         INSERT INTO orders_goods(oid, gid, count) VALUES(#{oid}, #{gid}, #{count})
     </insert>
     <select id="selectAll" resultType="OrdersInfo">
-        SELECT og.id, u.username, o.number, o.status, o.create_date, g.name, g.price, g.img, g.store, og.count, gs.start_date, gs.end_date, o.discounts,  u.phone
+        SELECT og.id, u.username, o.number, og.oid, o.status, o.create_date, g.name, g.price, g.img, g.store, og.count, gs.start_date, gs.end_date, o.discounts,  u.phone
         FROM user u, orders o, goods g, orders_goods og, goods_seckill gs
         WHERE u.id=o.uid AND o.id=og.oid AND g.id=og.gid AND g.id=gs.gid
         GROUP BY og.id
     </select>
     <select id="like" resultType="OrdersInfo">
-        SELECT og.id, u.username, o.number, o.status, o.create_date, g.name, g.price, g.img, g.store, og.count, gs.start_date, gs.end_date, o.discounts,  u.phone
+        SELECT og.id, og.oid, u.username, o.number, o.status, o.create_date, g.name, g.price, g.img, g.store, og.count, gs.start_date, gs.end_date, o.discounts,  u.phone
         FROM user u, orders o, goods g, orders_goods og, goods_seckill gs
         WHERE u.id=o.uid AND o.id=og.oid AND g.id=og.gid AND g.id=gs.gid
         <if test="name != null and name != ''">

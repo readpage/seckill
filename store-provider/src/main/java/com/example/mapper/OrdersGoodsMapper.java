@@ -22,4 +22,8 @@ public interface OrdersGoodsMapper {
     List<String> likeNumber(@Param("name") String name, @Param("number") String number);
 
     List<String> likeName(String name);
+
+    int deleteOrdersGoods(Integer oid);
+
+    int deleteBatchOrdersGoods(List<Integer> list);
 }

@@ -16,9 +16,9 @@ import java.util.List;
  * @since 2021-04-28
  */
 public interface UserService extends IService<User> {
-    boolean add(User user) throws Exception;
+    boolean register(User user) throws Exception;
 
-    Result mySave(User user);
+    boolean add(User user);
 
     Result myUpdateById(User user);
 

@@ -17,6 +17,15 @@ public class OrdersInfo {
     private float discounts;
     private String phone;
     private Integer status;
+    private Integer oid;
+
+    public Integer getOid() {
+        return oid;
+    }
+
+    public void setOid(Integer oid) {
+        this.oid = oid;
+    }
 
     public Integer getId() {
         return id;
@@ -147,6 +156,7 @@ public class OrdersInfo {
                 ", discounts=" + discounts +
                 ", phone='" + phone + '\'' +
                 ", status=" + status +
+                ", oid=" + oid +
                 '}';
     }
 }

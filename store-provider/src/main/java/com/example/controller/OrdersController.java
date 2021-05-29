@@ -36,9 +36,9 @@ public class OrdersController {
     private OrdersGoodsService ordersGoodsService;
 
     @ApiOperation("删除订单")
-    @DeleteMapping("/delete/{id}")
-    public Result DeleteById(@PathVariable Integer id) {
-        return ordersService.deleteById(id);
+    @DeleteMapping("/delete/{oid}")
+    public Result DeleteById(@PathVariable Integer oid) {
+        return ordersService.deleteById(oid);
     }
 
     @ApiOperation("批量删除")

@@ -43,7 +43,7 @@ public class UserController {
 
     @ApiOperation(value = "注册用户")
     @PostMapping("/register")
-    public Result save(@RequestBody InUser inUser) throws Exception {
+    public Result register(@RequestBody InUser inUser) throws Exception {
         if (userService.add(new User(inUser))) {
             return ResultUtils.ok().message("注册成功😂");
         }
