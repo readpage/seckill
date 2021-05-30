@@ -55,4 +55,15 @@
         AND name LIKE concat('%', #{name}, '%')
         GROUP BY name LIMIT 10
     </select>
+
+    <select id="selectBuyCount" resultType="int">
+        SELECT count(0) FROM orders o, orders_goods og
+        WHERE o.id=og.oid
+        AND og.gid=#{gid} AND o.uid=#{uid}
+    </select>
+
+    <select id="selectSales" parameterType="Integer" resultType="int">
+        SELECT COALESCE(SUM(count), 0) FROM goods g, orders_goods og
+        WHERE g.id=og.gid AND og.gid=#{gid}
+    </select>
 </mapper>

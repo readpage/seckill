@@ -55,6 +55,9 @@ public class Goods implements Serializable {
     @Version
     private Integer version;
 
+    @ApiModelProperty(value = "销售量")
+    private int sales;
+
     private GoodsSeckill goodsSeckill;
 
     public Goods(InGoods inGoods) {
@@ -65,6 +68,13 @@ public class Goods implements Serializable {
         this.type = inGoods.getType();
     }
 
+    public int getSales() {
+        return sales;
+    }
+
+    public void setSales(int sales) {
+        this.sales = sales;
+    }
 
     public Goods() {
         super();
@@ -171,6 +181,7 @@ public class Goods implements Serializable {
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", version=" + version +
+                ", sales=" + sales +
                 ", goodsSeckill=" + goodsSeckill +
                 '}';
     }

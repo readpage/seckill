@@ -50,6 +50,9 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     public boolean add(Long uid, OrdersGoods ordersGoods) throws Exception {
         Orders orders = new Orders();
         int gid=ordersGoods.getGid();
+        if (ordersGoodsService.selectBuyCount(Math.toIntExact(uid), gid)) {
+            throw new Exception("只能购买一份");
+        }
         float discounts=1.0f;
         if (goodsSeckillService.selectStatusByGid(gid)&&goodsSeckillService.selectIsExpire(gid)) {
             int count = ordersGoodsService.selectCountByGid(gid);

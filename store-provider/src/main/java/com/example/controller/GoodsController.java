@@ -8,6 +8,7 @@ import com.example.response.Result;
 import com.example.response.ResultUtils;
 import com.example.service.GoodsSeckillService;
 import com.example.service.GoodsService;
+import com.example.service.OrdersGoodsService;
 import com.example.utlis.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,6 +34,8 @@ public class GoodsController {
     private GoodsService goodsService;
     @Autowired
     private GoodsSeckillService goodsSeckillService;
+    @Autowired
+    private OrdersGoodsService ordersGoodsService;
 
     @ApiOperation("查询所有商品")
     @GetMapping("/selectAll")
@@ -88,6 +91,13 @@ public class GoodsController {
     public PageInfo<Goods> likePage(@PathVariable int pageNum, @PathVariable int pageSize, @ApiParam(value = "空值或空字符串查询所有同理") String name,
                                     String type) {
         return goodsService.likePage(pageNum, pageSize, name, type);
+    }
+
+    @ApiOperation("模糊查询抢购商品分页")
+    @GetMapping("/pageSeckill/{pageNum}/{pageSize}")
+    public PageInfo<Goods> likeSeckillPage(@PathVariable int pageNum, @PathVariable int pageSize, @ApiParam(value = "空值或空字符串查询所有同理") String name,
+                                    String type) {
+        return goodsService.likeSeckillPage(pageNum, pageSize, name, type);
     }
 
     @ApiOperation("批量删除")

@@ -23,4 +23,8 @@ public interface OrdersGoodsService {
     List<String> likeNumber(String name, String number);
 
     List<String> likeName(String name);
+
+    boolean selectBuyCount(Integer uid, Integer gid);
+
+    int selectSales(Integer gid);
 }

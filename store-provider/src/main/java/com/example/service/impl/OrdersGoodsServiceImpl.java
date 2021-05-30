@@ -56,4 +56,14 @@ public class OrdersGoodsServiceImpl implements OrdersGoodsService {
     public List<String> likeName(String name) {
         return ordersGoodsMapper.likeName(name);
     }
+
+    @Override
+    public boolean selectBuyCount(Integer uid, Integer gid) {
+        return ordersGoodsMapper.selectBuyCount(uid, gid)>0;
+    }
+
+    @Override
+    public int selectSales(Integer gid) {
+        return ordersGoodsMapper.selectSales(gid);
+    }
 }

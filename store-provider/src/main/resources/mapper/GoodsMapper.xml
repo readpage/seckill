@@ -15,8 +15,9 @@
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
         <result property="version" column="version"/>
+        <result property="sales" column="sales"/>
         <association property="goodsSeckill" javaType="GoodsSeckill">
-            <id property="gsId" column="id"/>
+            <id property="gsId" column="gsId"/>
             <result property="gid" column="gid"/>
             <result property="startDate" column="start_date"/>
             <result property="endDate" column="end_date"/>
@@ -29,7 +30,7 @@
         WHERE g.id=gs.gid
     </select>
     <select id="like" parameterType="String" resultMap="GoodsResult">
-        SELECT * FROM goods g, goods_seckill gs
+        SELECT * , gs.id gsId FROM goods g, goods_seckill gs
         WHERE g.id=gs.gid
         <if test="name !=null and name != ''">
             AND name like concat('%', #{name}, '%')
@@ -40,5 +41,16 @@
     </select>
     <select id="selectType" resultType="String">
         SELECT type FROM goods GROUP BY type
+    </select>
+    <select id="likeSeckill" resultMap="GoodsResult">
+        SELECT * , gs.id gsId FROM goods g, goods_seckill gs
+        WHERE g.id=gs.gid AND start_date&lt;#{now}
+        AND #{now}&lt;end_date AND status&gt;0
+        <if test="name !=null and name != ''">
+            AND name like concat('%', #{name}, '%')
+        </if>
+        <if test="type != null and type !=''">
+            AND type=#{type}
+        </if>
     </select>
 </mapper>

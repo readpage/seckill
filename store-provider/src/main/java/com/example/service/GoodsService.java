@@ -26,6 +26,7 @@ public interface GoodsService extends IService<Goods> {
 
     List<Goods> like(String name, String type);
 
+    PageInfo<Goods> likeSeckillPage(int pageNum, int pageSize, String name, String type);
 
     Boolean add(Goods goods);
 

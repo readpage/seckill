@@ -5,6 +5,7 @@ import com.example.entity.Goods;
 import com.example.entity.OrdersGoods;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,5 +26,5 @@ public interface GoodsMapper extends BaseMapper<Goods> {
 
     List<String> selectType();
 
-
+    List<Goods> likeSeckill(@Param("name") String name, @Param("type") String type, @Param("now") Date now);
 }

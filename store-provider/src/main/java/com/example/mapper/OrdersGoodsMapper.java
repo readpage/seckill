@@ -26,4 +26,9 @@ public interface OrdersGoodsMapper {
     int deleteOrdersGoods(Integer oid);
 
     int deleteBatchOrdersGoods(List<Integer> list);
+
+    int selectBuyCount(@Param("uid") Integer uid, @Param("gid") Integer gid);
+
+    int selectSales(Integer gid);
+
 }

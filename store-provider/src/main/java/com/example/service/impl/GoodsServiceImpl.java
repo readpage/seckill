@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,7 +45,14 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     @Override
     public PageInfo<Goods> likePage(int pageNum, int pageSize, String name, String type) {
         PageHelper.startPage(pageNum, pageSize);
-        return new PageInfo<>(goodsMapper.like(name, type));
+        PageInfo<Goods> pageInfo =new PageInfo<>(goodsMapper.like(name, type));
+        List<Goods> list = pageInfo.getList();
+        for (int i = 0; i < list.size(); i++) {
+            Goods goods= list.get(i);
+            goods.setSales(ordersGoodsService.selectSales(goods.getId()));
+            list.set(i, goods);
+        }
+        return pageInfo;
     }
 
     @Override
@@ -55,6 +63,19 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     @Override
     public List<Goods> like(String name, String type) {
         return goodsMapper.like(name, type);
+    }
+
+    @Override
+    public PageInfo<Goods> likeSeckillPage(int pageNum, int pageSize, String name, String type) {
+        PageHelper.startPage(pageNum, pageSize);
+        PageInfo<Goods> pageInfo =new PageInfo<>(goodsMapper.likeSeckill(name, type, new Date()));
+        List<Goods> list = pageInfo.getList();
+        for (int i = 0; i < list.size(); i++) {
+            Goods goods= list.get(i);
+            goods.setSales(ordersGoodsService.selectSales(goods.getId()));
+            list.set(i, goods);
+        }
+        return pageInfo;
     }
 
     @Override
