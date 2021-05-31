@@ -35,16 +35,10 @@ public class UserController {
         return userService.page(pageNum, pageSize);
     }
 
-//    @ApiOperation(value = "添加用户", notes = "参数只需添加<em>username,password</em>")
-//    @PostMapping("/save")
-//    public Result save1(@RequestBody User user) {
-//        return userService.mySave(user);
-//    }
-
     @ApiOperation(value = "注册用户")
     @PostMapping("/register")
     public Result register(@RequestBody InUser inUser) throws Exception {
-        if (userService.add(new User(inUser))) {
+        if (userService.register(new User(inUser))) {
             return ResultUtils.ok().message("注册成功😂");
         }
         return ResultUtils.error().message("注册失败😂!");
