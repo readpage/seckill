@@ -53,4 +53,9 @@
             AND type=#{type}
         </if>
     </select>
+    <update id="updateById" parameterType="Goods">
+        UPDATE goods SET name=#{name}, price=#{price}, stock=#{stock},
+        type=#{type}, store=#{store}
+        WHERE id=#{id}
+    </update>
 </mapper>
