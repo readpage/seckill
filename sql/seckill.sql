@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 30/05/2021 18:32:37
+ Date: 06/07/2021 14:24:13
 */
 
 SET NAMES utf8mb4;
@@ -33,16 +33,16 @@ CREATE TABLE `goods`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 143 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 149 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
 INSERT INTO `goods` VALUES (86, 'FlexPai2新一代5G双模折叠屏手机', '2022a0a4297058a8.jpg', 9998.00, 1634, '柔宇（ROYOLE）折叠屏手机京东自营旗舰店', '手机', '2021-05-26 11:08:50', '2021-05-28 14:58:53', 1);
 INSERT INTO `goods` VALUES (87, '9A5000mAh大电量大屏幕大字体大音量', '5b33ac76b2aaea9b.jpg', 699.00, 1221, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', '2021-05-29 18:25:29', 1);
-INSERT INTO `goods` VALUES (88, 'Note94G', 'c0cf7c9643743b71.jpg', 1099.00, 599, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', NULL, 1);
+INSERT INTO `goods` VALUES (88, 'Note94G', 'c0cf7c9643743b71.jpg', 1099.00, 597, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', NULL, 1);
 INSERT INTO `goods` VALUES (89, 'Note9Pro', 'ed74bdb6decc03a0.jpg', 1799.00, 720, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', NULL, 1);
-INSERT INTO `goods` VALUES (90, '超级快充5000mAh大电池6.6英寸全面屏', '56b4eabc00aa04c8.jpg', 1299.00, 1300, '荣耀京东自营旗舰店', '手机', '2021-05-26 11:08:52', NULL, 1);
+INSERT INTO `goods` VALUES (90, '超级快充5000mAh大电池6.6英寸全面屏', '56b4eabc00aa04c8.jpg', 1301.00, 1300, '荣耀京东自营旗舰店', '手机', '2021-05-26 11:08:52', NULL, 1);
 INSERT INTO `goods` VALUES (91, 'iPhone12(A2404)', '63796cc95e30a40e.jpg', 6799.00, 929, 'Apple产品京东自营旗舰店', '手机', '2021-05-26 11:11:06', NULL, 1);
 INSERT INTO `goods` VALUES (92, '真我Q3骁龙750G120Hz可变帧电竞屏', '133030cccc51681c.jpg', 1249.00, 617, 'realme真我京东自营旗舰店', '手机', '2021-05-26 11:11:06', NULL, 1);
 INSERT INTO `goods` VALUES (93, 'K99老人手机全网通4G移动联通电信老年机', '8e0db42162d354ac.jpg', 199.00, 1429, '纽曼京东自营官方旗舰店', '手机', '2021-05-26 11:11:07', NULL, 1);
@@ -91,6 +91,8 @@ INSERT INTO `goods` VALUES (136, '三人位【颜色样品寄送联系客服】�
 INSERT INTO `goods` VALUES (137, '惠普', NULL, 5000.00, 2000, '惠普旗舰店', '笔记本电脑', '2021-05-28 14:14:13', '2021-05-28 14:14:13', 1);
 INSERT INTO `goods` VALUES (138, 'vivo', NULL, 2000.00, 499, 'vivo旗舰店', '手机', '2021-05-28 14:17:32', '2021-05-28 14:17:32', 1);
 INSERT INTO `goods` VALUES (139, 'oppo', NULL, 2512.00, 200, 'oppo旗舰店', '手机', '2021-05-28 14:46:58', '2021-05-28 15:02:09', 1);
+INSERT INTO `goods` VALUES (146, 'c', NULL, 12314.00, 23141, '132412', '笔记本电脑', '2021-07-05 18:39:32', NULL, 1);
+INSERT INTO `goods` VALUES (147, 'f', NULL, 1314.00, 31241, '2134', '手机', '2021-07-05 18:41:50', NULL, 1);
 
 -- ----------------------------
 -- Table structure for goods_seckill
@@ -106,16 +108,16 @@ CREATE TABLE `goods_seckill`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `gid`(`gid`) USING BTREE,
   CONSTRAINT `goods_seckill_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 178 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 183 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods_seckill
 -- ----------------------------
-INSERT INTO `goods_seckill` VALUES (122, 86, '2021-05-28 00:00:00', '2021-06-23 17:00:00', 1, 0);
+INSERT INTO `goods_seckill` VALUES (122, 86, '2021-07-01 00:00:00', '2021-07-15 00:00:00', 1, 1);
 INSERT INTO `goods_seckill` VALUES (123, 87, '2021-05-28 00:00:00', '2021-08-25 18:11:57', 1, 1);
-INSERT INTO `goods_seckill` VALUES (124, 88, '2021-05-26 12:19:46', '2021-06-01 12:20:00', 1, 1);
-INSERT INTO `goods_seckill` VALUES (125, 89, '2021-05-26 12:19:46', '2021-06-01 12:20:00', 1, 1);
-INSERT INTO `goods_seckill` VALUES (126, 90, '2021-05-26 12:19:46', '2021-06-01 12:20:00', 1, 1);
+INSERT INTO `goods_seckill` VALUES (124, 88, '2021-07-05 00:00:00', '2021-07-07 00:00:00', 1, 1);
+INSERT INTO `goods_seckill` VALUES (125, 89, '2021-07-05 00:00:00', '2021-07-07 00:00:00', 1, 1);
+INSERT INTO `goods_seckill` VALUES (126, 90, '2021-05-26 12:19:46', '2021-06-01 12:20:00', 1, 0);
 INSERT INTO `goods_seckill` VALUES (127, 91, '2021-05-26 12:19:46', '2021-06-01 12:20:00', 1, 1);
 INSERT INTO `goods_seckill` VALUES (128, 92, '2021-05-26 12:19:46', '2021-06-01 12:20:00', 1, 1);
 INSERT INTO `goods_seckill` VALUES (129, 93, '2021-05-26 12:19:46', '2021-06-01 12:20:00', 1, 1);
@@ -164,6 +166,8 @@ INSERT INTO `goods_seckill` VALUES (171, 136, '2021-05-26 12:19:46', '2021-06-01
 INSERT INTO `goods_seckill` VALUES (172, 137, '2021-05-26 12:19:46', '2021-05-26 12:19:46', 1, 0);
 INSERT INTO `goods_seckill` VALUES (173, 138, '2021-05-30 00:00:00', '2021-06-30 00:00:00', 1, 1);
 INSERT INTO `goods_seckill` VALUES (174, 139, '2021-05-28 14:46:57', '2021-05-28 14:46:57', 1, 0);
+INSERT INTO `goods_seckill` VALUES (180, NULL, '2021-07-05 18:39:32', '2021-07-05 18:39:32', 1, 0);
+INSERT INTO `goods_seckill` VALUES (181, NULL, '2021-07-05 18:41:50', '2021-07-05 18:41:50', 1, 0);
 
 -- ----------------------------
 -- Table structure for menu
@@ -177,14 +181,35 @@ CREATE TABLE `menu`  (
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `pattern`(`pattern`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES (1, '/**', '2021-04-28 19:25:24', NULL, 1);
-INSERT INTO `menu` VALUES (2, '/admin/**', '2021-04-28 19:25:24', NULL, 1);
-INSERT INTO `menu` VALUES (3, '/user/**', '2021-04-28 19:25:24', NULL, 1);
+INSERT INTO `menu` VALUES (1, '/goods/add-seckill/**', '2021-04-28 19:25:24', NULL, 1);
+INSERT INTO `menu` VALUES (2, '/goods/delete/**', '2021-04-28 19:25:24', NULL, 1);
+INSERT INTO `menu` VALUES (3, '/goods/deleteBatchId/**', '2021-04-28 19:25:24', NULL, 1);
+INSERT INTO `menu` VALUES (4, '/goods/like/**', '2021-06-20 15:26:30', NULL, 1);
+INSERT INTO `menu` VALUES (5, '/goods/type/**', '2021-07-05 18:21:04', NULL, 1);
+INSERT INTO `menu` VALUES (6, '/goods/page/**', '2021-07-05 18:01:46', NULL, 1);
+INSERT INTO `menu` VALUES (7, '/goods/save/**', '2021-07-05 18:02:17', NULL, 1);
+INSERT INTO `menu` VALUES (8, '/goods/selectAll/**', '2021-07-05 18:02:32', NULL, 1);
+INSERT INTO `menu` VALUES (9, '/goods/update/**', '2021-07-05 18:02:43', NULL, 1);
+INSERT INTO `menu` VALUES (10, '/user/delete/**', '2021-07-05 18:02:58', NULL, 1);
+INSERT INTO `menu` VALUES (11, '/user/deleteBatchId/**', '2021-07-05 18:03:13', NULL, 1);
+INSERT INTO `menu` VALUES (12, '/user/page/**', '2021-07-05 18:03:32', NULL, 1);
+INSERT INTO `menu` VALUES (13, '/user/register/**', '2021-07-05 18:03:46', NULL, 1);
+INSERT INTO `menu` VALUES (14, '/user/selectsUsername/**', '2021-07-05 18:04:00', NULL, 1);
+INSERT INTO `menu` VALUES (15, '/user/update/**', '2021-07-05 18:04:18', NULL, 1);
+INSERT INTO `menu` VALUES (16, '/orders/add/**', '2021-07-05 18:04:33', NULL, 1);
+INSERT INTO `menu` VALUES (17, '/orders/add/seckill/**', '2021-07-05 18:04:43', NULL, 1);
+INSERT INTO `menu` VALUES (18, '/orders/deleteBatchId/**', '2021-07-05 18:04:59', NULL, 1);
+INSERT INTO `menu` VALUES (19, '/orders/likeName/**', '2021-07-05 18:05:08', NULL, 1);
+INSERT INTO `menu` VALUES (20, '/orders/likeNumber', '2021-07-05 18:05:19', NULL, 1);
+INSERT INTO `menu` VALUES (21, '/orders/page/**', '2021-07-05 18:05:25', NULL, 1);
+INSERT INTO `menu` VALUES (22, '/orders/selectAll/**', '2021-07-05 18:05:33', NULL, 1);
+INSERT INTO `menu` VALUES (23, '/goods/pageSeckill/**', '2021-07-05 18:21:44', NULL, 1);
+INSERT INTO `menu` VALUES (24, '/user/selectUserCount', '2021-07-06 09:13:25', NULL, 1);
 
 -- ----------------------------
 -- Table structure for menu_role
@@ -202,18 +227,36 @@ CREATE TABLE `menu_role`  (
   INDEX `rid`(`rid`) USING BTREE,
   CONSTRAINT `menu_role_ibfk_1` FOREIGN KEY (`mid`) REFERENCES `menu` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `menu_role_ibfk_2` FOREIGN KEY (`rid`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu_role
 -- ----------------------------
-INSERT INTO `menu_role` VALUES (1, 1, 1, '2021-04-28 19:28:00', NULL, 1);
-INSERT INTO `menu_role` VALUES (2, 2, 1, '2021-04-28 19:28:00', NULL, 1);
-INSERT INTO `menu_role` VALUES (3, 3, 1, '2021-04-28 19:28:00', NULL, 1);
-INSERT INTO `menu_role` VALUES (4, 2, 2, '2021-04-28 19:28:00', NULL, 1);
-INSERT INTO `menu_role` VALUES (5, 3, 2, '2021-04-28 19:28:00', NULL, 1);
-INSERT INTO `menu_role` VALUES (6, 3, 3, '2021-04-28 19:28:00', NULL, 1);
-INSERT INTO `menu_role` VALUES (14, 1, 4, '2021-05-16 18:42:01', NULL, 1);
+INSERT INTO `menu_role` VALUES (1, 1, 2, '2021-04-28 19:28:00', NULL, 1);
+INSERT INTO `menu_role` VALUES (2, 2, 2, '2021-04-28 19:28:00', NULL, 1);
+INSERT INTO `menu_role` VALUES (3, 3, 2, '2021-04-28 19:28:00', NULL, 1);
+INSERT INTO `menu_role` VALUES (4, 4, 2, '2021-04-28 19:28:00', NULL, 1);
+INSERT INTO `menu_role` VALUES (5, 6, 2, '2021-04-28 19:28:00', NULL, 1);
+INSERT INTO `menu_role` VALUES (6, 7, 2, '2021-04-28 19:28:00', NULL, 1);
+INSERT INTO `menu_role` VALUES (14, 8, 2, '2021-05-16 18:42:01', NULL, 1);
+INSERT INTO `menu_role` VALUES (15, 9, 2, '2021-07-05 18:07:28', NULL, 1);
+INSERT INTO `menu_role` VALUES (16, 10, 2, '2021-07-05 18:07:30', NULL, 1);
+INSERT INTO `menu_role` VALUES (17, 11, 2, '2021-07-05 18:07:31', NULL, 1);
+INSERT INTO `menu_role` VALUES (18, 12, 2, '2021-07-05 18:07:34', NULL, 1);
+INSERT INTO `menu_role` VALUES (19, 13, 2, '2021-07-05 18:07:35', NULL, 1);
+INSERT INTO `menu_role` VALUES (20, 14, 2, '2021-07-05 18:07:36', NULL, 1);
+INSERT INTO `menu_role` VALUES (21, 15, 2, '2021-07-05 18:07:37', NULL, 1);
+INSERT INTO `menu_role` VALUES (22, 16, 2, '2021-07-05 18:07:39', NULL, 1);
+INSERT INTO `menu_role` VALUES (23, 17, 2, '2021-07-05 18:07:41', NULL, 1);
+INSERT INTO `menu_role` VALUES (24, 18, 2, '2021-07-05 18:07:43', NULL, 1);
+INSERT INTO `menu_role` VALUES (25, 19, 2, '2021-07-05 18:07:46', NULL, 1);
+INSERT INTO `menu_role` VALUES (26, 20, 2, '2021-07-05 18:07:48', NULL, 1);
+INSERT INTO `menu_role` VALUES (27, 21, 2, '2021-07-05 18:07:56', NULL, 1);
+INSERT INTO `menu_role` VALUES (28, 22, 2, '2021-07-05 18:08:04', NULL, 1);
+INSERT INTO `menu_role` VALUES (29, 5, 2, '2021-07-05 18:23:03', NULL, 1);
+INSERT INTO `menu_role` VALUES (30, 23, 2, '2021-07-05 18:23:09', NULL, 1);
+INSERT INTO `menu_role` VALUES (31, 6, 4, '2021-07-05 20:03:44', NULL, 1);
+INSERT INTO `menu_role` VALUES (32, 24, 2, '2021-07-06 09:14:21', NULL, 1);
 
 -- ----------------------------
 -- Table structure for orders
@@ -231,12 +274,11 @@ CREATE TABLE `orders`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `uid`(`uid`) USING BTREE,
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 186 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 214 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES (185, '5edb3754387f46d5a297a96e75a78eee', 1, '2021-05-28 15:27:58', 0, NULL, 1, 0.8);
 INSERT INTO `orders` VALUES (186, 'bfcb9e2a1f3940f3890c4745f0591b56', 2, '2021-05-30 14:25:59', 0, NULL, 1, 1);
 INSERT INTO `orders` VALUES (187, 'abe2655c50ac4715bc384d7135f8f48d', 1, '2021-05-30 14:43:28', 0, NULL, 1, 0.1);
 INSERT INTO `orders` VALUES (188, 'cc4c24dc9cdd4adf8ccbd99bf48d339e', 1, '2021-05-30 14:50:42', 0, NULL, 1, 0.1);
@@ -265,6 +307,7 @@ INSERT INTO `orders` VALUES (210, '85e9d0eb1ec440f5aeed65af62e60367', 1, '2021-0
 INSERT INTO `orders` VALUES (211, '828373c2954746b694a630f2bcd398f7', 1, '2021-05-30 17:46:42', 0, NULL, 1, 0.1);
 INSERT INTO `orders` VALUES (212, 'd1931e8b28f241ea941b585247e1f4ed', 1, '2021-05-30 17:46:47', 0, NULL, 1, 0.1);
 INSERT INTO `orders` VALUES (213, '96162fb86f6b4bd88d9c90856bb89877', 1, '2021-05-30 17:46:52', 0, NULL, 1, 0.1);
+INSERT INTO `orders` VALUES (214, '650d9e982d344708941d7a6cb06ef68a', 1, '2021-07-05 16:12:48', 0, NULL, 1, 1);
 
 -- ----------------------------
 -- Table structure for orders_goods
@@ -280,18 +323,11 @@ CREATE TABLE `orders_goods`  (
   INDEX `gid`(`gid`) USING BTREE,
   CONSTRAINT `orders_goods_ibfk_1` FOREIGN KEY (`oid`) REFERENCES `orders` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `orders_goods_ibfk_2` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 155 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 183 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders_goods
 -- ----------------------------
-INSERT INTO `orders_goods` VALUES (148, 185, 109, 3);
-INSERT INTO `orders_goods` VALUES (149, 185, 97, 2);
-INSERT INTO `orders_goods` VALUES (150, 185, 98, 3);
-INSERT INTO `orders_goods` VALUES (151, 185, 93, 1);
-INSERT INTO `orders_goods` VALUES (152, 185, 86, 1);
-INSERT INTO `orders_goods` VALUES (153, 185, 87, 1);
-INSERT INTO `orders_goods` VALUES (154, 185, 88, 1);
 INSERT INTO `orders_goods` VALUES (155, 186, 86, 1);
 INSERT INTO `orders_goods` VALUES (156, 187, 89, 1);
 INSERT INTO `orders_goods` VALUES (157, 188, 90, 1);
@@ -320,6 +356,7 @@ INSERT INTO `orders_goods` VALUES (179, 210, 100, 1);
 INSERT INTO `orders_goods` VALUES (180, 211, 110, 1);
 INSERT INTO `orders_goods` VALUES (181, 212, 108, 1);
 INSERT INTO `orders_goods` VALUES (182, 213, 112, 1);
+INSERT INTO `orders_goods` VALUES (183, 214, 88, 2);
 
 -- ----------------------------
 -- Table structure for role
@@ -333,7 +370,7 @@ CREATE TABLE `role`  (
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `name`(`name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of role
@@ -358,20 +395,14 @@ CREATE TABLE `user`  (
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `username`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 79 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 83 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'root', '$2a$10$hPb72GAGW4NMWIHui7VMiu9z8/2CaAVaQN1js6CIhZKElgdRSJR2G', '13995726302', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-05-28 17:44:08', 8);
-INSERT INTO `user` VALUES (2, 'admin', '$2a$10$xLbctedxEk/D3cv11LzFjOMRaBLk25SrWIidTETr1aa.Ho.0RZTba', '14884326322', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-05-28 17:44:08', 2);
+INSERT INTO `user` VALUES (2, 'admin', '$2a$10$xLbctedxEk/D3cv11LzFjOMRaBLk25SrWIidTETr1aa.Ho.0RZTba', '14884326322', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-06-26 17:59:23', 2);
 INSERT INTO `user` VALUES (3, 'user', '$2a$10$gG2uw7LB0OTyyDNrg9fnquJCe9QYtuOZ/Yj973sr6dGusLMjfSKJe', '15995322344', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-05-28 17:44:08', 2);
-INSERT INTO `user` VALUES (62, 'ff', '$2a$10$fGsC.gTi318XXvxWR1xsseTe6.cqY7KLg2teuF3Bo1ks5qQHhySNy', NULL, '/api/avatar/avatar.gif', '2021-05-14 18:07:51', '2021-05-28 17:44:08', 1);
-INSERT INTO `user` VALUES (66, 'ac', '$2a$10$3bckg4c.7qujliEExdn9sO26SoWL0wWwedOb3BSfR4YjDh3xXBekK', NULL, '/api/avatar/avatar.gif', '2021-05-16 15:05:08', '2021-05-28 17:44:08', 4);
-INSERT INTO `user` VALUES (74, '李明', '$2a$10$yx98JM9dUSgy0xiAL5rsEuRKOe2RCC8L3wq.Pc7aKK0eW6sSn0Ehq', '12345', '/api/avatar/avatar.gif', '2021-05-17 09:26:23', '2021-05-28 17:44:08', 1);
-INSERT INTO `user` VALUES (75, 'fff', '$2a$10$v/xlrup91X2/nR10f.0uiOqF2MBDE5avgzgM0pmQITYk4vq0zBlm.', NULL, '/api/avatar/avatar.gif', '2021-05-18 13:29:26', '2021-05-28 17:44:08', 1);
-INSERT INTO `user` VALUES (77, '李名', '$2a$10$aourTj3.SV1sdk0Ew80qIutiQQtp9LCIJDrvFqs2ZI.NkPdzGNEpG', '15995322344', '/api/avatar/avatar.gif', '2021-05-27 17:24:03', '2021-05-28 17:44:08', 1);
-INSERT INTO `user` VALUES (78, '赵强', '$2a$10$BF1rjgjpFhD2q.AtyBc9ae.G7Tn07wxhR2G5ZfvWGx9pyIgIXuks2', '14884326322', '/api/avatar/avatar.gif', '2021-05-27 18:21:34', '2021-05-28 17:44:08', 1);
 
 -- ----------------------------
 -- Table structure for user_role
@@ -394,17 +425,8 @@ CREATE TABLE `user_role`  (
 -- ----------------------------
 -- Records of user_role
 -- ----------------------------
-INSERT INTO `user_role` VALUES (1, 1, 1, NULL, '2021-04-28 19:36:33', 1);
-INSERT INTO `user_role` VALUES (2, 1, 2, NULL, '2021-04-28 19:36:33', 1);
-INSERT INTO `user_role` VALUES (3, 1, 3, NULL, '2021-04-28 19:36:33', 1);
+INSERT INTO `user_role` VALUES (1, 1, 2, NULL, '2021-04-28 19:36:33', 1);
 INSERT INTO `user_role` VALUES (4, 2, 2, NULL, '2021-04-28 19:36:33', 1);
-INSERT INTO `user_role` VALUES (5, 2, 3, NULL, '2021-04-28 19:36:33', 1);
-INSERT INTO `user_role` VALUES (6, 3, 3, NULL, '2021-04-28 19:36:33', 1);
-INSERT INTO `user_role` VALUES (18, 62, 3, NULL, '2021-05-14 18:07:50', 1);
-INSERT INTO `user_role` VALUES (19, 66, 3, NULL, '2021-05-16 15:05:08', 1);
-INSERT INTO `user_role` VALUES (24, 74, 3, NULL, '2021-05-17 09:26:23', 1);
-INSERT INTO `user_role` VALUES (25, 75, 3, NULL, '2021-05-18 13:29:26', 1);
-INSERT INTO `user_role` VALUES (27, 77, 3, NULL, '2021-05-27 17:24:02', 1);
-INSERT INTO `user_role` VALUES (28, 78, 3, NULL, '2021-05-27 18:21:34', 1);
+INSERT INTO `user_role` VALUES (29, 3, 3, NULL, '2021-07-05 19:31:02', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;
