@@ -28,4 +28,6 @@ public interface UserMapper extends BaseMapper<User> {
     List<User> selectAll();
 
     int selectIsUsername(String username);
+
+    int selectUserCount();
 }

@@ -58,4 +58,8 @@
         type=#{type}, store=#{store}
         WHERE id=#{id}
     </update>
+    <insert id="insert" parameterType="Goods" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO goods(name, price, store, stock, type)
+        VALUES(#{name}, #{price}, #{store}, #{stock}, #{type})
+    </insert>
 </mapper>

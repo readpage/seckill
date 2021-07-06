@@ -79,5 +79,11 @@ public class UserController {
     public boolean selectIsUsername(String username) {
         return userService.selectIsUsername(username);
     }
+
+    @ApiOperation("查询用户数量")
+    @GetMapping("/selectUserCount")
+    public int selectUserCount() {
+        return userService.selectUserCount();
+    }
 }
 

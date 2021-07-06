@@ -124,4 +124,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public boolean selectIsUsername(String username) {
         return userMapper.selectIsUsername(username)>0;
     }
+
+    @Override
+    public int selectUserCount() {
+        return userMapper.selectUserCount();
+    }
 }

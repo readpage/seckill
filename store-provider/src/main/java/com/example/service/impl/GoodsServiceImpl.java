@@ -82,6 +82,8 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     public Boolean add(Goods goods) {
         goodsMapper.insert(goods);
         GoodsSeckill goodsSeckill = new GoodsSeckill();
+        System.out.println("id");
+        System.out.println(goods.getId());
         goodsSeckill.setGid(goods.getId());
         if (goodsSeckillService.save(goodsSeckill)) {
             return true;

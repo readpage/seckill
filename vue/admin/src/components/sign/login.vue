@@ -74,6 +74,7 @@ export default {
                   title: "消息",
                   message: result.data.message,
                 });
+                console.log(result.data);
                 t.updateUser(result.data.data)
                 if (t.$route.query.redirect) {
                   let redirect = t.$route.query.redirect;

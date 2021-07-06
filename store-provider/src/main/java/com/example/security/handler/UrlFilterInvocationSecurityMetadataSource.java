@@ -30,7 +30,7 @@ public class UrlFilterInvocationSecurityMetadataSource implements FilterInvocati
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
         //获取请求url地址
-        String requestUrl=((FilterInvocation)o).getRequestUrl();
+        String requestUrl=((FilterInvocation)o).getRequestUrl().split("[?]")[0];
         //得到所有url和角色的对应关系
         List<Menu> allMenu=menuMapper.selectAll();
         //如果和请求url匹配上就把他存入到Collection<ConfigAttribute>里

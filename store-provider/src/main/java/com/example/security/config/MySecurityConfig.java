@@ -28,6 +28,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
             "/v3/api-docs",
             "/webjars/**",
             "/img/**",
+            "/avatar/**",
             "/login.html"
     };
     @Override

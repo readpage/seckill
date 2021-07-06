@@ -69,16 +69,7 @@ export default {
               title: "用户管理",
               icon: "el-icon-user-solid",
             },
-            {
-              index: "/system/role",
-              title: "角色管理",
-              icon: "el-icon-user",
-            },
-            {
-              index: "/system/menu",
-              title: "菜单管理",
-              icon: "el-icon-menu"
-            }
+
           ],
         },
         {

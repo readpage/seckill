@@ -33,4 +33,6 @@ public interface UserService extends IService<User> {
     PageInfo<User> page(int pageNum, int pageSize);
 
     boolean selectIsUsername(String username);
+
+    int selectUserCount();
 }

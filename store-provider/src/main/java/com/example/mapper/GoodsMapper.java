@@ -20,6 +20,8 @@ public interface GoodsMapper extends BaseMapper<Goods> {
 
     int updateStockByOrdersGoods(OrdersGoods ordersGoods);
 
+    int insert(Goods goods);
+
     List<Goods> selectAll();
 
     List<Goods> like(@Param("name") String name, @Param("type") String type);
