@@ -53,7 +53,7 @@ public class UserController {
         return ResultUtils.error().message("注册失败😂!");
     }
 
-    @ApiOperation(value = "修改用户", notes = "参数只需添加<em>id,username,password</em>")
+    @ApiOperation(value = "修改用户")
     @PutMapping("/update")
     public Result updateById(@RequestBody User user) {
         return userService.myUpdateById(user);

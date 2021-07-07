@@ -35,4 +35,6 @@ public interface UserService extends IService<User> {
     boolean selectIsUsername(String username);
 
     int selectUserCount();
+
+    Boolean updateByUsername(User user, String username);
 }

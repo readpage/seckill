@@ -29,8 +29,12 @@ export default {
 	methods: {
 		...mapMutations("msg", ["UpdateCollapse"]),
 		exit() {
-			localStorage.removeItem("user")
-			this.$router.replace("/sign")
+			const t = this
+			t.axios.get("/api/logout")
+				.then(res => {
+					localStorage.removeItem("user")
+					this.$router.replace("/sign")
+				})
 		}
 	},
 	mounted() {

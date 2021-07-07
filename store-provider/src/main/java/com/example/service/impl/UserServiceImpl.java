@@ -145,4 +145,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public int selectUserCount() {
         return userMapper.selectUserCount();
     }
+
+    @Override
+    public Boolean updateByUsername(User user, String username) {
+        user.setPassword(pw.encode(user.getPassword()));
+        return userMapper.updateByUsername(user, username)>0;
+    }
 }

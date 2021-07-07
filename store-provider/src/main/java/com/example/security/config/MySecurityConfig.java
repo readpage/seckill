@@ -58,6 +58,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     //未登录，或者登录状态过期失效处理器
     @Autowired
     private MyAuthenticationEntryPoint myAuthenticationEntryPoint;
+    @Autowired
+    private MyLogoutSuccessHandler myLogoutSuccessHandler;
 
     //自定义用户登录接口
     @Autowired
@@ -106,6 +108,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(myAccessDeniedHandler)
                 .and()
                 .logout().permitAll()
+                .logoutSuccessHandler(myLogoutSuccessHandler)
                 //退出之后删除cookie
                 .deleteCookies("JSESSIONID");
         //配置头部

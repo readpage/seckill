@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -32,4 +33,6 @@ public interface UserMapper extends BaseMapper<User> {
     int selectUserCount();
 
     int insert(User user);
+
+    int updateByUsername(@Param("user") User user, @Param("username") String username);
 }

@@ -50,4 +50,9 @@
         INSERT INTO user(username, password)
         VALUES(#{username}, #{password})
     </insert>
+    <update id="updateByUsername">
+        UPDATE user SET username=#{user.username},
+            password=#{user.password}, avatar=#{user.avatar}, phone=#{user.phone}
+            WHERE username=#{username}
+    </update>
 </mapper>
