@@ -148,7 +148,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Boolean updateByUsername(User user, String username) {
-        user.setPassword(pw.encode(user.getPassword()));
+        if (user.getPassword() != null && !"".equals(user.getPassword())) {
+            user.setPassword(pw.encode(user.getPassword()));
+        }
         return userMapper.updateByUsername(user, username)>0;
     }
 }

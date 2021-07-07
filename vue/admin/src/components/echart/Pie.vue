@@ -11,15 +11,19 @@ const info = inject("info")
 const charts = ref()
 const option = {
   tooltip: {},
+  legend: {
+    orient: "vertical",
+    left: "left",
+  },
+  title: {
+    text: "销售额类别占比",
+    left: "center"
+  },
   series: {
     name: "访问来源",
     type: "pie",
     radius: "55%",
     data: [],
-    itemStyle: {
-      shadowBlur: 200,
-      shadowColor: "rgba(0, 0, 0, 0.5)",
-    }
   }
 }
 

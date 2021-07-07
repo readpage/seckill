@@ -12,7 +12,9 @@ import com.example.utlis.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,6 +90,12 @@ public class OrdersController {
     @GetMapping("/page/{pageNum}/{pageSize}")
     public PageInfo<OrdersInfo> page(@PathVariable int pageNum, @PathVariable int pageSize, String name, String number, String username) {
         return ordersGoodsService.likePage(pageNum, pageSize, name, number, username);
+    }
+
+    @ApiOperation("查询个人订单")
+    @GetMapping("/personPage/{pageNum}/{pageSize}")
+    public PageInfo<OrdersInfo> personPage(@PathVariable int pageNum, @PathVariable int pageSize, @ApiIgnore Authentication authentication) {
+        return ordersGoodsService.likePage(pageNum, pageSize, null, null, authentication.getName());
     }
 
     @ApiOperation("模糊名字查询")

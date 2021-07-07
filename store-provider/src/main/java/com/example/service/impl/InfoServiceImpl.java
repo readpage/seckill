@@ -5,6 +5,7 @@ import com.example.mapper.OrdersMapper;
 import com.example.mapper.UserMapper;
 import com.example.output.Info;
 import com.example.output.SalesType;
+import com.example.output.UserInfo;
 import com.example.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,10 @@ public class InfoServiceImpl implements InfoService {
         info.setSales(ordersMapper.selectSales());
         info.setGoodsStockCount(goodsMapper.selectGoodsStockCount());
         return info;
+    }
+
+    @Override
+    public UserInfo selectByUsername(String username) {
+        return userMapper.selectByUsername(username);
     }
 }

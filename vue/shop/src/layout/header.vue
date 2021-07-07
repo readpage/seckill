@@ -51,6 +51,7 @@
         </span>
         <template #dropdown>
           <el-dropdown-menu>
+            <el-dropdown-item @click="center">个人中心</el-dropdown-item>
             <el-dropdown-item @click="sign">登录/注册</el-dropdown-item>
             <el-dropdown-item @click="exit">退出</el-dropdown-item>
           </el-dropdown-menu>
@@ -78,6 +79,11 @@ export default {
           title: "抢购",
           index: "/shop",
           icon: "el-icon-s-goods",
+        },
+        {
+          title: "我的订单",
+          index: "/orders",
+          icon: "el-icon-s-order",
         }
       ],
     }
@@ -98,6 +104,9 @@ export default {
 					this.$router.replace("/sign")
 				})
     },
+    center() {
+      this.$router.push("/info")
+    },
     ...mapActions(["updateUrlName"])
   },
   computed: {
@@ -114,7 +123,7 @@ export default {
   height: 60px;
   
   &__logo {
-    width: 200px;
+    width: 150px;
     
   }
   &__menu {

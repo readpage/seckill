@@ -32,6 +32,18 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ "../view/shop/shop.vue"),
         meta: { title: "抢购" }
       },
+      {
+        path: "/info",
+        name: "info",
+        component: () => import("../view/info/index.vue"),
+        meta: { title: "个人中心"}
+      },
+      {
+        path: "/orders",
+        name: "orders",
+        component: () => import("../view/orders/index.vue"),
+        meta: { title: "我的订单"}
+      }
     ]
   },
   {
@@ -45,7 +57,7 @@ const routes = [
     name: "404",
     component: () => import(/* webpackChunkName: "about" */ "../view/404.vue"),
     meta: { title: "丢失了"}
-  }
+  },
 ];
 
 const router = createRouter({
@@ -56,11 +68,10 @@ router.beforeEach((to, from, next) => {
   Nprogress.start();
   axios.get("/api/info/user").then((res) => {
     if (res.data.code == 200) {
-      console.log(res.data);
       next();
     } else {
       localStorage.removeItem("user")
-      if (to.path == "/cart") {
+      if (to.path == "/cart" || to.path == "/info" || to.path == "/orders") {
         next({
           path: "/sign",
           query: { redirect: to.fullPath}

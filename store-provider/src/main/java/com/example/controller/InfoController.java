@@ -31,12 +31,11 @@ public class InfoController {
         return infoService.selectInfo();
     }
 
-    @ApiOperation("用户名称")
+    @ApiOperation("查询当前用户信息")
     @GetMapping("/user")
     public Result user(@ApiIgnore Authentication authentication) {
         HashMap<String, String> map = new HashMap<>();
-        map.put("username", authentication.getName());
-        return ResultUtils.ok().data(map);
+        return ResultUtils.ok().data(infoService.selectByUsername(authentication.getName()));
     }
 
     @ApiOperation("修改个人信息")

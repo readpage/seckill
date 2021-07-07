@@ -52,7 +52,13 @@
     </insert>
     <update id="updateByUsername">
         UPDATE user SET username=#{user.username},
-            password=#{user.password}, avatar=#{user.avatar}, phone=#{user.phone}
+            <if test="user.password !=null and user.password != ''">
+                password=#{user.password},
+            </if>
+            avatar=#{user.avatar}, phone=#{user.phone}
             WHERE username=#{username}
     </update>
+    <select id="selectByUsername" parameterType="String" resultType="UserInfo">
+        SELECT * FROM user WHERE username=#{username}
+    </select>
 </mapper>

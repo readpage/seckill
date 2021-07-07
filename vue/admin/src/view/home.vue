@@ -22,13 +22,7 @@
       </el-card>
     </li>
     <li>
-      <Angle />
-    </li>
-    <li>
-      <Bar />
-    </li>
-    <li>
-      <Line />
+      <Pie />
     </li>
   </ul>
 </template>
@@ -36,7 +30,7 @@
 <script setup>
 import { onMounted, reactive, provide, ref, toRefs, watchEffect} from "vue";
 import anime from "animejs";
-import Angle from "../components/echart/Angle.vue";
+import Pie from "../components/echart/Pie.vue";
 import Bar from "../components/echart/Bar.vue";
 import Line from "../components/echart/Line.vue";
 import axios from "axios"
