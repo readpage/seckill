@@ -86,8 +86,8 @@ public class OrdersController {
 
     @ApiOperation("分页模糊查询")
     @GetMapping("/page/{pageNum}/{pageSize}")
-    public PageInfo<OrdersInfo> page(@PathVariable int pageNum, @PathVariable int pageSize, String name, String number) {
-        return ordersGoodsService.likePage(pageNum, pageSize, name, number);
+    public PageInfo<OrdersInfo> page(@PathVariable int pageNum, @PathVariable int pageSize, String name, String number, String username) {
+        return ordersGoodsService.likePage(pageNum, pageSize, name, number, username);
     }
 
     @ApiOperation("模糊名字查询")

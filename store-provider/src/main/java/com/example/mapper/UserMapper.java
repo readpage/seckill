@@ -30,4 +30,6 @@ public interface UserMapper extends BaseMapper<User> {
     int selectIsUsername(String username);
 
     int selectUserCount();
+
+    int insert(User user);
 }

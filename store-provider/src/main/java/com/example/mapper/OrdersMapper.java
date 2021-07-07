@@ -3,6 +3,7 @@ package com.example.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.entity.Orders;
 import com.example.entity.OrdersGoods;
+import com.example.output.SalesType;
 
 import java.util.List;
 
@@ -27,4 +28,9 @@ public interface OrdersMapper extends BaseMapper<Orders> {
 
     int updateGoods(OrdersGoods ordersGoods);
 
+    int selectOrdersCount();
+
+    double selectSales();
+
+    List<SalesType> selectSalesType();
 }

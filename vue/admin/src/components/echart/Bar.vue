@@ -13,7 +13,7 @@ const option = {
   },
   tooltip: {},
   legend: {
-    data: ["销售"],
+    data: ["销量"],
   },
   xAxis: {
     data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],

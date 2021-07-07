@@ -18,7 +18,7 @@ public interface OrdersGoodsService {
 
     int selectCountByGid(Integer gid);
 
-    PageInfo<OrdersInfo> likePage(int pageNum, int pageSize, String name, String number);
+    PageInfo<OrdersInfo> likePage(int pageNum, int pageSize, String name, String number, String username);
 
     List<String> likeNumber(String name, String number);
 

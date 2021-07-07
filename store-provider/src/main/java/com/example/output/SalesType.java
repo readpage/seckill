@@ -1,13 +1,6 @@
-package com.example.entity;
+package com.example.output;
 
-public class Info {
-    private int userCount;
-    private int goodsCount;
-    private SalesType salesType;
-    private double sales;
-}
-
-class SalesType {
+public class SalesType {
     private String name;
     private int value;
 
@@ -28,9 +21,8 @@ class SalesType {
     }
 
     @Override
-    public String
-    toString() {
-        return "Sales{" +
+    public String toString() {
+        return "SalesType{" +
                 "name='" + name + '\'' +
                 ", value=" + value +
                 '}';

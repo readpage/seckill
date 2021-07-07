@@ -128,17 +128,23 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
         wrapper.eq("uid", uid);
         wrapper.select("*");
         Orders orders = ordersMapper.selectOne(wrapper);
-        return this.deleteById(Math.toIntExact(orders.getId()));
+        if (orders != null) {
+            return this.deleteById(Math.toIntExact(orders.getId()));
+        }
+        return ResultUtils.ok();
     }
 
     @Override
     public Result deleteBatchUId(List<Integer> list) {
         List<Orders> orders = ordersMapper.selectBatchUId(list);
-        List<Integer> list1 = new ArrayList<>();
-        for (int i = 0; i < orders.size(); i++) {
-            list1.add(orders.get(i).getId());
+        if (orders.size()>0) {
+            List<Integer> list1 = new ArrayList<>();
+            for (int i = 0; i < orders.size(); i++) {
+                list1.add(orders.get(i).getId());
+            }
+            return this.deleteBatchId(list1);
         }
-        return this.deleteBatchId(list1);
+        return ResultUtils.ok();
     }
 
     @Override

@@ -17,7 +17,7 @@ public interface OrdersGoodsMapper {
 
     int selectCountByGid(Integer gid);
 
-    List<OrdersInfo> like(@Param("name") String name, @Param("number") String number);
+    List<OrdersInfo> like(@Param("name") String name, @Param("number") String number, @Param("username") String username);
 
     List<String> likeNumber(@Param("name") String name, @Param("number") String number);
 

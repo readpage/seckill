@@ -28,8 +28,11 @@
         <if test="name != null and name != ''">
             AND g.name LIKE concat('%', #{name}, '%')
         </if>
-        <if test="number != null and number !=''">
+        <if test="number != null and number != ''">
             AND o.number LIKE concat('%', #{number}, '%')
+        </if>
+        <if test="username != null and number != ''">
+            AND u.username LIKE concat('%', #{username}, '%')
         </if>
         GROUP BY og.id
     </select>
@@ -66,4 +69,5 @@
         SELECT COALESCE(SUM(count), 0) FROM goods g, orders_goods og
         WHERE g.id=og.gid AND og.gid=#{gid}
     </select>
+
 </mapper>

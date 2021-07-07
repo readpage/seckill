@@ -44,6 +44,15 @@ public class UserController {
         return ResultUtils.error().message("注册失败😂!");
     }
 
+    @ApiOperation(value = "添加用户")
+    @PostMapping("/save")
+    public Result save(@RequestBody User user) {
+        if (userService.save(user)) {
+            return ResultUtils.ok().message("添加成功😂");
+        }
+        return ResultUtils.error().message("注册失败😂!");
+    }
+
     @ApiOperation(value = "修改用户", notes = "参数只需添加<em>id,username,password</em>")
     @PutMapping("/update")
     public Result updateById(@RequestBody User user) {

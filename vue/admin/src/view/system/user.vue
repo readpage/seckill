@@ -70,7 +70,7 @@
           <el-input v-model.trim="updateForm.username" size="small" prefix-icon="el-icon-user-solid"></el-input>
         </el-form-item>
         <el-form-item label="密码:" prop="password">
-          <el-input v-model.trim="updateForm.password" size="small" prefix-icon="el-icon-lock"></el-input>
+          <el-input show-password v-model.trim="updateForm.password" size="small" prefix-icon="el-icon-lock"></el-input>
         </el-form-item>
         <el-form-item>
           <el-space :size="40">
@@ -87,7 +87,7 @@
           <el-input v-model.trim="addForm.username" size="small" prefix-icon="el-icon-user-solid"></el-input>
         </el-form-item>
         <el-form-item label="密码:" prop="password">
-          <el-input v-model.trim="addForm.password" size="small" prefix-icon="el-icon-lock"></el-input>
+          <el-input show-password v-model.trim="addForm.password" size="small" prefix-icon="el-icon-lock"></el-input>
         </el-form-item>
         <el-form-item>
           <el-space :size="40">

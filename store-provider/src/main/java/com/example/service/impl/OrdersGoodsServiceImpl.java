@@ -42,9 +42,9 @@ public class OrdersGoodsServiceImpl implements OrdersGoodsService {
     }
 
     @Override
-    public PageInfo<OrdersInfo> likePage(int pageNum, int pageSize, String name, String number) {
+    public PageInfo<OrdersInfo> likePage(int pageNum, int pageSize, String name, String number, String username) {
         PageHelper.startPage(pageNum, pageSize);
-        return new PageInfo<>(ordersGoodsMapper.like(name, number));
+        return new PageInfo<>(ordersGoodsMapper.like(name, number, username));
     }
 
     @Override

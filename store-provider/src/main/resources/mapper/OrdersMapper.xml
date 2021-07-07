@@ -25,4 +25,18 @@
     <update id="updateGoods" parameterType="OrdersGoods">
         UPDATE goods SET stock=stock-#{count} WHERE id=#{gid} AND stock-#{count}>=0
     </update>
+    <select id="selectOrdersCount" resultType="int">
+        SELECT count(id) FROM orders
+    </select>
+
+    <select id="selectSalesType" resultType="SalesType">
+        SELECT type name, count(0) value
+        FROM goods g, orders_goods og
+        WHERE g.id=og.gid
+        GROUP BY type
+    </select>
+    <select id="selectSales" resultType="double">
+        SELECT SUM(ROUND(price*discounts, 2)) FROM orders o, goods g, orders_goods og
+        WHERE g.id=og.gid AND o.id=og.oid
+    </select>
 </mapper>

@@ -46,4 +46,8 @@
     <select id="selectUserCount" resultType="int">
         SELECT COUNT(0) FROM user;
     </select>
+    <insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user(username, password)
+        VALUES(#{username}, #{password})
+    </insert>
 </mapper>

@@ -1,7 +1,7 @@
 export default {
   namespaced: true,
   state: {
-    collapse: true
+    collapse: true,
   },
   getters: {
 		// 左侧菜单是否收起
@@ -15,6 +15,7 @@ export default {
       state.collapse = val;
     },
   },
-  actions: {},
+  actions: {
+  },
   modules: {},
 }

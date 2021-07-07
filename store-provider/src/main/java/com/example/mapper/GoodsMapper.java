@@ -31,4 +31,8 @@ public interface GoodsMapper extends BaseMapper<Goods> {
     List<Goods> likeSeckill(@Param("name") String name, @Param("type") String type, @Param("now") Date now);
     
     int updateById(Goods goods);
+
+    int selectGoodsCount();
+
+    int selectGoodsStockCount();
 }

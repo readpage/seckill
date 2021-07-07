@@ -18,7 +18,7 @@ import java.util.List;
 public interface UserService extends IService<User> {
     boolean register(User user) throws Exception;
 
-    boolean add(User user);
+    boolean save(User user);
 
     Result myUpdateById(User user);
 

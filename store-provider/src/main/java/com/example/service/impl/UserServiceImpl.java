@@ -59,9 +59,25 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return true;
     }
 
+    @Transactional(rollbackFor = Exception.class)//设置检查时异常时回滚事务
     @Override
-    public boolean add(User user) {
-        return false;
+    public boolean save(User user) {
+        user.setPassword(pw.encode(user.getPassword()));
+        if (userMapper.insert(user)==0) {
+            try {
+                throw new Exception("注册失败!😂");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if (!userRoleService.insert(user.getId(), 3)) {
+            try {
+                throw new Exception("注册失败!😂");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return true;
     }
 
     @Override

@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 06/07/2021 14:24:13
+ Date: 07/07/2021 09:28:15
 */
 
 SET NAMES utf8mb4;
@@ -38,12 +38,12 @@ CREATE TABLE `goods`  (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES (86, 'FlexPai2新一代5G双模折叠屏手机', '2022a0a4297058a8.jpg', 9998.00, 1634, '柔宇（ROYOLE）折叠屏手机京东自营旗舰店', '手机', '2021-05-26 11:08:50', '2021-05-28 14:58:53', 1);
-INSERT INTO `goods` VALUES (87, '9A5000mAh大电量大屏幕大字体大音量', '5b33ac76b2aaea9b.jpg', 699.00, 1221, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', '2021-05-29 18:25:29', 1);
+INSERT INTO `goods` VALUES (86, 'FlexPai2新一代5G双模折叠屏手机', '2022a0a4297058a8.jpg', 9998.00, 1628, '柔宇（ROYOLE）折叠屏手机京东自营旗舰店', '手机', '2021-05-26 11:08:50', '2021-05-28 14:58:53', 1);
+INSERT INTO `goods` VALUES (87, '9A5000mAh大电量大屏幕大字体大音量', '5b33ac76b2aaea9b.jpg', 699.00, 1219, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', '2021-05-29 18:25:29', 1);
 INSERT INTO `goods` VALUES (88, 'Note94G', 'c0cf7c9643743b71.jpg', 1099.00, 597, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', NULL, 1);
 INSERT INTO `goods` VALUES (89, 'Note9Pro', 'ed74bdb6decc03a0.jpg', 1799.00, 720, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', NULL, 1);
 INSERT INTO `goods` VALUES (90, '超级快充5000mAh大电池6.6英寸全面屏', '56b4eabc00aa04c8.jpg', 1301.00, 1300, '荣耀京东自营旗舰店', '手机', '2021-05-26 11:08:52', NULL, 1);
-INSERT INTO `goods` VALUES (91, 'iPhone12(A2404)', '63796cc95e30a40e.jpg', 6799.00, 929, 'Apple产品京东自营旗舰店', '手机', '2021-05-26 11:11:06', NULL, 1);
+INSERT INTO `goods` VALUES (91, 'iPhone12(A2404)', '63796cc95e30a40e.jpg', 6799.00, 925, 'Apple产品京东自营旗舰店', '手机', '2021-05-26 11:11:06', NULL, 1);
 INSERT INTO `goods` VALUES (92, '真我Q3骁龙750G120Hz可变帧电竞屏', '133030cccc51681c.jpg', 1249.00, 617, 'realme真我京东自营旗舰店', '手机', '2021-05-26 11:11:06', NULL, 1);
 INSERT INTO `goods` VALUES (93, 'K99老人手机全网通4G移动联通电信老年机', '8e0db42162d354ac.jpg', 199.00, 1429, '纽曼京东自营官方旗舰店', '手机', '2021-05-26 11:11:07', NULL, 1);
 INSERT INTO `goods` VALUES (94, 'Note95G', 'b0fe4cfb07693742.jpg', 1268.00, 1336, '小米京东自营旗舰店', '手机', '2021-05-26 11:11:08', NULL, 1);
@@ -210,6 +210,9 @@ INSERT INTO `menu` VALUES (21, '/orders/page/**', '2021-07-05 18:05:25', NULL, 1
 INSERT INTO `menu` VALUES (22, '/orders/selectAll/**', '2021-07-05 18:05:33', NULL, 1);
 INSERT INTO `menu` VALUES (23, '/goods/pageSeckill/**', '2021-07-05 18:21:44', NULL, 1);
 INSERT INTO `menu` VALUES (24, '/user/selectUserCount', '2021-07-06 09:13:25', NULL, 1);
+INSERT INTO `menu` VALUES (25, '/info/data', '2021-07-06 17:02:34', NULL, 1);
+INSERT INTO `menu` VALUES (26, '/user/save', '2021-07-07 08:31:03', NULL, 1);
+INSERT INTO `menu` VALUES (27, '/info/user', '2021-07-07 09:03:05', NULL, 1);
 
 -- ----------------------------
 -- Table structure for menu_role
@@ -257,6 +260,12 @@ INSERT INTO `menu_role` VALUES (29, 5, 2, '2021-07-05 18:23:03', NULL, 1);
 INSERT INTO `menu_role` VALUES (30, 23, 2, '2021-07-05 18:23:09', NULL, 1);
 INSERT INTO `menu_role` VALUES (31, 6, 4, '2021-07-05 20:03:44', NULL, 1);
 INSERT INTO `menu_role` VALUES (32, 24, 2, '2021-07-06 09:14:21', NULL, 1);
+INSERT INTO `menu_role` VALUES (33, 25, 2, '2021-07-06 17:02:45', NULL, 1);
+INSERT INTO `menu_role` VALUES (34, 23, 3, '2021-07-06 18:31:50', NULL, 1);
+INSERT INTO `menu_role` VALUES (35, 16, 3, '2021-07-06 18:33:53', NULL, 1);
+INSERT INTO `menu_role` VALUES (36, 17, 3, '2021-07-06 18:33:58', NULL, 1);
+INSERT INTO `menu_role` VALUES (37, 26, 2, '2021-07-07 08:32:23', NULL, 1);
+INSERT INTO `menu_role` VALUES (38, 27, 3, '2021-07-07 09:03:15', NULL, 1);
 
 -- ----------------------------
 -- Table structure for orders
@@ -308,6 +317,9 @@ INSERT INTO `orders` VALUES (211, '828373c2954746b694a630f2bcd398f7', 1, '2021-0
 INSERT INTO `orders` VALUES (212, 'd1931e8b28f241ea941b585247e1f4ed', 1, '2021-05-30 17:46:47', 0, NULL, 1, 0.1);
 INSERT INTO `orders` VALUES (213, '96162fb86f6b4bd88d9c90856bb89877', 1, '2021-05-30 17:46:52', 0, NULL, 1, 0.1);
 INSERT INTO `orders` VALUES (214, '650d9e982d344708941d7a6cb06ef68a', 1, '2021-07-05 16:12:48', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (215, '2c2b39511fb24cf2a738dacc0570b6a7', 3, '2021-07-06 18:34:02', 0, NULL, 1, 0.1);
+INSERT INTO `orders` VALUES (216, 'e6f8dc8b90d94394ab0aee511699c8f4', 3, '2021-07-06 18:34:24', 0, NULL, 1, 1);
+INSERT INTO `orders` VALUES (217, '63079bdbe3414554ae043db57401ba6e', 3, '2021-07-06 23:28:02', 0, NULL, 1, 1);
 
 -- ----------------------------
 -- Table structure for orders_goods
@@ -357,6 +369,10 @@ INSERT INTO `orders_goods` VALUES (180, 211, 110, 1);
 INSERT INTO `orders_goods` VALUES (181, 212, 108, 1);
 INSERT INTO `orders_goods` VALUES (182, 213, 112, 1);
 INSERT INTO `orders_goods` VALUES (183, 214, 88, 2);
+INSERT INTO `orders_goods` VALUES (184, 215, 87, 1);
+INSERT INTO `orders_goods` VALUES (185, 216, 86, 6);
+INSERT INTO `orders_goods` VALUES (186, 216, 91, 4);
+INSERT INTO `orders_goods` VALUES (187, 217, 87, 1);
 
 -- ----------------------------
 -- Table structure for role
@@ -400,9 +416,11 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'root', '$2a$10$hPb72GAGW4NMWIHui7VMiu9z8/2CaAVaQN1js6CIhZKElgdRSJR2G', '13995726302', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-05-28 17:44:08', 8);
+INSERT INTO `user` VALUES (1, 'root', '$2a$10$8B0rfYVBx5ZVX5D15KHVEe0jh0orzYZ4LNOL4mNRWwyIxxkG4C9KC', '139****6302', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-07-07 08:22:45', 9);
 INSERT INTO `user` VALUES (2, 'admin', '$2a$10$xLbctedxEk/D3cv11LzFjOMRaBLk25SrWIidTETr1aa.Ho.0RZTba', '14884326322', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-06-26 17:59:23', 2);
 INSERT INTO `user` VALUES (3, 'user', '$2a$10$gG2uw7LB0OTyyDNrg9fnquJCe9QYtuOZ/Yj973sr6dGusLMjfSKJe', '15995322344', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-05-28 17:44:08', 2);
+INSERT INTO `user` VALUES (89, 'book', '$2a$10$.3PhxwQKmiz7c4EmCjHYxOp4LVJ2dL0L1fZOca8g1GkSoJ71n/VR.', NULL, NULL, '2021-07-07 09:19:24', NULL, 1);
+INSERT INTO `user` VALUES (90, 'hello', '$2a$10$nlgoQINkLjTifQAR2fBd1eLT3Pphv2ECJOMYtBl.CEkp2cD0emArC', NULL, NULL, '2021-07-07 09:19:37', NULL, 1);
 
 -- ----------------------------
 -- Table structure for user_role
@@ -428,5 +446,9 @@ CREATE TABLE `user_role`  (
 INSERT INTO `user_role` VALUES (1, 1, 2, NULL, '2021-04-28 19:36:33', 1);
 INSERT INTO `user_role` VALUES (4, 2, 2, NULL, '2021-04-28 19:36:33', 1);
 INSERT INTO `user_role` VALUES (29, 3, 3, NULL, '2021-07-05 19:31:02', 1);
+INSERT INTO `user_role` VALUES (30, 2, 3, NULL, '2021-07-07 09:04:41', 1);
+INSERT INTO `user_role` VALUES (31, 1, 3, NULL, '2021-07-07 09:04:46', 1);
+INSERT INTO `user_role` VALUES (32, 89, 3, NULL, '2021-07-07 09:19:24', 1);
+INSERT INTO `user_role` VALUES (33, 90, 3, NULL, '2021-07-07 09:19:37', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;
