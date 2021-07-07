@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Nprogress from 'nprogress';
 import "nprogress/nprogress.css";
+import axios from "axios"
 
 const routes = [
   {
@@ -53,17 +54,21 @@ const router = createRouter({
 });
 router.beforeEach((to, from, next) => {
   Nprogress.start();
-  if (localStorage.user) {
-    next();
-  } else {
-    if (to.path == "/cart") {
-      next({
-        path: "/sign",
-        query: { redirect: to.fullPath}
-      })
-    } 
-    next();
-  }
+  axios.get("/api/info/user").then((res) => {
+    if (res.data.code == 200) {
+      console.log(res.data);
+      next();
+    } else {
+      localStorage.removeItem("user")
+      if (to.path == "/cart") {
+        next({
+          path: "/sign",
+          query: { redirect: to.fullPath}
+        })
+      } 
+      next()
+    }
+  });
 })
 router.afterEach(to => {
   load()

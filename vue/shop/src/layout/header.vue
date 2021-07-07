@@ -91,8 +91,12 @@ export default {
     },
     
     exit() {
-      localStorage.removeItem("user")
-      location.reload();
+      const t = this
+      t.axios.get("/api/logout")
+				.then(res => {
+					localStorage.removeItem("user")
+					this.$router.replace("/sign")
+				})
     },
     ...mapActions(["updateUrlName"])
   },
