@@ -1,6 +1,9 @@
 # seckill:laughing:
 
 #### 项目介绍
+
+
+
 此项目源码采用前后端分离方式，spring boot开发后端，使用spring security进行权限控制，vue3、
 
 element plus、axios为前端，基于json进行，接口完全采用Restful的风格，实现权限控制，可以作为开发项目的脚手架，做为基础项目。
