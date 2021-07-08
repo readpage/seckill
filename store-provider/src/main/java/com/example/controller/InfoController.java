@@ -13,8 +13,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
-import java.util.HashMap;
-
 @RestController
 @Api(tags = "信息查询")
 @RequestMapping("/info")
@@ -34,7 +32,6 @@ public class InfoController {
     @ApiOperation("查询当前用户信息")
     @GetMapping("/user")
     public Result user(@ApiIgnore Authentication authentication) {
-        HashMap<String, String> map = new HashMap<>();
         return ResultUtils.ok().data(infoService.selectByUsername(authentication.getName()));
     }
 

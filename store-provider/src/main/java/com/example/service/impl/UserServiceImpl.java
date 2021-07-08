@@ -63,16 +63,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public boolean save(User user) {
         user.setPassword(pw.encode(user.getPassword()));
-        if (userMapper.insert(user)==0) {
+        if (userMapper.insert1(user)==0) {
             try {
-                throw new Exception("注册失败!😂");
+                throw new Exception("添加失败!😂");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         if (!userRoleService.insert(user.getId(), 3)) {
             try {
-                throw new Exception("注册失败!😂");
+                throw new Exception("添加失败!😂");
             } catch (Exception e) {
                 e.printStackTrace();
             }

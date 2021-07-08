@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 07/07/2021 23:11:55
+ Date: 08/07/2021 16:48:14
 */
 
 SET NAMES utf8mb4;
@@ -33,13 +33,13 @@ CREATE TABLE `goods`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 150 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 149 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
 INSERT INTO `goods` VALUES (86, 'FlexPai2新一代5G双模折叠屏手机', '2022a0a4297058a8.jpg', 9998.00, 1628, '柔宇（ROYOLE）折叠屏手机京东自营旗舰店', '手机', '2021-05-26 11:08:50', '2021-05-28 14:58:53', 1);
-INSERT INTO `goods` VALUES (87, '9A5000mAh大电量大屏幕大字体大音量', '5b33ac76b2aaea9b.jpg', 699.00, 1218, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', '2021-05-29 18:25:29', 1);
+INSERT INTO `goods` VALUES (87, '9A5000mAh大电量大屏幕大字体大音量', '5b33ac76b2aaea9b.jpg', 699.00, 1217, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', '2021-05-29 18:25:29', 1);
 INSERT INTO `goods` VALUES (88, 'Note94G', 'c0cf7c9643743b71.jpg', 1099.00, 597, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', NULL, 1);
 INSERT INTO `goods` VALUES (89, 'Note9Pro', 'ed74bdb6decc03a0.jpg', 1799.00, 719, '小米京东自营旗舰店', '手机', '2021-05-26 11:08:51', NULL, 1);
 INSERT INTO `goods` VALUES (90, '超级快充5000mAh大电池6.6英寸全面屏', '56b4eabc00aa04c8.jpg', 1301.00, 1298, '荣耀京东自营旗舰店', '手机', '2021-05-26 11:08:52', NULL, 1);
@@ -108,7 +108,7 @@ CREATE TABLE `goods_seckill`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `gid`(`gid`) USING BTREE,
   CONSTRAINT `goods_seckill_ibfk_1` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 184 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 183 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goods_seckill
@@ -181,7 +181,7 @@ CREATE TABLE `menu`  (
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `pattern`(`pattern`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu
@@ -232,7 +232,7 @@ CREATE TABLE `menu_role`  (
   INDEX `rid`(`rid`) USING BTREE,
   CONSTRAINT `menu_role_ibfk_1` FOREIGN KEY (`mid`) REFERENCES `menu` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `menu_role_ibfk_2` FOREIGN KEY (`rid`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu_role
@@ -271,6 +271,7 @@ INSERT INTO `menu_role` VALUES (38, 27, 3, '2021-07-07 09:03:15', NULL, 1);
 INSERT INTO `menu_role` VALUES (39, 28, 3, '2021-07-07 10:52:11', NULL, 1);
 INSERT INTO `menu_role` VALUES (40, 29, 3, '2021-07-07 15:58:52', NULL, 1);
 INSERT INTO `menu_role` VALUES (41, 23, 4, '2021-07-07 22:54:11', NULL, 1);
+INSERT INTO `menu_role` VALUES (42, 13, 4, '2021-07-08 16:21:51', NULL, 1);
 
 -- ----------------------------
 -- Table structure for orders
@@ -325,8 +326,6 @@ INSERT INTO `orders` VALUES (214, '650d9e982d344708941d7a6cb06ef68a', 1, '2021-0
 INSERT INTO `orders` VALUES (215, '2c2b39511fb24cf2a738dacc0570b6a7', 3, '2021-07-06 18:34:02', 0, NULL, 1, 0.1);
 INSERT INTO `orders` VALUES (216, 'e6f8dc8b90d94394ab0aee511699c8f4', 3, '2021-07-06 18:34:24', 0, NULL, 1, 1);
 INSERT INTO `orders` VALUES (217, '63079bdbe3414554ae043db57401ba6e', 3, '2021-07-06 23:28:02', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (218, '4c33202f9cda46c18d5fe7a03380e269', 89, '2021-07-07 15:22:44', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (219, '21774cfc2c814d1cbab7d1f99fc3eeee', 89, '2021-07-07 16:38:47', 0, NULL, 1, 1);
 
 -- ----------------------------
 -- Table structure for orders_goods
@@ -342,7 +341,7 @@ CREATE TABLE `orders_goods`  (
   INDEX `gid`(`gid`) USING BTREE,
   CONSTRAINT `orders_goods_ibfk_1` FOREIGN KEY (`oid`) REFERENCES `orders` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `orders_goods_ibfk_2` FOREIGN KEY (`gid`) REFERENCES `goods` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 189 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 190 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders_goods
@@ -380,9 +379,6 @@ INSERT INTO `orders_goods` VALUES (184, 215, 87, 1);
 INSERT INTO `orders_goods` VALUES (185, 216, 86, 6);
 INSERT INTO `orders_goods` VALUES (186, 216, 91, 4);
 INSERT INTO `orders_goods` VALUES (187, 217, 87, 1);
-INSERT INTO `orders_goods` VALUES (188, 218, 87, 1);
-INSERT INTO `orders_goods` VALUES (189, 219, 89, 1);
-INSERT INTO `orders_goods` VALUES (190, 219, 90, 2);
 
 -- ----------------------------
 -- Table structure for role
@@ -421,7 +417,7 @@ CREATE TABLE `user`  (
   `version` int(0) NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `username`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 91 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 90 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
@@ -429,8 +425,7 @@ CREATE TABLE `user`  (
 INSERT INTO `user` VALUES (1, 'root', '$2a$10$8B0rfYVBx5ZVX5D15KHVEe0jh0orzYZ4LNOL4mNRWwyIxxkG4C9KC', '139****6302', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-07-07 08:22:45', 9);
 INSERT INTO `user` VALUES (2, 'admin', '$2a$10$xLbctedxEk/D3cv11LzFjOMRaBLk25SrWIidTETr1aa.Ho.0RZTba', '14884326322', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-06-26 17:59:23', 2);
 INSERT INTO `user` VALUES (3, 'user', '$2a$10$nAxzL2juE.1jFhloOWsamOr.NY.ozK5jk4.VRFPigwsGYMch8P6G2', '15995322344', '/api/avatar/avatar.gif', '2021-04-28 19:34:34', '2021-07-07 21:14:33', 2);
-INSERT INTO `user` VALUES (89, 'book', '$2a$10$Use3UnUXwG38sGIn7Ee4EeILdks/o0uSh4rVXILjqXJn/DGmQNHwi', 'book2', 'book', '2021-07-07 09:19:24', '2021-07-07 12:03:42', 1);
-INSERT INTO `user` VALUES (90, 'hello', '$2a$10$nlgoQINkLjTifQAR2fBd1eLT3Pphv2ECJOMYtBl.CEkp2cD0emArC', NULL, NULL, '2021-07-07 09:19:37', NULL, 1);
+INSERT INTO `user` VALUES (95, 'f', '$2a$10$ZxtJkvFghR4ju404bmh5P.uGYBg53Sc16NPci.PExWRazpmXbNpIq', '15885326303', NULL, '2021-07-08 16:40:06', '2021-07-08 16:40:06', 1);
 
 -- ----------------------------
 -- Table structure for user_role
@@ -448,7 +443,7 @@ CREATE TABLE `user_role`  (
   INDEX `uid`(`uid`) USING BTREE,
   CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`rid`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_role
@@ -458,7 +453,6 @@ INSERT INTO `user_role` VALUES (4, 2, 2, NULL, '2021-04-28 19:36:33', 1);
 INSERT INTO `user_role` VALUES (29, 3, 3, NULL, '2021-07-05 19:31:02', 1);
 INSERT INTO `user_role` VALUES (30, 2, 3, NULL, '2021-07-07 09:04:41', 1);
 INSERT INTO `user_role` VALUES (31, 1, 3, NULL, '2021-07-07 09:04:46', 1);
-INSERT INTO `user_role` VALUES (32, 89, 3, NULL, '2021-07-07 09:19:24', 1);
-INSERT INTO `user_role` VALUES (33, 90, 3, NULL, '2021-07-07 09:19:37', 1);
+INSERT INTO `user_role` VALUES (38, 95, 3, NULL, '2021-07-08 16:40:06', 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

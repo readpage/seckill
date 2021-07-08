@@ -33,7 +33,7 @@ public interface UserMapper extends BaseMapper<User> {
 
     int selectUserCount();
 
-    int insert(User user);
+    int insert1(User user);
 
     int updateByUsername(@Param("user") User user, @Param("username") String username);
 
