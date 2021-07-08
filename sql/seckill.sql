@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 08/07/2021 16:48:14
+ Date: 08/07/2021 21:29:06
 */
 
 SET NAMES utf8mb4;
@@ -215,6 +215,7 @@ INSERT INTO `menu` VALUES (26, '/user/save', '2021-07-07 08:31:03', NULL, 1);
 INSERT INTO `menu` VALUES (27, '/info/user', '2021-07-07 09:03:05', NULL, 1);
 INSERT INTO `menu` VALUES (28, '/info/updateUser', '2021-07-07 10:51:56', NULL, 1);
 INSERT INTO `menu` VALUES (29, '/orders/personPage/**', '2021-07-07 15:58:27', NULL, 1);
+INSERT INTO `menu` VALUES (30, '/orders/delete/*', '2021-07-08 21:26:35', NULL, 1);
 
 -- ----------------------------
 -- Table structure for menu_role
@@ -272,6 +273,7 @@ INSERT INTO `menu_role` VALUES (39, 28, 3, '2021-07-07 10:52:11', NULL, 1);
 INSERT INTO `menu_role` VALUES (40, 29, 3, '2021-07-07 15:58:52', NULL, 1);
 INSERT INTO `menu_role` VALUES (41, 23, 4, '2021-07-07 22:54:11', NULL, 1);
 INSERT INTO `menu_role` VALUES (42, 13, 4, '2021-07-08 16:21:51', NULL, 1);
+INSERT INTO `menu_role` VALUES (43, 30, 2, '2021-07-08 21:26:58', NULL, 1);
 
 -- ----------------------------
 -- Table structure for orders
@@ -325,7 +327,6 @@ INSERT INTO `orders` VALUES (213, '96162fb86f6b4bd88d9c90856bb89877', 1, '2021-0
 INSERT INTO `orders` VALUES (214, '650d9e982d344708941d7a6cb06ef68a', 1, '2021-07-05 16:12:48', 0, NULL, 1, 1);
 INSERT INTO `orders` VALUES (215, '2c2b39511fb24cf2a738dacc0570b6a7', 3, '2021-07-06 18:34:02', 0, NULL, 1, 0.1);
 INSERT INTO `orders` VALUES (216, 'e6f8dc8b90d94394ab0aee511699c8f4', 3, '2021-07-06 18:34:24', 0, NULL, 1, 1);
-INSERT INTO `orders` VALUES (217, '63079bdbe3414554ae043db57401ba6e', 3, '2021-07-06 23:28:02', 0, NULL, 1, 1);
 
 -- ----------------------------
 -- Table structure for orders_goods
@@ -378,7 +379,6 @@ INSERT INTO `orders_goods` VALUES (183, 214, 88, 2);
 INSERT INTO `orders_goods` VALUES (184, 215, 87, 1);
 INSERT INTO `orders_goods` VALUES (185, 216, 86, 6);
 INSERT INTO `orders_goods` VALUES (186, 216, 91, 4);
-INSERT INTO `orders_goods` VALUES (187, 217, 87, 1);
 
 -- ----------------------------
 -- Table structure for role
