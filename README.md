@@ -1,53 +1,203 @@
 # seckill:laughing:
 
-#### 项目介绍
+# 此项目源码采用前后端分离方式，spring boot开发后端，使用spring security进行权限控制，vue3、element plus、axios为前端，基于json进行，接口完全采用Restful的风格.
 
+1. 商城抢购系统分为前后台两个页面、用户端工作的主要流程从登陆开始，首先进入登录页面进行登录，输入用户名密码之后进行登录。用户进入网页后可以进行商品浏览、商品选择、进行购买商品,以及该系统主打特色-抢购活动页面，还可以进入个人中心修改资料、密码，退出登录和订单管理等。
 
+   商城管理后台系统的主要流程从登录开始，首先进入登录页面进行登录也可以注册后台登录，进入系统后可进行，商品信息管理、商品库存管理，商品店铺管理，商品的修改，注册用户信息管理，订单信息管理，订单信息修改，价格管理、还可以退出登录等
 
-此项目源码采用前后端分离方式，spring boot开发后端，使用spring security进行权限控制，vue3、
-
-element plus、axios为前端，基于json进行，接口完全采用Restful的风格，实现权限控制，可以作为开发项目的脚手架，做为基础项目。
-
-#### 软件架构
-
-#### 环境要求
-
-1. jdk8、mysql、maven
-
-
-#### 安装教程
-暂无
-
-#### 初始化工作
-
-1. 运行数据库脚本，在sql文件下
-2. 配置信息在application.yml里，数据库的用户名、密码、ip、端口等，根据情况修改一下
-
-#### 使用说明
-
-1.  API文档使用
-    
-    -- Swagger3的访问路径http://localhost/swagger-ui/
-    
-    ![img](https://img2020.cnblogs.com/blog/1816004/202007/1816004-20200718110209765-32911596.jpg)
-    
-    --[ 集成Swagger3自动生成API文档使用方法](https://www.cnblogs.com/ruiyeclub/p/13334826.html)
-    
     
 
-#### 参与贡献
+    
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+    
 
+   1.3商城登录
 
-#### 特技
+   根据输入的用户、密码与数据库中的用户对应的密码进行匹配，成功即登录成功否则失败。商城管理后台端登录界面如图2-1所示、注册界面如图2-2所示。
 
-1.   使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+   ​             
+
+    
+
+    
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps1.jpg) 
+
+   2-1 商城登录页面
+
+    
+
+    
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps2.jpg) 
+
+   2-2 商城注册页面
+
+    
+
+   为了便于管理商城，给用户带来更好的使用感受，本系统分为用户与管理者，两者登录方式不同，登录注册页面相同
+
+    
+
+    
+
+    
+
+   ## **2****．用户端功能**
+
+    
+
+   ## 2.1.1商品选购
+
+   #### 对于商城购物来说，商品的选购模块进行选择是必不可少的。商品选购模块界面如图3-1所示。
+
+    
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps3.jpg)图3-1 商品选购模块界面
+
+   #### 2.1.2商品的搜索
+
+   用户输入商品的名字，首页展示结果。影片的搜索模块界面如图3-2所示。
+
+   ​          ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps4.jpg)
+
+   图3-2 商品的搜索模块界面
+
+    
+
+   #### 2.1.3商品加购
+
+   用户浏览商品，对想要购买的商品进行选择了解并购买、加购模块界面如图3-3所示。
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps5.jpg)
+
+   图3-3商品加购模块界面
+
+   #### 2.1.4“抢购”功能
+
+   用户对于商城主办的抢购活动可以按照规矩时间进行抢购，然后点击抢购页面对心仪产品进行抢购
+
+   “抢购”页面如图3-4所示。
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps6.jpg)
+
+    
+
+    
+
+    
+
+   图3-4“抢购”页面
+
+   #### 2.1.5 购买商品
+
+   购买商品模块是本系统的基本功能也是核心功能，分为选择要购买的商品、数量、生成订单。购买商品等界面如图3-5所示。
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps7.jpg)
+
+    
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps8.jpg)
+
+   图3-5 购买商品等界面
+
+    
+
+    
+
+   #### 2.1.6 编辑资料（我的）
+
+   用户可以通过个人中心里的编辑资料来更改头像、昵称。编辑资料如图3-10所示。
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps9.jpg) 
+
+    
+
+    
+
+    
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps10.jpg) 
+
+   图3-10编辑资料
+
+   ## 2.1.7订单管理
+
+    
+
+   在购物车选项中，可以进行订单管理。订单管理如图3-11所示。
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps11.jpg)
+
+   图3-11 订单管理
+
+    
+
+    
+
+    
+
+   ## **3.2商品管理端功能**
+
+   ## 3.2.1系统首页
+
+   管理端首页运用扇形统计图形象的展示了网站商品售卖的具体信息，如3-1所示
+
+    
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps12.jpg) 
+
+   ​             3-1 系统首页图
+
+    
+
+   ## 3.2.2商品管理 
+
+   在商品管理中对商品的信息进行添加，修改，删除管理
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps13.jpg) 
+
+   图3-2 添加商品详情模块界面
+
+    
+
+    
+
+   此外这里还有一个特色功能，抢购功能，后台管理人员可以设置抢购活动的具体信息，如图3-2-1
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps14.jpg) 
+
+   ​           图3-2-1 后台抢购管理页面
+
+    
+
+    
+
+    
+
+   ## 3.2.3订单管理
+
+   对用户提交的订单信息进行核对，检测，操作与管理
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps15.jpg) 
+
+   图3-3 订单管理详情模块界面
+
+    
+
+   ## 3.2.4 用户管理
+
+   以表格的形式展示在该商城进行注册登录的用户个人信息，并对其进行修改删除等按钮操作。用户管理详情模块界面如图3-15所示。
+
+   ![img](C:%5CUsers%5Cfinal%5CAppData%5CLocal%5CTemp%5Cksohtml3084%5Cwps16.jpg) 
+
+   图3-4 用户管理详情模块界面
+
+    
+
+    
+
+    
+
+   
