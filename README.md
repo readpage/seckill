@@ -198,7 +198,7 @@
 ***
 请作者喝杯咖啡吧！(微信号：hellobook1)
 
-![img](https://gitee.com/f1dao/images/raw/master/1626671153432.png)
+<img width="250" src="https://gitee.com/f1dao/images/raw/master/1626671153432.png" alt="">
  
 
  
