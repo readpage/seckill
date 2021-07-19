@@ -1,6 +1,6 @@
 #  seckill
 
-***项目在扩建中不稳定,请下载发行版***
+<span style="color: red;">项目在扩建中不稳定,请下载发行版</span>
 
 ## 此项目源码采用前后端分离方式，spring boot开发后端，使用spring security进行权限控制，vue3、element plus、axios为前端，基于json进行，接口完全采用Restful的风格.
 
