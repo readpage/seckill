@@ -1,6 +1,8 @@
-#  seckill![:laughing:](https://assets.gitee.com/assets/emoji/laughing-71b3ac1cfb7af343d26dd8af5e83b67f.png)
+#  seckill
 
-# 此项目源码采用前后端分离方式，spring boot开发后端，使用spring security进行权限控制，vue3、element plus、axios为前端，基于json进行，接口完全采用Restful的风格.
+***项目在扩建中不稳定,请下载发行版***
+
+## 此项目源码采用前后端分离方式，spring boot开发后端，使用spring security进行权限控制，vue3、element plus、axios为前端，基于json进行，接口完全采用Restful的风格.
 
 商城抢购系统分为前后台两个页面、用户端工作的主要流程从登陆开始，首先进入登录页面进行登录，输入用户名密码之后进行登录。用户进入网页后可以进行商品浏览、商品选择、进行购买商品,以及该系统主打特色-抢购活动页面，还可以进入个人中心修改资料、密码，退出登录和订单管理等。
 
