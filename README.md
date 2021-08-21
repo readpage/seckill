@@ -38,8 +38,8 @@
    npm run dev
    
    ```
-
-   
+7. 登录
+   - 账户:admin, 密码: admin(密码就是用户名)
 
 
  
