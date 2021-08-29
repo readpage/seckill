@@ -2,23 +2,38 @@
   <ul class="top">
     <li>
       <el-card style="background: rgb(249, 89, 89);">
-        <span>总销售额:{{info.sales}}</span>
+        <span>总销售额:
+          <cl-count :startAmount="0" :endAmount="info.sales" 
+           prefix="￥"
+           :decimals="2" :duration="3"  separator=',' decimalSeparator='.'></cl-count>
+        </span>
       </el-card>
     </li>
     <li>
       <el-card style="background: rgb(133, 149, 244);">
-        <span>用户数量:{{info.userCount}}</span>
+        <span>用户数量:
+          <cl-count :startAmount="0" :endAmount="info.userCount"
+          suffix="人" :duration="3" separator=""></cl-count>
+        </span>
       </el-card>
     </li>
     <li>
       <el-card style="background: rgb(254, 187, 80);">
-        <span>商品数量:{{info.goodsCount}}</span><br>
-        <span>库存数量:{{info.goodsStockCount}}</span>
+        <span>商品数量:
+          <cl-count :startAmount="0" :endAmount="info.goodsCount"
+          :duration="3" separator=""></cl-count>
+        </span><br>
+        <span>库存数量:
+          <cl-count :startAmount="0" :endAmount="info.goodsStockCount"
+          :duration="3" separator=""></cl-count></span>
       </el-card>
     </li>
     <li>
       <el-card style="background: #8e44ad">
-        <span>订单数量:{{info.ordersCount}}</span>
+        <span>订单数量:
+          <cl-count :startAmount="0" :endAmount="info.ordersCount"
+          :duration="3" separator=""></cl-count>
+        </span>
       </el-card>
     </li>
     <li>
